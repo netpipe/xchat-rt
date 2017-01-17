@@ -1,0 +1,28 @@
+https://bbs.archlinux.org/viewtopic.php?id=69700
+
+
+
+./config -no-tlsext
++++ t1_lib.c    2010-06-01 11:20:35.000000000 -0600
+@@ -133,6 +133,10 @@
+        int extdatalen=0;
+        unsigned char *ret = p;
+ 
++       /* don't add extensions for SSLv3 */
++       if (s->client_version == SSL3_VERSION)
++               return p;
++   
+        ret+=2;
+ 
+        if (ret>=limit) return NULL; /* this really never occurs, but ... */
+@@ -251,6 +255,11 @@
+        int extdatalen=0;
+        unsigned char *ret = p;
+ 
++       /* don't add extensions for SSLv3 */
++       if (s->version == SSL3_VERSION)
++               return p;
++       
++
+        ret+=2;
+        if (ret>=limit) return NULL; /* this really never occurs, but ... */

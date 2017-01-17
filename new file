@@ -1,0 +1,168 @@
+common/text.c
+@@ -300,7 +300,10 @@ scrollback_load (session *sess)
+ 
+ 			/* If nothing but funny trailing matter e.g. 0x0d or 0x0d0a, toss it */
+ 			if (n_bytes >= 1 && buf[0] == 0x0d)
++			{
++				g_free (buf);
+ 				continue;
++			}
+ 
+ 			n_bytes--;
+ 			buf_tmp = buf;
+
+
+ src/fe-gtk/maingui.c 
+@@ -1332,9 +1332,6 @@ mg_chan_remove (chan *ch)
+ static void
+ mg_close_gen (chan *ch, GtkWidget *box)
+ {
+-	char *title = g_object_get_data (G_OBJECT (box), "title");
+-
+-	g_free (title);
+ 	if (!ch)
+ 		ch = g_object_get_data (G_OBJECT (box), "ch");
+ 	if (ch)
+@@ -3339,8 +3336,8 @@ mg_add_generic_tab (char *name, char *title, void *family, GtkWidget *box)
+ 
+ 	ch = chanview_add (mg_gui->chanview, name, NULL, box, TRUE, TAG_UTIL, pix_tree_util);
+ 	chan_set_color (ch, plain_list);
+-	/* FIXME: memory leak */
+-	g_object_set_data (G_OBJECT (box), "title", g_strdup (title));
++
++	g_object_set_data_full (G_OBJECT (box), "title", g_strdup (title), g_free);
+ 	g_object_set_data (G_OBJECT (box), "ch", ch);
+ 
+ 	if (prefs.hex_gui_tab_newtofront)
+@@ -3630,8 +3627,7 @@ mg_set_title (GtkWidget *vbox, char *title) /* for non-irc tab/window only */
+ 	old = g_object_get_data (G_OBJECT (vbox), "title");
+ 	if (old)
+ 	{
+-		g_object_set_data (G_OBJECT (vbox), "title", g_strdup (title));
+-		g_free (old);
++		g_object_set_data_full (G_OBJECT (vbox), "title", g_strdup (title), g_free);
+ 	} else
+ 	{
+ 		gtk_window_set_title (GTK_WINDOW (vbox), title);
+
+
+
+src/common/plugin.c 
+@@ -1778,6 +1778,8 @@ hexchat_pluginpref_set_str_real (hexchat_plugin *pl, const char *var, const char
+ 	{
+ 		g_free (confname);
+ 		g_free (confname_tmp);
++		if (fpIn)
++			fclose (fpIn);
+ 		return 0;
+ 	}
+ 	else if (fpIn == NULL)	/* no previous config file, no parsing */
+
+
+common/text.c
+
+@@ -1975,9 +1975,11 @@ pevt_build_string (const char *input, char **output, int *max_arg)
+ 
+ 		 a_len_error:
+ 			fe_message ("String ends in $a", FE_MSG_WARN);
++			free (i);
+ 			return 1;
+ 		 a_range_error:
+ 			fe_message ("$a value is greater than 255", FE_MSG_WARN);
++			free (i);
+ 			return 1;
+ 		}
+ 		if (d == 't')
+@@ -2001,6 +2003,7 @@ pevt_build_string (const char *input, char **output, int *max_arg)
+ 		{
+ 			snprintf (o, sizeof (o), "Error, invalid argument $%c\n", d);
+ 			fe_message (o, FE_MSG_WARN);
++			free (i);
+ 			return 1;
+ 		}
+ 		d -= '0';
+@@ -2067,6 +2070,8 @@ pevt_build_string (const char *input, char **output, int *max_arg)
+ 		*max_arg = max;
+ 	if (output)
+ 		*output = obuf;
++	else
++		free (obuf);
+ 
+ 	return 0;
+ }
+
+
+cfgfiles.c
+@@ -1029,6 +1029,7 @@ save_config (void)
+ 
+ 	if (!cfg_put_str (fh, "version", PACKAGE_VERSION))
+ 	{
++		close (fh);
+ 		g_free (new_config);
+ 		return 0;
+ 	}
+@@ -1041,6 +1042,7 @@ save_config (void)
+ 		case TYPE_STR:
+ 			if (!cfg_put_str (fh, vars[i].name, (char *) &prefs + vars[i].offset))
+ 			{
++				close (fh);
+ 				g_free (new_config);
+ 				return 0;
+ 			}
+@@ -1049,6 +1051,7 @@ save_config (void)
+ 		case TYPE_BOOL:
+ 			if (!cfg_put_int (fh, *((int *) &prefs + vars[i].offset), vars[i].name))
+ 			{
++				close (fh);
+ 				g_free (new_config);
+ 				return 0;
+ 			}
+
+
+dcc.c
+@@ -1805,7 +1805,10 @@ dcc_send (struct session *sess, char *to, char *file, int maxcps, int passive)
+ 
+ 	dcc = new_dcc ();
+ 	if (!dcc)
++	{
++		free (file);
+ 		return;
++	}
+ 	dcc->file = file;
+ 	dcc->maxcps = maxcps;
+
+
+util.c
+@@ -1404,7 +1404,10 @@ util_exec (const char *cmd)
+ #ifndef WIN32
+ 	pid = fork ();
+ 	if (pid == -1)
++	{
++		free (argv);
+ 		return -1;
++	}
+ 	if (pid == 0)
+ 	{
+ 		/* Now close all open file descriptors except stdin, stdout and stderr */
+
+
+fe-gtk/menu.c
+@@ -176,6 +176,9 @@ userlist_button_cb (GtkWidget * button, char *cmd)
+ 		if (num_sel < 1)
+ 		{
+ 			nick_command_parse (sess, cmd, "", "");
++
++			if (nicks)
++				free (nicks);
+ 			return;
+ 		}
+ 	}
+
+
+ 
+
+https://github.com/hexchat/hexchat/commit/62903cd171acb49ed66056c32edbcc0fd56b07c5
+https://github.com/hexchat/hexchat/commit/dbef9c9eb419d756d8e2b7db880467e881d8943d
+
+
+src/common/text.c 
