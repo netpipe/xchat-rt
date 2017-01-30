@@ -1,0 +1,6 @@
+Name: whois.pl
+Description: Extended Whois for X-Chat at least 2.0.8
+Contact: DMS@Electronic-Culture.de
+Commands: 
+   /setwhois NAME VALUE - set option NAME to VALUE
+      available for NAME: help, prefix, seperator, postfix, header, whowas and footer 

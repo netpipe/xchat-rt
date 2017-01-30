@@ -1,0 +1,78 @@
+FISH v0.98 for XChat [History]
+******************************
+
+
+
+15.03.2006:	v0.98
+		- encrypted outgoing messages are now truncated to 512
+		  chars, avoiding problems with IRC servers like Undernet
+
+		- FiSH is now multithreaded, hopefully :)
+
+		- problems with psyBNC log decryption using different
+		  networks solved
+
+		- problems with 'hilight' partially solved (new feature
+		  in blow.ini: 'no_formatting=1')
+
+		- new command: /encrypt [< 1/y/on | 0/n/off >]
+                  enable or disable FiSH encryption
+
+		- new command: /decrypt [< 1/y/on | 0/n/off >]
+                  enable or disable FiSH decryption
+
+		- Local channels (using '&' instead of '#') are now
+		  supported
+
+		- using '/dev/urandom' in DH1080.c now, this solves
+		  crash/freeze problems with DH1080 key-exchange
+		  (reported by rho; thanx for the help, flier)
+
+		- Get/WritePrivateProfileString completely rewritten,
+		  fixing an evil crash on some systems and problems
+		  with screwed up blow.ini if you run out of disc space
+		  (reported by daxxar and k9)
+
+		- x86_64 compatible now! (thanx kvatn and Ptah for helping)
+
+		- improved makefile: just run 'make'
+
+		- more internal changes and fixes
+
+
+
+27.07.2004:	v0.97a
+		- new feature: 'NickTracker' will allow seamless
+		  conversations in the case your chat partner suddenly
+		  changes his nick. If enabled this feature will simply
+		  copy the old key to use with his new nick.
+
+		- also added a feature called "mark broken block"
+		  which will indicate whether a broken block was cut,
+		  meaning the message arrived incomplete from server
+
+
+
+07.06.2004:	v0.97
+		- topic encryption is now supported... but keep in
+		  mind: topic size SHRINKS drastically to about 60%!
+		  This is already insufficient for a common eBay URL
+		  syntax: /topic+ <your topic>
+
+		- notice encryption is now supported
+		  syntax: /notice+ <nick/#channel> <your notice>
+
+		- new command: /msg+ (send encrypted message)
+		  syntax: /msg+ <nick/#channel> <your message>
+
+		- new command: /unsetinipw
+		  Change back to default blow.ini password
+
+		- block-align base64 strings if truncated by IRC
+		  server: no more broken blocks at the end of long
+		  messages!
+
+
+
+30.04.2004:	v0.96
+		- first release

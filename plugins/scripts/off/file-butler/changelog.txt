@@ -1,0 +1,37 @@
+file-butler changelog
+
+v0.1.1-1 - 2006-6-25 -	
+			Feature add:  integrated file-butler into xchat gui 
+			bugfix:  shuts down clean now 
+			change:  moved user help into seperate function
+			feature add:  added command /b kill <user>
+			feature add:  auto close dcc chat tabs on close|fail|idle
+			feature add:  included cd.. as dir up command
+			feature add:  included cd. as current dir command
+			bugfix:  cleaned up some of the code added in version 0.1.1
+			feature add:  included rules as user command
+			feature add:  included rules in server config file
+			feature add:  included rules in "/b options"
+			feature add:  added command "/b set rules"
+			bugfix:  fb now saves server config and user stats
+			feature add:  auto backup server config and user stats
+				      (advertise must be on)
+			feature add:  unknown command from user lists help message
+			
+
+v0.1.1 - 2006-6-24 - 	bugfix:  changed channel notice to channel message
+				 (many channel ops will ban you for using channel notice)
+			bugfix:  wouldn't respond to trigger in busy room
+			change:  [file-butler] to [fb 0.1.1] 
+				 (takes up less room and advertises version)
+
+v0.1 - 2004-06-29 -	release: original release made by mkl1525 on sourceforge
+
+##############################################################################
+
+File-Butler TODO list 
+add interactive help system including system operator call
+fix bug in get_file() that causes file-butler return file not found
+add gtk+ GUI
+add a proper database for server config and user stats
+add menu entry for xchat  

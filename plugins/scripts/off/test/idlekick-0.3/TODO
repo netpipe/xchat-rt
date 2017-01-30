@@ -1,0 +1,8 @@
+TODOs
+----------------
+
+- some "/idlekick set var value" functions
+- add and remove exclude users (/idlekick add_exclude user)
+- if a user do not idle a given time, he will get a positive point (or more), and he will not banned the next time
+
+ 

@@ -1,0 +1,27 @@
+    1 #! /usr/bin/python
+    2 
+    3 import dbus
+    4 
+    5 bus = dbus.SessionBus()
+    6 proxy = bus.get_object('org.xchat.service', '/org/xchat/Remote')
+    7 remote = dbus.Interface(proxy, 'org.xchat.connection')
+    8 path = remote.Connect ("example.py",
+    9                "Python example",
+   10                "Example of a D-Bus client written in python",
+   11                "1.0")
+   12 proxy = bus.get_object('org.xchat.service', path)
+   13 xchat = dbus.Interface(proxy, 'org.xchat.plugin')
+   14 
+   15 channels = xchat.ListGet ("channels")
+   16 while xchat.ListNext (channels):
+   17     name = xchat.ListStr (channels, "channel")
+   18     print "------- " + name + " -------"
+   19     xchat.SetContext (xchat.ListInt (channels, "context"))
+   20     xchat.EmitPrint ("Channel Message", ["John", "Hi there", "@"])
+   21     users = xchat.ListGet ("users")
+   22     while xchat.ListNext (users):
+   23         print "Nick: " + xchat.ListStr (users, "nick")
+   24     xchat.ListFree (users)
+   25 xchat.ListFree (channels)
+   26 
+   27 print xchat.Strip ("\00312Blue\003 \002Bold!\002", -1, 1|2)

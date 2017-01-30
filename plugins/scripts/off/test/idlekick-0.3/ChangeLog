@@ -1,0 +1,6 @@
+Version 0.2 - 0.3
+-------------------
+
+- ban users if they were oftener banned as a given time
+- check the idle time of the users at a given time interval
+- bug fixes, fixes, fixes and more fixes

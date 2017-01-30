@@ -1,0 +1,7 @@
+This include file is provided here for convenience's sake, so people don't have
+to download the entire X-Chat source tree if their distribution's X-Chat package
+doesn't provide it.
+
+This should be okay as xchat-plugin.h doesn't seem to change much from one
+release of xchat2 to the next, and the author suggests including the file in
+plugins distributions anyway.

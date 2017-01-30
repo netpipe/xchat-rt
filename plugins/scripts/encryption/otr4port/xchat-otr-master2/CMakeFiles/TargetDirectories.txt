@@ -1,0 +1,4 @@
+/home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/cscope.dir
+/home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/otrformats.dir
+/home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/src-tarball.dir
+/home/clayton/.xchat2/otr/xchat-otr-master2/xchat/CMakeFiles/xchatotr.dir

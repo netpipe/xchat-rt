@@ -1,0 +1,28 @@
+Weevil's StubLoader 1.0
+-----------------------
+
+This makes handling your Xchat scripts a little less painful.
+
+Place stubloader.pl in your Xchat data directory, and create a file called
+stubloader.conf in that directory.
+
+In stubloader.conf you can put a list of files (or directories) that you want
+to be loaded in Xchat.
+
+If you specify one or more directories in the conf file they will be scanned
+for .pl scripts (recursively). If the script finds two scripts with the same
+name, only the first one it found will be loaded.
+
+It is hardcoded not to load stubloader.pl if it encounters it during a scan,
+so don't rename it!
+
+The main purpose of Stubloader is to allow you to load scripts that aren't
+in xchat's data directory automatically when xchat starts (otherwise you'd
+have to /LOAD them all manually) and also load whole bunches of scripts by
+recursively parsing directory trees.
+
+Note: Don't put a / on its own line in the config, or it'll parse your whole
+disk, loading every .pl file it finds.
+
+Weevil
+stubloader@baxpace.com

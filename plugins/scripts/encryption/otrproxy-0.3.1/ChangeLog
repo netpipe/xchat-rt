@@ -1,0 +1,441 @@
+2005-11-02
+
+	* README:
+	* configure.ac:
+	* packaging/fedora/otrproxy.spec:
+	* packaging/windows/otrproxy.nsi:
+	* src/otrproxy.h: Release version 0.3.1
+
+2005-10-16
+
+	* Conform to the new libotr API.
+
+2005-07-30
+
+	* src/Makefile.am: Add charset.[ch]
+
+	* src/charset.h:
+	* src/charset.c:
+	* src/oscarproxy.c: Handle the charset correctly for non-ASCII
+	messages.  We still can't handle Unicode chars > 0xffff though,
+	since none of the OSCAR charsets (ASCII, ISO-8859-1, UCS-2BE)
+	can represent those chars.  (Closes #1245115)
+
+2005-07-29
+
+	* src/oscarproxy.c: Add some more DEBUGs.
+	* src/otrproxy.c (new_fingerprint_cb): Match the changing libotr
+	API.
+
+2005-06-24
+
+	* configure.ac: Require libotr 3.x.
+
+	* src/httpproxy.c: Some cleanups for compiling with -Wall -Werror.
+
+	* src/otrproxy.c: Change the old confirm_fingerprint_cb (which
+	uses callbacks to verify fingerprints) to the new
+	new_fingerprint_cb (which allows the fingerprints to be used
+	before verifying them).
+
+	* src/proxyevent.h:
+	* src/proxyevent.c: Conform to the libotr 3.x API.
+
+	* wxui/wxotrproxy.cpp: The new fingerprint dialog no longer asks
+	the user to confirm it.
+
+2005-05-13
+
+	* configure.ac:
+	* src/sockdef.h: Handle machines that don't have a socklen_t.
+
+	* configure.ac: Add a --enable-semistatic-link to configure to
+	link libgpg-error, libgcrypt, and libotr statically.  This is
+	useful on platforms like OSX.
+
+2005-05-12
+
+	* src/httpproxy.h:
+	* src/httpproxy.c:
+	* src/socksproxy.h:
+	* src/socksproxy.c:
+	* src/servsock.h:
+	* src/servsock.c:
+	* src/uisync.c:
+	* wxui/wxotrproxy.cpp: Added ability to set username/password
+	for the various proxy types, and a simple API to (at runtime)
+	configure these, as well as the port numbers.
+
+	* wxui/wxotrproxy.cpp:
+	* wxui/wxotrpolicy.h:
+	* wxui/wxotrpolicy.cpp: Store preferences for proxy ports, and
+	username/password in the wxConfig.  Add a simple API to fetch
+	and set them, and to call the above API to apply them.
+
+2005-05-03
+
+	* README:
+	* configure.ac:
+	* packaging/fedora/otrproxy.spec:
+	* packaging/windows/otrproxy.nsi:
+	* src/otrproxy.h: Change version to 0.3.0
+
+2005-04-01
+
+	* src/buffer.c:
+	* src/httposcar.c:
+	* src/netutil.c:
+	* src/oscarproxy.c:
+	* src/otrproxy.c:
+	* src/socksproxy.c: Lots more debugging fprintf's, guarded by
+	#ifdef DEBUG.
+
+	* src/oscarproxy.c (oscarproxy_enter): Use random initial OSCAR
+	sequence numbers, instead of starting from 0x0001 all the time.
+
+	* src/oscarproxy.c (oscarproxy_enter):  Trillian has a bug
+	wherein it needs to receive and process the last connection
+	setup (e.g. SOCKS5) message, before it can receive the first AIM
+	protocol message (or else it forgets it's received the AIM
+	message).  So just to be safe, on Win32, we'll pause here for a
+	second.
+
+	* ui/wxotrproxy.cpp (OnInit): Be more explicit about the use of
+	a wxCharBuffer.
+
+	* ui/wxotrproxy.cpp (OnInit): fflush(stdout) so that the console
+	messages actually show up on Win32.
+
+2005-03-28
+
+	* ui/wxotrpolicybox.h:
+	* ui/wxotrpolicybox.cpp: New files.  Class for OTR policy settings
+	both global and per-buddy.
+	* ui/Makefile.am: Added above files.
+
+	* ui/wxmainframe.cpp: Added comments
+	
+	* ui/wxmainframe.cpp (constructor): Removed display of lines from 
+	connections tree.
+
+	* ui/wxmainframe.cpp (DisplayState): Added branch for display of
+	non-private connections.
+
+	* ui/wxmainframe.cpp (AddTreeItems): Generalized in order to
+	facilitate adding items to both private and non-private connection
+	branches.
+	
+	* ui/wxmainframe.cpp (OnTreeItemSelect): New function.  Creates
+	a wxOTRPolicyBox for for per-buddy policy settings.
+
+	* ui/wxmainframe.cpp (OnCollapseAttempt): New function.  Remove
+	ability to collapse tree branches.
+
+	* ui/wxmainframe.h: Added prototypes for new methods.
+	
+	* ui/wxotrpolic.h:
+	* ui/wxotrpolicy.cpp: Changed Buddy struct to a class; refactored 
+	comparison function.
+
+	* ui/wxotrproxy.cpp (HandleContextState): Added call to
+	wxOTRPolicyBox::UpdateStartEndButtons() to enable/disable 
+	start/end private conversation buttons in per-buddy policy box
+	when context state changes.
+
+	* ui/wxotrproxy.cpp (HandleConnectionState): Added fucntionality for 
+	non-private connections in main frame.
+
+	* ui/wxprefframe.cpp: Added comments.
+
+	* ui/wxprefframe.cpp (constructor): Use wxOTRPolicyBox to create
+	global settings box.
+
+	* ui/wxprefframe.cpp: Removed InitGlobalPolicyCheckboxes and
+	OnPolicyChange.  This functionality is now in wxOTRPolicyBox.
+	
+2005-03-21
+
+	* ui/wxotrdialog.cpp (wxOTRDialog): Keep popups on top, at least
+	on Win32. If you don't do this, they end up behind all the other
+	windows.
+
+2005-02-23
+
+	* ui/wxprefframe.h:
+	* ui/wxprefframe.cpp: New files.
+	* ui/Makefile.am: Added above files.
+
+	* ui/wxotrproxy.cpp:
+	* ui/wxmainframe.cpp:
+	* ui/wxmainframe.h:  Gave wxmainframe access to the wxOTRProxy
+	object.
+
+	* ui/wxmainframe.h:
+	* ui/wxmainframe.cpp (OnPrefs): Added Menu action to create 
+	preferences frame.
+	
+	* ui/wxmainframe.h:
+	* ui/wxmainframe.cpp (OnClose): Added Menu action to close 
+	main frame.
+
+	* ui/wxotrdialog.cpp (create_contents): If window has focus,
+	allow "return" to click OK button.
+
+	* ui/wxotrproxy.cpp (HandleKnownFPs): New function.
+	* ui/wxotrproxy.h:
+	
+	* ui/wxotrproxy.cpp (UpdatePrivKeyBox): New function.
+	* ui/wxotrproxy.h:
+
+	* ui/wxotrproxy.h:
+	* ui/wxotrproxy.cpp (HandleProxyEvent): Added PROXYEVENT_PRIVKEY_STATE
+	and PROXYEVENT_SOCKET_STATE.
+	
+2005-02-22
+
+	* src/otrproxy.h:
+	* src/otrproxy.c (otrproxy_generate_privkey): New function
+
+	* ui/wxotrpolicy.h:
+	* ui/wxotrpolicy.cpp: Use wxConfig to store policies.
+
+	* src/accountlist.c: Fix possible infinite loop
+
+	* src/util.c: Put the otrproxy files in C:\.otrproxy\ on Win32.
+
+	* src/proxyevent.h:
+	* src/proxyevent.c (proxyevent_disconnected):
+	* src/oscarproxy.c (flap_handle): Notice when the other side
+	disconnects his private connection to us, and inform the user.
+
+	* src/proxyevent.h:
+	* src/proxyevent.c (proxyevent_confirm_fingerprint):
+	* src/otrproxy.c (confirm_fingerprint_cb): Include the
+	accountname when reporting a new fingerprint.
+
+	* src/util.h:
+	* src/util.c:
+	* src/otrproxy.h:
+	* src/otrproxy.c (otrproxy_init):
+	* ui/wxotrproxy.cpp (OnInit):  Allow the UI to set the userdir.
+
+2005-02-21
+
+	* src/accountlist.h:
+	* src/accountlist.c: New files
+
+	* src/oscarproxy.c: Notify the UI with a socket event when we
+	authenticate to the OSCAR server.
+
+	* src/otrproxy.h:
+	* src/otrproxy.c (policy_cb, otrproxy_set_policy_cb): Support
+	for programmable policies
+
+	* ui/wxotrpolicy.h:
+	* ui/wxotrpolicy.cpp: New files
+
+2005-02-20
+
+	* src/Makefile.am: Added HEADERS so that they'll get included in
+	the make dist.
+
+	* src/sockdef.h: New file
+
+	* src/buffer.c:
+	* src/buffer.h:
+	* src/httposcar.c:
+	* src/httpproxy.c:
+	* src/httpproxy.h:
+	* src/main.c:
+	* src/netstate.c:
+	* src/netutil.c:
+	* src/oscarproxy.c:
+	* src/oscarproxy.h:
+	* src/otrproxy.c:
+	* src/servsock.c:
+	* src/socksproxy.c:
+	* src/socksproxy.h:
+	* src/uisync.c:
+	* src/uisync.h: Everyone now uses sockdef.h to portably define
+	the SOCKET, in_addr_t, etc. names instead of each file doing it
+	itself.
+
+	* src/oscarproxy.h:
+	* src/oscarproxy.c: New logged_in field to struct
+	oscarproxy_data tracks whether we've authenticated ourselves
+	yet.
+
+	* src/oscarproxy.h:
+	* src/oscarproxy.c (oscarproxy_find_netstate): New function
+
+	* src/oscarproxy.h:
+	* src/oscarproxy.c:
+	* src/otrproxy.h:
+	* src/otrproxy.c: Moved OSCAR-independent stuff out of
+	oscarproxy.[ch] and into otrproxy.[ch].
+
+	* src/otrproxy.h:
+	* src/otrproxy.c (otrproxy_inject_message): New function
+
+	* ui/wxstatwrtext.h:
+	* ui/wxstatwrtext.cpp (WrapText): width should be a signed int,
+	for compatibility with GetSize().
+
+	* src/otrproxy.h:
+	* src/otrproxy.c (otrproxy_connect, otrproxy_forget_fingerprint):
+	New functions
+
+	* ui/wxotrdialog.cpp (AddSessionID): Perhaps fix bold font
+	selection for OSX.
+
+	* ui/wxotrdialog.h: Removed unused OnClose declaration.
+
+2005-02-19
+
+	* src/oscarproxy.h:
+	* src/oscarproxy.c (oscarproxy_disconnect): New function
+
+2005-02-07
+
+	* src/otrproxy.h: Bumped version number to 0.2.0 for the CodeCon
+	demo.
+
+	* ui/wxmainframe.cpp: Changed text in About box.
+
+	* ui/wxmainframe.cpp: Changed default size of main window.
+
+	* ui/mainframe.cpp:
+	* ui/mainframe.h: Added handling of "Generating Private Key" and
+	"Done Generating private Key" events.
+	
+2005-02-06
+
+	* src/proxyevent.c: Bug fix: generic dialogs were getting sent
+	with the wrong event type to the UI
+
+	* ui/wxmainframe.cpp: Add scroll bars to the private connections
+	tree if necessary
+
+	* ui/wxstatwrtext.h:
+	* ui/wxstatwrtext.cpp: New files
+	* ui/Makefile.am: Added wxstatwrtext.h, wxstatwetext.cpp
+
+	* ui/wxotrdialog.h:
+	* ui/wxotrdialog.cpp: Use wxStaticWrappedText for the primary
+	and secondary labels instead of wxStaticText, and set the
+	wrapping width to a reasonable size.
+
+	* ui/wxotrproxy.cpp: Don't manually word-wrap the dialogs any
+	more, as wxOTRDialog will do it for us.
+
+	* ui/wxotrproxy.h:
+	* ui/wxotrproxy.cpp:
+	* ui/wxotrdialog.h:
+	* ui/wxotrdialog.cpp: Finish bold/not-bold labels for session id.
+
+	* ui/wxmainframe.cpp (wxMainFrame::DisplayState): Get the
+	private connections tree to autoexpand, even under wine.
+
+2005-02-04
+
+	* ui/wxmainframe.h:
+	* ui/wxmainframe.cpp: Only allow a single About box at a time.
+
+	* ui/wxotrdialog.h:
+	* ui/wxotrdialog.cpp: Add support for tracking dialog
+	desctruction, and appending text to the secondary label.
+	Preliminary work on bold/not-bold labels for session id.
+
+2005-02-03
+
+	* ui/wxotrdialog.h:
+	* ui/wxotrdialog.cpp: Added static map from dialogIDs to
+	wxOTRDialog*s.
+
+	* ui/wxotrdialog.h: Added necessary #includes.
+
+	* src/proxyevent.c: Commented out automatic acceptance
+	of fingerprints.
+
+	* ui/wxmainframe.cpp: Removed wx.h include.
+
+	* ui/wxmainframe.h: Added necessary includes.
+
+	* ui/wxmainframe.cpp:
+	* ui/wxmainframe.h:
+	* ui/otrproxy.cpp:
+	* ui/otrproxy.h: Changed class name to wxMainFrame.
+
+	* ui/wxmainframe.cpp: Added space to message in DisplayState().
+
+	* ui/wxmainframe.cpp: Added GetProtocolString to convert protocol
+	id to protocol name.
+
+	* ui/wxotrdialog.cpp: Swapped order of OK and Cancel buttons.
+
+	* ui/wxotrproxy.h:
+	* ui/wxotrproxy.cpp: Added handling of proxy events:
+	PROXYEVENT_GONE_SECURE, PROXYEVENT_STILL_SECURE,
+	PROXYEVENT_GONE_INSECURE, PROXYEVENT_GENERIC_DIALOG,
+	PROXYEVENT_CONFIRM_FINGERPRINT.
+
+	* src/proxyevent.c: Always accept fingerprints (for now)
+
+	* ui/wxmainframe.cpp (MainFrame::MainFrame): Added decorations
+	to TreeCtrl widget.
+
+	* ui/wxmainframe.cpp (MainFrame::DisplayState): Made tree expand
+	automatically, so you can see all the children.
+
+	* ui/wxmainframe.cpp (MainFrame::DisplayState): We weren't
+	checking for the end of the iterator properly.
+
+	* ui/wxmainframe.cpp (MainFrame::DisplayState):
+	* ui/wxmainframe.h (MainFrame::DisplayState): Make the argument
+	to DisplayState a reference instead of a value.
+
+2005-02-02
+
+	* ui/wxotrdialog.h:
+	* ui/wxotrdialog.cpp: New files
+
+	* ui/Makefile.am: Added wxotrdialog.h, wxotrdialog.cpp
+
+2005-02-01
+
+	* ui/wxmainframe.h:
+	* ui/wxmainframe.cpp: New files.
+
+	* ui/Makefile.am: Added wxmainframe.h, wxmainframe.cpp
+
+	* ui/wxotrproxy.cpp: Created main frame.
+
+	* src/otrproxy.h: #include <libotr/userstate.h> since we use
+	OtrlUserState in this file
+
+	* ui/Makefile.am: Added .h files
+
+	* INSTALL: Correct configure command for Linux
+
+	* src/oscarproxy.c (oscar_normalize, flap_handle): OSCAR
+	screennames are case- and space- insensitive, so normalize the
+	names before handling them.
+
+	* src/Makefile.am:
+	* ui/Makefile.am: Use automake-1.8
+
+2005-01-30
+
+	* src/uisync.c (uisync_handle): Allow nested UI sync locks
+
+2005-01-27
+
+	* configure.ac: Require libotr 2.0.0
+
+	* src/oscarproxy.c:
+	* src/otrproxy.h:
+	* src/otrproxy.c: Conform to libotr 2.0.0 API
+
+2005-01-25
+
+	Initial autoconfiscation

@@ -1,0 +1,310 @@
+cwirc (2.0.0-0) unstable; urgency=low
+  * Added an entry to disable the decoder
+
+ -- Pierre-Philippe Coupard <pcoupard@skynet.be>  Sat, 20 May 2006 23:37:00 +0200
+
+cwirc (1.8.8-0) unstable; urgency=low
+  * Corrected a bug in the incoming signal buffering that would overwrite
+    buffered events when frames would come too fast during the fade-out period,
+    just after a buffer underrun.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Thu, 05 Aug 2004 01:27:00 +0200
+
+cwirc (1.8.7-0) unstable; urgency=low
+  * Added a section in the README to explain how to use CWirc with the aRts
+    daemon. The DTR line is now explicitely set so that CWirc can read back
+    the state of the Morse key contact(s), even if another program left the
+    serial port in a bad state.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sun, 25 Jul 2004 18:30:00 +0200
+
+cwirc (1.8.6-0) unstable; urgency=low
+  * Made the plugin stub filter out CWirc frames even when the plugin is
+    disabled, so it's now possible to close the CWirc panel and keep chatting
+    normally on a Morse channel. Made the plugin stub correctly handle channel
+    locks on different IRC servers, and made it warn the user when a lock is
+    stale.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Mon, 19 Jul 2004 02:52:00 +0200
+
+cwirc (1.8.5-0) unstable; urgency=low
+  * Corrected the README and added a French translation of it. Added the -fPIC
+    flag to build the plugin's object files. Changed the Debian package
+    maintainer and merged his changes.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Thu, 08 Jul 2004 23:03:00 +0200
+
+cwirc (1.8.4-1.0.0.1.pure64) unstable; urgency=low
+
+  * Build extra shared objects with -fPIC for the plugin
+
+ -- Goswin von Brederlow <brederlo@informatik.uni-tuebingen.de>  Thu,  8 Jul 2004 19:04:02 +0200
+
+cwirc (1.8.4-1) unstable; urgency=low
+
+  * Initial debian release.
+
+ -- Joop Stakenborg <pa3aba@debian.org>  Sat,  3 Jul 2004 09:16:02 +0200
+
+cwirc (1.8.4-0) unstable; urgency=low
+  * Corrected a bug that would leave the I/O process running alone if the GUI
+    quit without stopping it properly. Made the extension API's shared memory
+    key really random. CWirc now tries to renice itself if the frontend binary
+    is installed suid root, in order to get better I/O performances and cure
+    the scratchy sound problem with low-end sound devices and loaded systems.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sun, 20 Jun 2004 19:03:00 +0200
+
+cwirc (1.8.3-1) unstable; urgency=low
+  * Made the sound fragment writing routine less fragile. Doubled the automatic
+    decoder's speed indicator as a decoder reset button. Fixed a bug where the
+    CWirc front-end would stop if X-Chat was started from an xterm and the
+    terminal was resized.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Fri, 18 Jun 2004 03:21:00 +0200
+
+cwirc (1.8.2-1) unstable; urgency=low
+  * Reduced the memory and disk footprint. General code cleanup. Made the keyer
+    settings tab become inactive when the selected key type is "straight".
+    Changed all references to "QRM" into the correct "QRN". Fixed a GTK error
+    message when starting the GUI. Fixed a bug that could prevent an extension
+    to be run again if it failed to run once.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sun, 13 Jun 2004 23:55:08 +0200
+
+cwirc (1.8.1-1) unstable; urgency=low
+  * Now the plugin doesn't report incoming morse from any source but the
+    current IRC channel, on the current CWirc channel. Fixed a bug that would
+    make CWirc occasionally send malformed frames containing null events when
+    running with the CW output set to "sounder".
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Tue, 13 Apr 2004 01:50:08 +0200
+
+cwirc (1.8.0-1) unstable; urgency=low
+  * Re-implemented the keyer, with a full set of options. The frontend now
+    checks its version number against the plugin's, to avoid using an
+    incompatible shared memory structure.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Thu, 01 Apr 2004 00:09:20 +0200
+
+cwirc (1.7.7-1) unstable; urgency=low
+  * Added "About" tab to give general information about CWirc. Made the cwirc
+    window non-resizable. Added two new keyer modes besides mode-A and mode-B :
+    a dit memory mode and a dit+dah memory mode.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Fri, 26 Mar 2004 02:35:00 +0200
+
+cwirc (1.7.6-1) unstable; urgency=low
+  * An undecoded character is now indicated by an underscore in the morse
+    decoder line, and not a question mark, so it's more readable and less
+    confusing. Corrected the '8' sign in the DOT code table and removed the
+    E-circumflex sign from the French morse code table because it conflicted
+    with the slash sign.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Tue, 23 Mar 2004 00:39:00 +0200
+
+cwirc (1.7.5-1) unstable; urgency=low
+  * Added a sidetone mode, to key Morse code locally without actually sending
+    anything. This is good to adjust keys and generally play without bothering
+    anyone else, exactly like the equivalent function found on most real
+    transceivers. Now the Morse decoder also decodes the local key. Implemented
+    the new ITU "commat" Morse sign ('@' sign, as in emails) and corrected the
+    'VA' prosign in the Morse code table.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Fri, 20 Feb 2004 02:57:00 +0200
+
+cwirc (1.7.4-1) unstable; urgency=low
+  * Corrected a bug that spawned an infinity of error popups if writing to the
+    sound device generated an error despite the sound device having been opened
+    and set up successfully.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Tue, 27 Jan 2004 02:29:40 +0200
+
+cwirc (1.7.3-1) unstable; urgency=low
+  * Added rules to create a binary and source RPMs.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Wed, 14 Jan 2004 01:38:22 +0200
+
+cwirc (1.7.2-1) unstable; urgency=low
+  * Added DOT code support in the automatic decoder. Made replying to CTCP
+    queries and returning the current channel number the default behaviour.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Tue, 06 Jan 2004 02:40:00 +0200
+
+cwirc (1.7.1-1) unstable; urgency=low
+
+  * The accuracy of sent and received timing events has been improved
+    dramatically. A bad data corruption bug in the frame sending routine has
+    been corrected.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Mon, 10 Oct 2003 03:19:00 +0200
+
+cwirc (1.7.0-1) unstable; urgency=low
+
+  * Added a CWirc extension interface. Made the ipc routines more generic.
+    Corrected the sound mixing to implement volume and squelch properly.
+    Implemented an extension to the existing frame format to allow high-speed
+    Morse to pass through IRC within the flood limits imposed by IRC servers.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sun, 09 Oct 2003 00:12:40 +0200
+
+cwirc (1.6.1-1) unstable; urgency=low
+
+  * The channel lock is now reset when the plugin is re-enabled. Modified the
+    Makefile to build CWirc on NetBSD.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Tue, 28 Oct 2003 22:22:05 +0200
+
+cwirc (1.6.0-1) unstable; urgency=low
+
+  * Added French Morse code in the automatic Morse decoder. Added IRC channel
+    locking and unlocking commands (/CWLOCK and /CWUNLOCK). Reorganized the
+    main panel so the presentation of the preset channels is more logical.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sat, 18 Oct 2003 04:34:43 +0200
+
+cwirc (1.5.0-1) unstable; urgency=low
+
+  * Added 5 preset CW channels, instead of just one adjustment. Added the
+    X-Chat "xchat-plugin.h" include file in the CWirc distribution, so it's
+    not necessary to download the entire X-Chat source tree if the file isn't
+    provided by the distribution. Modified the Makefile and #ifdef'ed bits of
+    the source code to build CWirc for FreeBSD cleanly and without patch.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Wed, 15 Oct 2003 03:15:05 +0200
+
+cwirc (1.4.2-1) unstable; urgency=low
+
+  * Changed key_t types to int, removed Linux-only and Intel-only signals,
+    added missing #include in plugin.c, changed #include <linux/soundcard> to
+    #include <sys/soundcard.h> in io.c and modified the Makefile to facilitate
+    the port of CWirc to FreeBSD. Added a patch and instructions to build CWirc
+    on FreeBSD.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Thu, 02 Oct 2003 00:00:00 +0200
+
+cwirc (1.4.1-1) unstable; urgency=low
+
+  * Corrected a minor bug in the morse frame validity testing.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Wed, 01 Oct 2003 01:40:00 +0200
+
+cwirc (1.4.0-1) unstable; urgency=low
+
+  * Added Russian and Japanese morse in the automatic CW decoder. Corrected a
+    bug in the decoder's buffer scrolling. Made the front-end wait a bit before
+    quitting on an error to allow the plugin portion to catch the error message.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Fri, 26 Sep 2003 19:05:00 +0200
+
+cwirc (1.3.1-1) unstable; urgency=low
+
+  * Made the QRM louder and corrected its implementation. Corrected the QRM
+    mixing. Corrected a bug in the GUI where the callsign text entry would
+    always be disabled at startup. Made the squelch more sensitive.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Tue, 09 Sep 2003 01:20:00 +0200
+
+cwirc (1.3.0-1) unstable; urgency=low
+
+  * Added adjustable QRM simulation. Added signal strength and sporadic-E
+    propagation simulation, based on the physical distance between operators,
+    calculated from advertised grid square locations of the operators.
+    Extended the CW frame protocol to pass grid square locations. Added optional
+    grid square location in the GUI. Added optional grid square reporting in
+    the CTCP CWIRC query. Added a squelch in the main panel. Corrected the
+    sound mixing to match that of a real ham radio. Added soft incoming signal
+    fadeout. Moved the creation of outgoing CW frames back to cwframe.c where it
+    belongs. Many minor corrections.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sat, 06 Sep 2003 03:29:42 +0200
+
+cwirc (1.2.3-1) unstable; urgency=low
+
+  * Improved the accuracy of the Morse decoder.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sat, 30 Aug 2003 02:54:55 +0200
+
+cwirc (1.2.2-1) unstable; urgency=low
+
+  * Made the plugin answer channel-wide CTCP CWIRC queries. CW frames sent as
+    notices are now decoded and played.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Thu, 28 Aug 2003 05:09:18 +0200
+
+cwirc (1.2.1-1) unstable; urgency=low
+
+  * Made the decoder line frame stick to the decoder line. Improved the sound
+    quality when mixing several CW sound sources. Simplified the S-meter and
+    morse key icon drawing routines, and modified the CW beep generator, to be
+    more CPU-friendly on slower machines. Fixed the dependency against X-Chat
+    in the debian binary package. Added "CWirc" button in the userlist buttons.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sat, 24 Aug 2003 13:41:05 +0200
+
+cwirc (1.2.0-1) unstable; urgency=low
+
+  * Added the ability to play morse code as sounder clicks. Regular morse beeps
+    are now smoother.  Changed the "FINE" setting into "RX pitch", and added
+    "TX pitch" and "Volume" controls in the main panel. Made the mouse keying
+    zone show either a straight key or an iambic key according to the keying
+    mode it is emulating. Added a received morse speed indicator in the
+    automatic decoder line. Slightly corrected the automatic keyer WPM timing.
+    Made the automatic decoder more resilient to temporary variations of the
+    received morse speed.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sat, 16 Aug 2003 00:24:41 +0200
+
+cwirc (1.1.0-1) unstable; urgency=low
+
+  * Extended the frame format to include an explicit callsign. Added optional
+    custom CTCP query. Added a page in the GUI to change the callsign, control
+    whether it's sent in the morse frames or not, and CTCP query replies.
+    Reviewed all the strcpy() and strncpy() calls in the code. Made the
+    semaphore/shared memory IDs random.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sat, 09 Aug 2003 19:03:23 +0200
+
+cwirc (1.0.1-1) unstable; urgency=low
+
+  * Made the main GUI window tabbed. Made various parts of the GUI go gray when
+    they become irrelevant.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Tue, 07 Aug 2003 21:42:13 +0200
+
+cwirc (1.0.0-1) unstable; urgency=low
+
+  * Split CWirc into a X-Chat plugin stub and a executable front-end called by
+    the plugin. Replaced the X11 user interface with a full-featured GTK+ gui.
+    Added automatic configuration file creation and saving. Made the receive
+    buffering adjustable. Made opening the sound device non-blocking. Added
+    uninstall target in the Makefile. Fixed many small bugs.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Tue, 06 Aug 2003 20:51:14 +0200
+
+cwirc (0.9.2-1) unstable; urgency=low
+
+  * Corrected and extended morse decoder. Added schematics to make a CW
+    oscillator and connect a morse key to the serial port.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Thu, 01 Aug 2003 02:28:02 +0200
+
+cwirc (0.9.1-1) unstable; urgency=low
+
+  * Changed an incorrect #include. Made the process termination more graceful.
+    Brought the memory usage under control.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sun, 28 Jul 2003 00:02:34 +0200
+
+cwirc (0.9.0-1) unstable; urgency=low
+
+  * Added support external morse sounder. Redone the documentation.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Sat, 27 Jul 2003 02:19:05 +0200
+
+cwirc (0.8.2-1) unstable; urgency=low
+
+  * Initial release of the Debian package.
+
+ -- Pierre-Philippe Coupard <pcoupard@easyconnect.fr>  Wed, 23 Jul 2003 13:40:06 +0200
+

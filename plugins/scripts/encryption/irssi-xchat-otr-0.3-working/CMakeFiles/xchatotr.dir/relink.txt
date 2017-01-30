@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -g  -L/usr/lib64 -lgcrypt -ldl -lgpg-error -lglib-2.0 -shared -Wl,-soname,libxchatotr.so -o CMakeFiles/CMakeRelink.dir/libxchatotr.so CMakeFiles/xchatotr.dir/xchat_otr.o CMakeFiles/xchatotr.dir/otr_util.o CMakeFiles/xchatotr.dir/otr_ops.o CMakeFiles/xchatotr.dir/otr_key.o CMakeFiles/xchatotr.dir/xchat-formats.o -lglib-2.0 /usr/local/lib64/libotr.so 

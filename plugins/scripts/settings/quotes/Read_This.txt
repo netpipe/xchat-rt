@@ -1,0 +1,6 @@
+Sample quotes.
+Intended to be used by the default installation of UberScript for Xchat, but can be used elsewhere. 
+
+One quote per line. 
+
+To install for Uberscript, simply drop the quotes directory including files in your xchat home directory.

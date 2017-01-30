@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+80f679bfbcaa727ffd99b6b1bf9510da CMakeFiles/cscope
+80f679bfbcaa727ffd99b6b1bf9510da CMakeFiles/otrformats
+8d3947f444bb9ea3f81d966f19edad66 CMakeFiles/src-tarball
+6613539497d38a45079390172c0efc36 cscope.out
+1ddb6360a5aafa18d6bfd069ed78bb1d otr-formats.c

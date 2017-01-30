@@ -1,0 +1,20 @@
+0.9.5
+* first public release
+
+0.9.6
+* removed unused line
+* fixed bug preventing going away after come back
+* changed reconnect handling to prevent serverflooding 
+  (not tested with nick collision)
+
+1.0.0
+* added some features
+  * added hilight loging
+  * added message/notice user on hilight
+  * added disable anounce option
+  * changed reconnect handling
+  * added autobutton option
+  * added awayReloadtheme command
+
+1.1.0 (19.08.2005)
+* cleaned up source

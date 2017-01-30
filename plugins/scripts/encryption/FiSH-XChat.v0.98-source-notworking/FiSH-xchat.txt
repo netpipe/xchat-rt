@@ -1,0 +1,238 @@
+FISH v0.98 for XChat
+********************
+
+
+This is an encryption plugin for xchat, it is based on blowfish and is
+fully compatible to original 'blowcrypt' script. It supports private
+chat and channel encryption. A secure key-exchange system is included
+aswell. Please read the whole document, especially the 'Installation'
+section, before installing it!
+
+FiSH v0.98 for XChat has been tested with:
+- XChat for Windows v2.6.2
+- XChat Aqua v0.15.2 (XChat v2.6.1) on MacOSX v10.4.5
+- XChat v2.4.5 on Linux/gentoo (64 bit)
+
+
+==============
+FiSH commands:
+==============
+
+- /key [<nick/#channel>]
+  Show key for target. If no target specified, the key
+  for current window will be shown.
+
+- /setkey [<nick/#channel>] <sekure_key>
+  Set key for target to sekure_key. If no target
+  specified, the key for current window will be set
+  to sekure_key.
+
+- /delkey <nick/#channel>
+  Delete key for target. You have to specify the target.
+
+- /keyx [<nick>]
+  Perform DH1080 KeyXchange with target. If no target
+  specified, the KeyXchange takes place with the current
+  query window.
+
+- /msg+ <nick/#channel> <your message>
+  Send encrypted message to nick/channel. You have to
+  specify the target.
+
+- /notice+ <nick/#channel> <your notice>
+  Send encrypted notice message to nick/channel. You have
+  to specify the target.
+
+- /topic+ <your topic>
+  Set encrypted topic for current channel. Keep in mind:
+  topic size SHRINKS drastically to about 60%! This is
+  already insufficient for a common eBay URL
+
+- /setinipw <sekure_blow.ini_password>
+  Set a custom password to encrypt your key-container
+  (blow.ini) - you will be forced to enter it each time
+  you load the module.
+
+  If you do not set a custom blow.ini password, a default
+  password will be used. *insecure*
+
+  *NOTE* Take care of all your keys when using this
+  feature, they should get re-encrypted when changing
+  the blow.ini password, but nothing is guaranteed :)
+
+- /unsetinipw
+  Change back to default blow.ini password
+
+- /fishpw <password>  (linux version only)
+  in case you have a custom blow.ini password you could use this
+  command to set it after FiSH is loaded, it is also possible
+  to load FiSH using: /load /path/xfish.so <password>
+
+- /encrypt [< 1/y/on | 0/n/off >]
+  enable or disable FiSH encryption
+
+- /decrypt [< 1/y/on | 0/n/off >]
+  enable or disable FiSH decryption
+
+
+
+
+=============
+Installation:
+=============
+
+- copy xfish.so to XChat's plugin directory, usually it will be
+  loaded on XChat startup. If not, you could also use:
+  /load /path/to/xfish.so
+
+- XChat for windows expects xFiSH.dll in \xchat\plugins
+
+- in case you have a custom blow.ini password you could also use
+  following command to load FiSH: /load /path/xfish.so <password>
+  (linux version only)
+
+- blow.ini should be located in your XChat home directory
+  linux: /home/user/.xchat2
+  Windows: C:\Documents and Settings\User\Application Data\X-Chat 2
+
+- Blow.ini options explained:
+  ---------------------------
+  [FiSH]
+  process_incoming=1		--> decrypt incoming messages?
+  process_outgoing=1		--> encrypt outgoing messages?
+  plain_prefix="+p "		--> messages starting with +p will be
+  				    sent plain-text
+  [incoming_format]
+  crypted_privmsg="15<%s15>	%s"
+  crypted_chanmsg="15<%s15>	%s"
+
+  [outgoing_format]
+  crypted_privmsg="15<%s15>	%s"
+  crypted_chanmsg="15<%s15>	%s"
+  -------------------
+
+- Set mark_broken_block=0 (in blow.ini) if you want to disable the
+  "mark broken block" feature, which indicates whether a broken block
+  was cut, meaning the message arrived incomplete (enabled by default)
+
+- you could change the nick format by editing the entries mentioned
+  above. hint: paste the lines in your IRC client to see how the
+  format would look like (you can use usual IRC color codes)
+
+- 'NickTracker' allows seamless conversations in the case your chat
+  partner suddenly changes his nick. This feature will simply copy the
+  old key to use with his new nick. It affects nick changes for running
+  queries only! (enabled by default, to disable set nicktracker=0 in
+  blow.ini)
+
+
+
+==============
+Security Info:
+==============
+
+Make sure you NEVER exchange keys plain-text over IRC/ftp/email! If
+you ever do that, or someone else who owns that key, you might aswell
+just keep talking plain-text.
+Use the new Diffie-Hellman (1080 bit) keyXchange function!
+
+You might think this is crazy, but keep in mind: You are using IRC
+encryption because you think someone might be able to read your
+conversations. Such a person may not only have enough skills for
+that, but also for defeating your weak encryption mechanism, including
+passwords sent in plain-text and even using DH-128.
+
+Furthermore, you are advised to use http://www.truecrypt.org or similar,
+to protect sensitive data (IRC, Email, FTP, SSH, etc.) on your system.
+
+Since you are using FiSH to protect information from others, you should
+also connect to IRC, psyBNC, Email and FTP using SSL/TLS, if possible.
+Ask your service provider or administrator to install support for secure
+connections to those services.
+
+
+What happened to DH1024 key-exchange you may ask. To make it short: An
+implementation flaw in the code has been found and a new key-exchange
+using Diffie-Hellman 1080 bit has been introduced. The implementation
+flaw is NOT about a remote vulnerability, it is rather about maths :)
+
+The analysis of a friend has come to the conclusion: The old DH1024
+key-exchange was probably still as secure as 991 bit. We cannot say
+for sure. The characteristic of the implementation flaw makes it hard
+to analyze, as not much material about this subject is available.
+
+I was very angry when this problem was discovered, but I can't change
+what happened now. Such a stupid mistake, unnoticed almost a year.
+Well, everyone learns from mistakes ...
+
+
+While rewriting the Diffie-Hellman key-exchange, it was discovered
+that the used 128bit numbers in DH.dll (written by sinner?) are not
+nearly secure enough for key-exchange!
+
+It would take just approx. 3 hours to calculate someones private key
+by having only the transmitted public key, on a 1.7 GHz machine with
+256 MB RAM!
+
+Now half of the time is used for pre-computation, which needs to be
+done only once. And from that point you can calculate any private key
+generated with the DH.dll in only 1.5 hours!
+
+This applies to *all* DH key-exchange plug-ins using 128bit keys! It
+is suggested to use at least 512bit for Diffie-Hellman.
+
+
+Therefore keyXchange with Diffie-Hellman in this addon was upgraded
+to 1080bit. It is not compatible to the old DH keyXchange with 128bit!
+
+The DH routines are now located in FiSH.DLL and have been completly
+rewritten using MIRACL. (Thanx to mac for discovering the weakness of
+DH128 and helping me!)
+
+
+
+
+================
+Technical notes:
+================
+
+For Diffie-Hellman key-exchange a 1080bit germain prime is used, the
+generator g=2 renders a field Fp from 1 to p-1. Therefore breaking it
+means to solve a discrete logarithm problem with no less than 1080bit.
+
+Base64 format is used to send the public keys over IRC.
+
+The calculated secret key is hashed with SHA-256, the result is converted
+to base64 for final use with blowfish.
+
+
+Some words about the used pseudo random number generator: Since FiSH v0.98
+the Microsoft Cryptography API is used (CryptGenRandom) to generate random
+numbers, instead of the private PRNG. On non-windows systems '/dev/urandom'
+is used instead. There are no security problems known with the private PRNG
+used in old versions. The reason for the change was simply transparency.
+
+
+
+
+==========
+TODO List:
+==========
+
+- write proper documentation
+- add a new cipher with CBC/CFB support
+- change key-container format to a fully encrypted file
+  (instead of the partially encrypted blow.ini)
+
+
+Comments and suggestions are welcome!
+
+
+
+Enjoy
+
+15. March 2006
+
+FiSH URL:
+http://fish.sekure.us/
+http://fish.secure.la/

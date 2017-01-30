@@ -1,0 +1,6 @@
+A user on the forum asked for clone scanning.
+/clonescan in the context you are in
+returns a list of all clones for the context
+
+License GPL
+4-13-07

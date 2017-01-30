@@ -1,0 +1,454 @@
+2.0.0 (20/05/2006):
+		- Added an entry to disable the decoder
+
+1.8.8 (05/08/2004):
+		- Corrected a bug in the incoming signal buffering that would
+		  overwrite buffered events when frames would come too fast
+		  during the fade-out period, just after a buffer underrun.
+
+1.8.7 (25/07/2004):
+		- Added a section in the README to explain how to use CWirc
+		  with the aRts daemon.
+
+		- The DTR line is now explicitely set so that CWirc can read
+		  back the state of the Morse key contact(s), even if another
+		  program left the serial port in a bad state.
+
+1.8.6 (19/07/2004):
+		- Made the plugin stub filter out CWirc frames even when the
+		  plugin is disabled, so it's now possible to close the CWirc
+		  panel and keep chatting normally on a Morse channel.
+
+		- Made the plugin stub correctly handle channel locks on
+		  different IRC servers, and made it warn the user when a lock
+		  is stale.
+
+1.8.5 (08/07/2004):
+		- Corrected the README and added a French translation of it.
+
+		- Added the -fPIC flag to build the plugin's object files.
+
+		- Changed the Debian package maintainer and merged his changes.
+
+1.8.4 (20/06/2004):
+		- Corrected a bug that would leave the I/O process running
+		  alone if the GUI quit without stopping it properly.
+
+		- Made the extension API's shared memory key really random.
+
+		- CWirc now tries to renice itself if the frontend binary is
+		  installed suid root, in order to get better I/O performances
+		  and cure the scratchy sound problem with low-end sound
+		  devices and loaded systems.
+
+1.8.3 (18/06/2004):
+		- Made the sound fragment writing routine less fragile.
+
+		- Doubled the automatic decoder's speed indicator as a decoder
+		  reset button.
+
+		- Fixed a bug where the CWirc front-end would stop if X-Chat
+		  was started from an xterm and the terminal was resized.
+
+1.8.2 (13/06/2004):
+		- Reduced the memory and disk footprint.
+
+		- General code cleanup.
+
+		- Made the keyer settings tab become inactive when the selected
+		  key type is "straight".
+
+		- Changed all references to "QRM" into the correct "QRN".
+
+		- Fixed a GTK error message when starting the GUI.
+
+		- Fixed a bug that could prevent an extension to be run again
+		  if it failed to run once.
+
+1.8.1 (13/04/2004):
+		- Now the plugin doesn't report incoming morse from any source
+		  but the current IRC channel, on the current CWirc channel.
+
+		- Fixed a bug that would make CWirc occasionally send malformed
+		  frames containing null events when running with the CW output
+		  set to "sounder".
+
+1.8.0 (01/04/2004):
+		- Re-implemented the keyer, with a full set of options.
+
+		- The frontend now checks its version number against the
+		  plugin's, to avoid using an incompatible shared memory
+		  structure.
+
+1.7.7 (26/03/2004):
+		- Added "About" tab to give general information about CWirc
+
+		- Made the cwirc window non-resizable.
+
+		- Added two new keyer modes besides mode-A and mode-B : a dit
+                  memory mode and a dit+dah memory mode.
+
+1.7.6 (23/03/2004):
+		- An undecoded character is now indicated by an underscore in
+		  the morse decoder line, and not a question mark, so it's
+		  more readable and less confusing.
+
+		- Corrected the '8' sign in the DOT code table and removed the
+		  E-circumflex sign from the French morse code table because it
+		  conflicted with the slash sign.
+
+1.7.5 (20/02/2004):
+		- Added a sidetone mode, to key Morse code locally without
+		  actually sending anything. This is good to adjust keys and
+		  generally play without bothering anyone else, exactly like
+		  the equivalent function found on most real transceivers.
+
+		- Now the Morse decoder also decodes the local key.
+
+		- Implemented the new ITU "commat" Morse sign ('@' sign, as in
+		  emails) and corrected the 'VA' prosign in the Morse code
+		  table.
+
+1.7.4 (27/01/2004):
+		- Corrected a bug that spawned an infinity of error popups if
+		  writing to the sound device generated an error despite the
+		  sound device having been opened and set up successfully.
+
+1.7.3 (14/01/2004):
+		- Added rules to create a binary and source RPMs.
+
+1.7.2 (06/01/2004):
+		- Added DOT code support in the automatic decoder.
+
+		- Made replying to CTCP queries and returning the current
+		  channel number the default behaviour.
+
+1.7.1 (10/11/2003):
+		- The accuracy of sent and received timing events has been
+		  improved dramatically.
+
+		- A bad data corruption bug in the frame sending routine has
+		  been corrected.
+
+1.7.0 (09/11/2003):
+		- Added a CWirc extension interface.
+		
+		- Made the ipc routines more generic.
+		
+		- Corrected the sound mixing to implement volume and squelch
+		  properly.
+		
+		- Implemented an extension to the existing frame format to
+		  allow high-speed Morse to pass through IRC within the flood
+		  limits imposed by IRC servers.
+
+1.6.1 (28/10/2003):
+		- The channel lock is now reset when the plugin is re-enabled.
+
+		- Modified the Makefile to build CWirc on NetBSD.
+
+1.6.0 (18/10/2003):
+		- Added French Morse code in the automatic Morse decoder.
+		
+		- Added IRC channel locking and unlocking commands (/CWLOCK
+		  and /CWUNLOCK).
+		
+		- Reorganized the main panel so the presentation of the preset
+		  channels is more logical.
+
+1.5.0 (15/10/2003):
+		- Added 5 preset CW channels, instead of just one adjustment.
+
+		- Added the X-Chat "xchat-plugin.h" include file in the CWirc
+		  distribution, so it's not necessary to download the entire
+		  X-Chat source tree if the file isn't provided by the
+		  distribution.
+
+		- Modified the Makefile and #ifdef'ed bits of the source code
+		  to build CWirc for FreeBSD cleanly and without patch.
+
+1.4.2 (02/10/2003):
+		- Changed key_t types to int, removed Linux-only and Intel-only
+		  signals, added missing #include in plugin.c, changed
+		  #include <linux/soundcard> to #include <sys/soundcard.h> in
+		  io.c and modified the Makefile to facilitate the port of
+		  CWirc to FreeBSD.
+
+		- Added a patch and instructions to build CWirc on FreeBSD.
+
+1.4.1 (01/10/2003):
+		- Corrected a minor bug in the morse frame validity testing.
+
+1.4.0 (26/09/2003):
+		- Added Russian and Japanese morse in the automatic CW decoder.
+
+		- Corrected a bug in the decoder's buffer scrolling.
+
+		- Made the front-end wait a bit before quitting on an error to
+		  allow the plugin portion to catch the error message.
+
+1.3.1 (09/09/2003):
+		- Made the QRM louder and corrected its implementation.
+
+		- Corrected the QRM mixing.
+
+		- Corrected a bug in the GUI where the callsign text entry would
+		  always be disabled at startup.
+
+		- Made the squelch more sensitive
+
+1.3.0 (06/09/2003):
+		- Added adjustable QRM simulation.
+
+		- Added signal strength and sporadic-E propagation simulation,
+		  based on the physical distance between operators, calculated
+		  from advertised grid square locations of the operators.
+
+		- Extended the CW frame protocol to pass grid square locations.
+		  Added optional grid square location in the GUI.
+
+		- Added optional grid square reporting in the CTCP CWIRC query.
+
+		- Added a squelch in the main panel.
+
+		- Corrected the sound mixing to match that of a real ham radio.
+		  Added soft incoming signal fadeout.
+		
+		- Moved the creation of outgoing CW frames back to cwframe.c
+		  where it belongs.
+
+		- Many minor corrections.
+
+1.2.3 (30/08/2003):
+		- Improved the accuracy of the Morse decoder.
+
+1.2.2 (28/08/2003):
+		- Made the plugin answer channel-wide CTCP CWIRC queries.
+
+		- CW frames sent as notices are now decoded and played.
+
+1.2.1 (24/08/2003):
+		- Reordered the functions in plugin.c to follow the order in the
+		  list of prototypes.
+		
+		- Made the decoder line frame stick to the decoder line.
+		
+		- Improved the sound quality when mixing several CW sound
+		  sources.
+		
+		- Simplified the S-meter and morse key icon drawing routines,
+		  and modified the CW beep generator, to be more CPU-friendly
+		  on slower machines.
+		
+		- Fixed the dependency against X-Chat in the debian binary
+		  package.
+		
+		- Added "CWirc" button in the userlist buttons.
+
+1.2.0 (16/08/2003):
+		- Added the ability to play morse code as sounder clicks.
+
+		- Regular morse beeps are now smoother.
+
+		- Changed the "FINE" setting into "RX pitch", and added "TX
+		  pitch" and "Volume" controls in the main panel.
+
+                - Made the mouse keying zone show either a straight key or an
+                  iambic key according to the keying mode it is emulating.
+
+                - Added a received morse speed indicator in the automatic
+                  decoder line.
+
+                - Slightly corrected the automatic keyer WPM timing.
+
+                - Made the automatic decoder more resilient to temporary
+                  variations of the received morse speed.
+
+
+1.1.0 (09/08/2003):
+		- Extended the frame format to include an explicit callsign.
+
+		- Added optional custom CTCP query, to report the CWirc version,
+		  user's callsign and current CW channel.
+
+		- Added a page in the GUI to change the callsign and control
+		  whether it's sent in the morse frames or not, and control how
+		  CTCP queries are replied to.
+
+		- Reviewed all the strcpy() and strncpy() calls in the code to
+		  make sure they can't overflow.
+		
+		- The semaphore ID and shared memory ID are now random, so two
+		  instances of CWirc running on the same box don't conflict.
+
+1.0.1 (07/08/2003):
+		- Made the main GUI window tabbed.
+		
+		- Made various parts of the GUI go gray when they become
+		  irrelevant, such as the iambic keyer settings when the key is
+		  set to "straight".
+
+1.0.0 (06/08/2003):
+		- Split CWirc into a X-Chat plugin stub and a executable
+		  front-end called by the plugin.
+
+		- Replaced the X11 user interface with a full-featured GTK+ gui.
+
+		- Added automatic configuration file creation and saving.
+
+		- Made the receive buffering adjustable.
+
+		- Made opening the sound device non-blocking.
+
+		- Added uninstall target in the Makefile.
+
+		- Fixed many small bugs.
+
+0.9.2 (01/08/2003):
+		- Corrected the automatic morse decoder and extended it to
+		  include prosigns.
+		
+		- Added a schematic to build a CW oscillator driven by the
+		  serial port, and a schematic to connect a morse key to a
+		  serial port.
+
+0.9.1 (28/07/2003):
+		- Fixed an incorrect Linux real-time clock include file that
+		  broke the build in RedHat 9
+
+		- Modified the process termination code to be more graceful
+
+                - The I/O process now makes sure the external sounder is
+                  de-activated before stopping
+
+                - Brought the memory usage under control
+
+0.9.0 (27/07/2003):
+		- Added support for morse output on an external sounder
+		  connected to a serial port.
+
+		- Rationalized the format of the configuration file.
+
+		- Corrected the Makefile to avoid error messages on non-Debian
+		  boxes.
+
+		- Redone all the documentation
+
+0.8.2 (23/07/2003):
+		- Added a rule to create a Debian binary package
+
+0.8.1 (19/07/2003):
+		- Added an explanation of iambic timings.
+
+		- Corrected the man page.
+
+0.8.0 (15/07/2003):
+		- Made the morse frame format more compact, so CWirc wastes less
+		  of the IRC server's bandwidth, and the user can key faster
+		  without being throttled or kicked for flooding. The new format
+		  isn't compatible with previous formats, and the maximum cw
+		  channel goes from 9999 to 3999 as a result.
+
+		- Made the plugin less verbose when sending or receiving morse.
+
+		- Changed the maximum WPM to 60.
+
+		- Bias the received morse sound pitch according to the entire
+		  nick of the sender, not just the first letter, so "joe" and
+		  "jane" don't sound the same.
+		
+		- Corrected 2 sound init error messages.
+
+0.7.0 (13/07/2003):
+		- Modified the sound I/O module to output sound at 44.1KHz,
+		  stereo, 16 bits in order to use larger sound fragments to
+		  avoid problems with some sound devices, and modified the
+		  code sections dependent on timing accordingly.
+
+		- Removed the audio chopping problems.
+
+		- Improved the automatic morse decoder.
+
+		- Modified the Makefile to dump a help message by default
+		  inviting users to set the paths to the X-Chat plugin include
+		  file and base installation directory.
+
+0.6.0 (11/07/2003):
+		- Added an automatic morse decoder in the form of a scrolling
+		  line of decoded morse characters at the bottom of the control
+		  panel
+
+		- Added explicit font names in the X user interface module.
+
+		- Corrected minor bugs.
+
+0.5.1 (11/07/2003):
+		- Added support for sending morse frames through DCC CHAT.
+
+0.5.0 (09/07/2003):
+		- Modularized and cleaned up the source code
+
+		- Added a fake S-meter
+
+		- Made CWirc ignore morse frames received on channels other
+		  than the channel currently in focus
+
+		- Better error reporting
+
+0.4.2 (08/07/2003):
+		- Made CWirc decode morse frames sent as private messages.
+
+0.4.1 (07/07/2003):
+		- Added a 1 second delay before starting to emit morse code
+		  received from IRC, so our buffer doesn't underrun as easily
+		  when the IRC connection lags.
+
+0.4.0 (06/07/2003):
+		- Added the possibility of keying morse in straight or iambic
+		  mode using the mouse buttons, by clicking in special zones on
+		  the control panel. Clicking in these zones also serve to
+		  change the keying mode for the serial morse key.
+
+		- CWirc can now be used without a real key, using only the
+		  mouse as input device.
+
+0.3.0 (05/07/2003):
+		- Turned the I/O and user interface threads into old-fashioned
+		  processes with IPC communication because X-Chat isn't
+		  thread-safe.
+
+		- Made the morse frame format more compact so the IRC server is
+		  less likely to detect flooding and kick the IRC client.
+
+		- Added filters to hide sent or received raw morse frames.
+
+		- Added a title for the control panel.
+
+		- Made closing the control panel disable the plugin.
+
+		- Changed the "/CWENABLE" command into "/CW".
+
+0.2.1 (04/07/2003):
+		- Removed bugs in the resource cleanup code when the plugin is
+		  disabled or uninstalled that caused it and X-Chat to segfault.
+
+0.2.0 (03/07/2003):
+		- Recoded the entire program into an X-Chat plugin instead of a
+		  (bad) standalone IRC client. It works just like before, but
+		  allows the user to use all the features of X-Chat at the same
+		  time. It also features a simple graphical panel that is
+		  functionally the same as the old command line.
+
+		- Corrected and simplified the iambic implementation
+
+		- Added a man page
+
+0.1.0 (01/07/2003):
+		- Added support for iambic keyers, in mode A or B.
+
+0.0.2 (20/06/2003):
+		- Corrected cwirc to use different serial ports and alternate
+		  configuration files
+
+0.0.1 (18/06/2003):
+		- First release

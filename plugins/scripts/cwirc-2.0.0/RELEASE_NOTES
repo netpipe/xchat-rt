@@ -1,0 +1,293 @@
+2.0.0:	The previous version has been used for nearly two years without any
+	reported bugs, so it can be considered quite stable. Only a minor
+	function was added at users' request in this release, so it is now
+	pretty much feature-complete. Hence the jump in major version number.
+
+1.8.8:	This release fixes a rather blatant bug corruption bug that somehow
+	managed to surface only now. It would occur when a serie of backlogged
+	CWirc frames would arrive from the IRC server all at once, right after
+	the receiving client's buffer had underrun, during the fadeout period.
+	This bug would cause a bunch of "Receiving cw from ..." lines to be
+	dumped in the X-Chat window, but with no CW signal for several seconds,
+	and would be triggered by a high buffering value and a lagged IRC
+	server.
+
+1.8.7:
+
+1.8.6:	CWirc now filters out Morse frames even when the plugin is disabled.
+	That means there's always some CWirc code running all the time in
+	X-Chat, whereas until now, when the plugin was disabled, it was truly
+	inactive.
+
+1.8.5:	The CWirc Debian package is now maintained by Joop Stakenborg PG4I.
+
+1.8.4:	The CWirc frontend now tries to renice itself when it starts. If it
+	can (because the binary was installed suid root), the performances for
+	the I/O process are improved, which helps solve the bad sound problem
+	on system with low-end sound chips. A less kludgy solution would have
+	been to increase the sound buffering, but this would have increased the
+	lag between local keying and beeping, which rapidly becomes
+	disconcerting for high-speed keyers. Right now, the lag is 30ms and
+	that is already quite enough to make a noticeable difference between
+	keying a real rig and CWirc.
+
+1.8.3:
+
+1.8.2:	The size of the CWirc frontend binary was reduced dramatically by
+	very simply tricks, like re-working and optimizing the XPM icons.
+	Also, the code was cleaned up, resulting in some improvenemts in
+	memory usage.
+
+1.8.1:	An obscure double-to-int rounding bug has been squashed. So obscure in
+	fact that nobody ever hit it, but it was there nonetheless.
+
+1.8.0:	The keyer has been totally revamped. Now it proposes truly correct
+	modes, and many options to fine-tune it just right.
+
+1.7.7:	A number of people were unhappy with the Curtis mode-B keyer setting,
+	as it isn't like a conventional dit memory, or a Super CMOS mode-B.
+	Also, the simple "mode-B" toggle button wasn't a very clear way to set
+	the keyer's mode. Therefore, 2 new keyer modes have been added and a
+	menu is now used to select them.
+
+1.7.6:
+
+1.7.5:	The sidetone mode and the decoder decoding the local key was something
+	many people have wanted for a long time. Now it's possible to see what
+	you key, without sending anything on the channel, which is good for
+	training to key.
+
+1.7.1:	The addition of the Hellschreiber extension, and the intolerance of the
+	Hellschreiber mode for timing errors, has revealed bad inaccuracies in
+	the sent and received event values, mainly due to rounding floats into
+	ints when sending, and ints back to floats when receiving, with no
+	correction for the timing drift this introduces. Timing drifts are now
+	handled correctly, making Hellschreiber transmissions almost perfect.
+
+1.7.0:	The frame format has been extended to conserve bandwidth when
+	transmitting many keyups/keydowns per frames. The base frame format is
+	entirely compatible with the previous formats used so far. The extended
+	frame format, however, isn't. Consequently, newer CWirc version will be
+	able to receive transmissions from clients up to version 1.6.1, but
+	older clients won't be able to receive all the frames from the newer
+	versions.
+
+	The new CWirc extension mechanism allows external programs to interact
+	with CWirc : they can receive the sound CWirc generates using a ring
+	buffer and 2 semaphores to transfer audio data, and to synchronize
+	themselves with CWirc, and a flag to key CWirc. Extension programs (or
+	synlinks to them) must be installed in the directory specified in the
+	Makefile for CWirc to see them and list them in the extensions tab.
+	When CWirc starts an extension program, it passes it "--cwirc" followed
+	by the shared memory id of the extensions API. Only one extension
+	program can run at any given time.
+
+	The extensions API was made specifically to interface gMFSK and CWirc,
+	in order to do FeldHell-over-IP : Feldhell is the only digital mode
+	that's slow enough and close enough to CW to work over IRC.
+
+1.6.1:	NetBSD has its own sound API that is not OSS, the API used by CWirc.
+	However, it has an OSS emulation library (libossaudio) that allows
+	Linux programs to be compiled without modification. Therefore, in
+	order to build and use CWirc under NetBSD, the "-lossaudio" flag must
+	be passed to the linker.
+
+1.6.0:
+
+1.5.0:	FreeBSD doesn't seem to have a native RTC mechanism to provide real-time
+	periodic interrupts. The only thing it seems to have is a Linux /dev/rtc
+	emulator that only has ioctls to start the periodic interrupts, but none
+	to stop them, which makes it unsuitable for CWirc. Therefore, the
+	soundcard-less operation for FreeBSD has been disabled.
+
+	Also, FreeBSD has different dsp and tty device names, so these are
+	reflected in the default CWirc settings.
+
+	Finally, this release has been tested under FreeBSD 5.1. I am told
+	FreeBSD 4.x boxes have slight differences in the naming of devices
+	nodes in /dev, but the initial FreeBSD port was done on one of these
+	boxes, so I believe it works. I'm a FreeBSD newbie though, so don't
+	take my word for it. You might have to hack around to get it to go.
+
+1.4.2:
+
+1.4.1:
+
+1.4.0:
+
+1.3.0:	The new signal strength simulation is based on the physical distance
+	between stations. If the signal strength is completely artificial and
+	made up, the algorithm to calculate the distance between two stations
+	on the planet is accurate.
+
+	The QRM generator generates pseudo pink noise by downsampling white
+	noise and upsampling it back. It's not an accurate radio noise but it's
+	much less CPU-intensive than "proper" sound generation with FFTs.
+
+1.2.3:	The automatic decoder now has a real "inertia" built-in, i.e. it tends
+	to resist changing decoding speed. As a result, transient timing errors
+	are more easily ironed out. Also, to decode bad straight keying better,
+	it now works on the assumption that beginners follow the "music" even
+	when they key dits or dahs way too short, resulting in spaces that are
+	too long and would normally trigger the decoding of the current
+	character. The decoder now silently allows longer spaces if it sees
+	characters that it thinks are too short. This feature is on all the time
+	as it doesn't impact the decoding of good keying by definition.
+
+1.2.2:
+
+1.2.1:	CWirc is now more conservative with CPU, so it's possible to use it on
+	slower computers, and faster computers with a high load, without sound
+	breakup. This was done mainly by replacing trigonometry function calls
+	by precalculated tables in tight loops, and by reducing the amount of
+	GTK pixmap redraws in the S-meter drawing code.
+
+1.2.0:	This version can now generate sounder clicks as well as regular morse
+	beeps. The sounder click samples come from an actual sounder, and the
+	timing of its arm going down and up as the coil is energized and
+	de-energized is reproduced accurately in CWirc.
+
+	In the process of extending the sound routines, the regular beeping
+	sound has also been cleanup up to fade in and out softly, removing
+	the annoying clicks at the end of each beep.
+
+1.1.0:	The CW frame protocol has been extended to pass an explicit callsign
+	along IRC message. The feature is of little value alone, but it will
+	allow single repeater bots to forward message from multiple callsigns
+	on non-CWirc morse networks. Note that the explicit callsign is
+	scrambled in the IRC message, so casual IRC chatters don't immediately
+	see who it is from.
+
+1.0.1:	Just a few minor cosmetic changes in this release.
+
+1.0.0:	This is a major code change. The user interface has been recoded as a
+	GTK+ gui, which meant splitting the X-Chat plugin part of CWirc from
+	the rest, so as to avoid problems between the X-Chat GTK+ session and
+	the CWirc GTK+ one.
+
+	Also, in this new version, the I/O process has been recoded to never
+	stop and be reconfigurable on the fly. Therefore, even if it doesn't
+	perform because of some error, the gui stays up and can reconfigure it.
+	As a result, it's now possible to configure CWirc entirely from the gui.
+	(no more editing ~/.cwircrc).
+
+0.9.2:
+
+0.9.1:  In the previous version, if the sounder was activated when the plugin
+        was disabled, it would continue beeping. This has been fixed by making
+        the I/O process terminate gracefully and turn off the sounder before
+        exiting. The main process doesn't abruptly kill the I/O and user
+        interface processes anymore, it now asks them to terminate and waits
+        for them to die, which is cleaner anyway.
+
+	Also, previous versions used up nearly 2M of memory in one shared memory
+	block, due to over-generous buffering and way to many concurrent senders
+	which was ridiculous. The shared memory usage has been brought down to
+	less than 50K.
+
+0.9.0:	It is now possible to output the received or sent morse code on an
+	external sounder, or CW oscillator, throught the RTS line on a serial
+	port. It's also possible to do without a soundcard altogether, but in
+	this case, CWirc needs to use /dev/rtc to get its timing. Since it uses
+	the periodic interrupt at 512Hz, it'll need special privileges set in
+	/proc/sys/dev/rtc/max-user-freq. Since multiple inputs and outputs where
+	getting confusing, 2 new variables have been added to the configuration
+	file (cwinput and cwoutput) to clarify things.
+
+0.8.2:
+
+0.8.1:	The details of exactly what iambic timings are implemented in CWirc are
+	now included.
+
+0.8.0:	The new morse frame format uses 1/3rd less bandwidth than the previous
+	one. The tests I've run show that one can send a continuous stream of
+	dits at 30wpm without being throttled or kicked on the most common
+	IRC servers, which means that in a real QSO, sustained speeds of 40/45
+	wpm can be expected. That should be more than enough for most operators.
+
+0.7.0:	The sound device is now used at 44.1KHz / 16 bit / stereo, in order to
+	increase the sound fragment size to 256 bytes and still maintain a
+	timing precision in the order of one millisecond. As a result, since
+	44100 Hz isn't 1000 times a power of 2 like 8000 Hz, the entire I/O,
+	encoding and decoding sections have been adapted to cope with timing
+	durations that aren't exactly one millisecond. This was necessary for
+	broken or cheap sound cards that can't cope with very small sound
+	fragments. Since it's usually admitted that all sound devices should be
+	able to cope at least with 256 byte fragments, that's why CWirc now
+	uses the most common sound format that consumes as many bytes per
+	seconds as possible.
+
+	The Makefile has been modified to ask the user to set the paths to
+	xchat-plugin.h and the base installation directory for X-Chat. I've
+	just noticed that the Debian install package I use installs X-Chat in
+	/usr, while the X-Chat tarball installs in /usr/local and doesn't copy
+	the .h file into the install directory. So the user has to set the
+	correct path for his/her machine first, and the Makefile now makes sure
+	of that.
+
+0.6.0:	An automatic morse decoder has been added. It decodes from the overall
+	signal received, so it's useless in a pile-up, but it works rather
+	well when receiving cw from a single sender who keys cleanly and
+	regularly. Some people have asked for this, to help them copy fast
+	iambic keyers.
+
+0.5.1:	
+
+0.5.0:	I finally modularized the code. The single "cwirc.c" file was quickly
+	becoming spaghetti code. That gave me the occasion to review all the
+	code, interactions between processes, and clean/simplify/better the
+	whole thing. A fake S-meter has been added to the control panel : it's
+	basically cosmetic, as there isn't much use for RST reports on IRC
+        obviously, but it helps feel in front of a real trx, while the static
+        panel doesn't.
+
+0.4.2:
+
+0.4.1:
+        There's now a delay between the moment a cw frame is received and the
+        moment it starts being played on the sound card. This allows for some
+        lag in the connection to the IRC server. Before that, IRC servers had
+        to be nearly flawlessly snappy to sustain the morse rate without
+        choppiness. It does increase the lag between keying a frame on one end
+        and hearing it on the other though.
+
+0.4.0:	CWirc can now be used solely with a mouse, without a real key connected
+	to a serial port. Many people have asked for this.
+
+0.3.0:	The bug fixes in 0.2.1 didn't quite do it. After much experimenting, I
+	determined that X-Chat just isn't thread-safe. Even spawning a thread
+	that does nothing but sleep in a loop makes X-Chat segfault randomly
+	after a while. So I turned the threads into normal heavy-weight
+	processes and it appears rock-stable now. It's not as efficient in
+	terms of memory or CPU, but at least it works well. The frame format
+	is now more compact and many IRC servers that would kick the client
+	when keying fast don't anymore as a result.
+
+0.2.1:	The cleanup code in the standalone version of CWirc was always followed
+	by the termination of the program. In the plugin, it may be called again
+	and again. As a result, the code that left variables hanging was
+	causing the plugin and X-Chat to segfault regularly when doing /CWENABLE
+	several times. This is fixed.
+
+0.2.0:	CWirc is now an X-Chat plugin. It makes much more sense than creating a
+	brand new standalone IRC client, since X-Chat is full-featured, has
+	a fairly complete plugin interface and allows plugins to do pretty much
+	whatever they wants in terms of threads and file accesses.
+	
+	Corrected the iambic code, so that even a light tap on one paddle while
+	the other is actuated ends up sending a single inverted element in the
+	morse stream.
+
+0.1.0:	Added support for iambic keyers in mode A or B. Mode-A implemetation is
+	straightforward, and I implemented mode-B timing as I believe it should
+	correctly be, which is that the extra dit or dah sent after releasing
+	squeezed paddles is sent only if the paddles are released after the
+	first half of the last element has been sent.
+
+0.0.2:	The code was broken in the first release : users couldn't set the
+	serial port the morse key is connected to in the config file. This is
+	corrected.
+
+0.0.1:	First release of CWirc. The user interface is minimalistic, the code is
+	still very unpolished and the buffering and timing code isn't very
+	robust. The basics work though.

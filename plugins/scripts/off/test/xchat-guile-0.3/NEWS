@@ -1,0 +1,14 @@
+0.3
+===
+
+New in this release:
+
+- Move/port to Guile-1.8.
+- Get rid of all locking and thread stuff and therefore remove dep on gthread.
+- Guile console. [Lionel Elie Mamane]
+- Use alist instead of list where appropriate.
+- Use XCHAT_EAT_* instead of hardcoded 0/1. [Lionel Elie Mamane]
+- Fix memory leak in xchat_write. [Lionel Elie Mamane]
+- We maintain this NEWS file from now on. :)
+- Some other minor fixes.
+

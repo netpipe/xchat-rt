@@ -1,0 +1,33 @@
+02 Nov 2005:
+- Released 0.3.1
+
+30 July 2005:
+- Handle non-ASCII charsets properly
+
+03 May 2005:
+- Released 0.3.0
+
+01 Apr 2005:
+- Worked around a bug in Trillian that sometimes prevented it from
+  connecting to the AIM/ICQ network through otrproxy.
+
+28 Mar 2005:
+- New per-buddy configuration available by double-clicking a buddy's
+  name in the main OTR window.
+
+21 Mar 2005:
+- Popups on Win32 now actually show up in front of other windows.
+
+24 Feb 2005:
+- Released 0.2.0 with UI by Katrina Hanna
+
+23 Jan 2005:
+- Started making a framework that a UI will eventually fit into.
+
+19 Jan 2005:
+- Released 0.1.1
+- The memory bug that caused crashes with the HTTP proxy has (hopefully)
+  been found and fixed.
+
+18 Jan 2005:
+- Initial 0.1.0 release

@@ -1,0 +1,18 @@
+$ cat ~/.xchat2/servlist_.conf | grep ^N= | sed 's/^N=//'g
+
+Now we need to run the following commands before the main send command:
+
+$ context=`dbus-send --dest=org.xchat.service --print-reply --type=method_call /org/xchat/Remote org.xchat.plugin.FindContext string:"irc network" string:"" | tail -n1 | awk '{print $2}'`
+
+$ dbus-send --dest=org.xchat.service --type=method_call /org/xchat/Remote org.xchat.plugin.SetContext uint32:$context
+
+Where “irc network” is the network we chose from the first command.
+
+And finally:
+
+$ dbus-send --dest=org.xchat.service --type=method_call /org/xchat/Remote org.xchat.plugin.Command string:"msg #channel Your message here"
+
+All done :)
+If you intend to use it from a ssh session you need to first set the DISPLAY variable and then execute the dbus-send commands.
+
+export DISPLAY=:0.0

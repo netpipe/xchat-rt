@@ -1,0 +1,32 @@
+#!/usr/bin/python
+
+import sys
+import os
+
+DBUS_ENV1 = "DBUS_SESSION_BUS_PID"
+DBUS_ENV2 = "DBUS_SESSION_BUS_ADDRESS"
+
+if DBUS_ENV1 not in os.environ or DBUS_ENV2 not in os.environ:
+    # Steal required environment variables from XChat process
+    import popen2
+    p = popen2.Popen4(['pgrep', '-u', os.getlogin(), '-o', 'xchat'])
+    if p.wait() != 0:
+        print "Could not retrieve DBUS info, exiting"
+        sys.exit(1)
+
+    pid = p.fromchild.readline().strip()
+
+    xchatenv = dict([i.split("=", 1) for i in open("/proc/%s/environ" % pid).read().split("00") if "=" in i])
+    if DBUS_ENV1 in xchatenv and DBUS_ENV2 in xchatenv:
+        os.environ[DBUS_ENV1] = xchatenv[DBUS_ENV1]
+        os.environ[DBUS_ENV2] = xchatenv[DBUS_ENV2]
+
+
+import dbus
+
+bus = dbus.SessionBus()
+object = bus.get_object("org.xchat.service", "/org/xchat/RemoteObject")
+xchat = dbus.Interface(object, "org.xchat.interface")
+
+version = xchat.GetInfo("version")
+print version

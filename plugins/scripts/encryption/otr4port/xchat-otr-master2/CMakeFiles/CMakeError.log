@@ -1,0 +1,180 @@
+Determining if the include file glib/gregex.h exists failed with the following output:
+Change Dir: /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec799578903/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec799578903.dir/build.make CMakeFiles/cmTryCompileExec799578903.dir/build
+make[1]: Entering directory `/home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec799578903.dir/CheckIncludeFile.c.o
+/usr/bin/gcc  -DHAVE_CONFIG_H -I/home/clayton/.xchat2/otr/xchat-otr-master2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include    -o CMakeFiles/cmTryCompileExec799578903.dir/CheckIncludeFile.c.o   -c /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+In file included from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:0:
+/usr/include/glib-2.0/glib/gregex.h:23:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gregex.h:29:0,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gerror.h:22:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gerror.h:30:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gquark.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gquark.h:34:0,
+                 from /usr/include/glib-2.0/glib/gerror.h:30,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gtypes.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h:9:0,
+                 from /usr/include/glib-2.0/glib/gtypes.h:34,
+                 from /usr/include/glib-2.0/glib/gquark.h:34,
+                 from /usr/include/glib-2.0/glib/gerror.h:30,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gmacros.h:32:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gtypes.h:35:0,
+                 from /usr/include/glib-2.0/glib/gquark.h:34,
+                 from /usr/include/glib-2.0/glib/gerror.h:30,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gmacros.h:32:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gtypes.h:36:0,
+                 from /usr/include/glib-2.0/glib/gquark.h:34,
+                 from /usr/include/glib-2.0/glib/gerror.h:30,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gversionmacros.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gregex.h:30:0,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gstring.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gstring.h:34:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gtypes.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gstring.h:35:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gunicode.h:23:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gunicode.h:29:0,
+                 from /usr/include/glib-2.0/glib/gstring.h:35,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gerror.h:22:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gunicode.h:30:0,
+                 from /usr/include/glib-2.0/glib/gstring.h:35,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gtypes.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gstring.h:36:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gbytes.h:25:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gbytes.h:31:0,
+                 from /usr/include/glib-2.0/glib/gstring.h:36,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gtypes.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gbytes.h:32:0,
+                 from /usr/include/glib-2.0/glib/gstring.h:36,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/garray.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/garray.h:34:0,
+                 from /usr/include/glib-2.0/glib/gbytes.h:32,
+                 from /usr/include/glib-2.0/glib/gstring.h:36,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gtypes.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gstring.h:37:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gutils.h:28:2: error: #error "Only <glib.h> can be included directly."
+In file included from /usr/include/glib-2.0/glib/gutils.h:34:0,
+                 from /usr/include/glib-2.0/glib/gstring.h:37,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gtypes.h:28:2: error: #error "Only <glib.h> can be included directly."
+make[1]: *** [CMakeFiles/cmTryCompileExec799578903.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec799578903/fast] Error 2
+
+
+Determining if the include file glib/gregex.h exists failed with the following output:
+Change Dir: /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec4266832596/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec4266832596.dir/build.make CMakeFiles/cmTryCompileExec4266832596.dir/build
+gmake[1]: Entering directory `/home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4266832596.dir/CheckIncludeFile.c.o
+/usr/bin/gcc  -DHAVE_CONFIG_H -I/home/clayton/.xchat2/otr/xchat-otr-master2 -I/usr/local/include/glib-2.0 -I/usr/local/lib64/glib-2.0/include -I/usr/local/include    -o CMakeFiles/cmTryCompileExec4266832596.dir/CheckIncludeFile.c.o   -c /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+In file included from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:0:
+/usr/local/include/glib-2.0/glib/gregex.h:26:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gregex.h:29:0,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gerror.h:24:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gerror.h:29:0,
+                 from /usr/local/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gquark.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gquark.h:32:0,
+                 from /usr/local/include/glib-2.0/glib/gerror.h:29,
+                 from /usr/local/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gtypes.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/lib64/glib-2.0/include/glibconfig.h:9:0,
+                 from /usr/local/include/glib-2.0/glib/gtypes.h:32,
+                 from /usr/local/include/glib-2.0/glib/gquark.h:32,
+                 from /usr/local/include/glib-2.0/glib/gerror.h:29,
+                 from /usr/local/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gmacros.h:33:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gtypes.h:34:0,
+                 from /usr/local/include/glib-2.0/glib/gquark.h:32,
+                 from /usr/local/include/glib-2.0/glib/gerror.h:29,
+                 from /usr/local/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gversionmacros.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gregex.h:30:0,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gstring.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gstring.h:33:0,
+                 from /usr/local/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gunicode.h:25:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gstring.h:34:0,
+                 from /usr/local/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gbytes.h:26:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gbytes.h:30:0,
+                 from /usr/local/include/glib-2.0/glib/gstring.h:34,
+                 from /usr/local/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/garray.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/local/include/glib-2.0/glib/gstring.h:35:0,
+                 from /usr/local/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/local/include/glib-2.0/glib/gutils.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+gmake[1]: *** [CMakeFiles/cmTryCompileExec4266832596.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory `/home/clayton/.xchat2/otr/xchat-otr-master2/CMakeFiles/CMakeTmp'
+gmake: *** [cmTryCompileExec4266832596/fast] Error 2
+
+

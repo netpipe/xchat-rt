@@ -1,0 +1,566 @@
+# depslib dependency file v1.0
+1449966377 source:/home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/otr-formats.c
+	"otr.h"
+
+1449968631 /home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/otr.h
+	<stdlib.h>
+	<unistd.h>
+	<errno.h>
+	<proto.h>
+	<context.h>
+	<message.h>
+	<privkey.h>
+	<glib.h>
+	<glib/gprintf.h>
+	<glib/gstdio.h>
+	<irssi_otr.h>
+	<xchat_otr.h>
+	"io-config.h"
+	"otr-formats.h"
+
+1478781615 /usr/include/glib-2.0/glib.h
+	<glib/galloca.h>
+	<glib/garray.h>
+	<glib/gasyncqueue.h>
+	<glib/gatomic.h>
+	<glib/gbacktrace.h>
+	<glib/gbase64.h>
+	<glib/gbitlock.h>
+	<glib/gbookmarkfile.h>
+	<glib/gbytes.h>
+	<glib/gcharset.h>
+	<glib/gchecksum.h>
+	<glib/gconvert.h>
+	<glib/gdataset.h>
+	<glib/gdate.h>
+	<glib/gdatetime.h>
+	<glib/gdir.h>
+	<glib/genviron.h>
+	<glib/gerror.h>
+	<glib/gfileutils.h>
+	<glib/ggettext.h>
+	<glib/ghash.h>
+	<glib/ghmac.h>
+	<glib/ghook.h>
+	<glib/ghostutils.h>
+	<glib/giochannel.h>
+	<glib/gkeyfile.h>
+	<glib/glist.h>
+	<glib/gmacros.h>
+	<glib/gmain.h>
+	<glib/gmappedfile.h>
+	<glib/gmarkup.h>
+	<glib/gmem.h>
+	<glib/gmessages.h>
+	<glib/gnode.h>
+	<glib/goption.h>
+	<glib/gpattern.h>
+	<glib/gpoll.h>
+	<glib/gprimes.h>
+	<glib/gqsort.h>
+	<glib/gquark.h>
+	<glib/gqueue.h>
+	<glib/grand.h>
+	<glib/gregex.h>
+	<glib/gscanner.h>
+	<glib/gsequence.h>
+	<glib/gshell.h>
+	<glib/gslice.h>
+	<glib/gslist.h>
+	<glib/gspawn.h>
+	<glib/gstrfuncs.h>
+	<glib/gstring.h>
+	<glib/gstringchunk.h>
+	<glib/gtestutils.h>
+	<glib/gthread.h>
+	<glib/gthreadpool.h>
+	<glib/gtimer.h>
+	<glib/gtimezone.h>
+	<glib/gtrashstack.h>
+	<glib/gtree.h>
+	<glib/gtypes.h>
+	<glib/gunicode.h>
+	<glib/gurifuncs.h>
+	<glib/gutils.h>
+	<glib/gvarianttype.h>
+	<glib/gvariant.h>
+	<glib/gversion.h>
+	<glib/gversionmacros.h>
+	<glib/gwin32.h>
+	<glib/deprecated/gallocator.h>
+	<glib/deprecated/gcache.h>
+	<glib/deprecated/gcompletion.h>
+	<glib/deprecated/gmain.h>
+	<glib/deprecated/grel.h>
+	<glib/deprecated/gthread.h>
+	<glib/glib-autocleanups.h>
+
+1478781615 /usr/include/glib-2.0/glib/galloca.h
+	<glib/gtypes.h>
+	<alloca.h>
+	<alloca.h>
+	<malloc.h>
+
+1478781615 /usr/include/glib-2.0/glib/gtypes.h
+	<glibconfig.h>
+	<glib/gmacros.h>
+	<glib/gversionmacros.h>
+	<time.h>
+
+1478781615 /usr/lib64/glib-2.0/include/glibconfig.h
+	<glib/gmacros.h>
+	<limits.h>
+	<float.h>
+
+1478781615 /usr/include/glib-2.0/glib/gmacros.h
+	<stddef.h>
+
+1478781615 /usr/include/glib-2.0/glib/gversionmacros.h
+
+1478781615 /usr/include/glib-2.0/glib/garray.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gasyncqueue.h
+	<glib/gthread.h>
+
+1478781615 /usr/include/glib-2.0/glib/gthread.h
+	<glib/gatomic.h>
+	<glib/gerror.h>
+	<glib/gutils.h>
+
+1478781615 /usr/include/glib-2.0/glib/gatomic.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gerror.h
+	<stdarg.h>
+	<glib/gquark.h>
+
+1478781615 /usr/include/glib-2.0/glib/gquark.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gutils.h
+	<glib/gtypes.h>
+	<stdarg.h>
+
+1478781615 /usr/include/glib-2.0/glib/gbacktrace.h
+	<glib/gtypes.h>
+	<signal.h>
+
+1478781615 /usr/include/glib-2.0/glib/gbase64.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gbitlock.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gbookmarkfile.h
+	<glib/gerror.h>
+	<time.h>
+
+1478781615 /usr/include/glib-2.0/glib/gbytes.h
+	<glib/gtypes.h>
+	<glib/garray.h>
+
+1478781615 /usr/include/glib-2.0/glib/gcharset.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gchecksum.h
+	<glib/gtypes.h>
+	<glib/gbytes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gconvert.h
+	<glib/gerror.h>
+
+1478781615 /usr/include/glib-2.0/glib/gdataset.h
+	<glib/gquark.h>
+
+1478781615 /usr/include/glib-2.0/glib/gdate.h
+	<time.h>
+	<glib/gtypes.h>
+	<glib/gquark.h>
+
+1478781615 /usr/include/glib-2.0/glib/gdatetime.h
+	<glib/gtimezone.h>
+
+1478781615 /usr/include/glib-2.0/glib/gtimezone.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gdir.h
+	<glib/gerror.h>
+	<dirent.h>
+
+1478781615 /usr/include/glib-2.0/glib/genviron.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gfileutils.h
+	<glib/gerror.h>
+
+1478781615 /usr/include/glib-2.0/glib/ggettext.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/ghash.h
+	<glib/gtypes.h>
+	<glib/glist.h>
+
+1478781615 /usr/include/glib-2.0/glib/glist.h
+	<glib/gmem.h>
+	<glib/gnode.h>
+
+1478781615 /usr/include/glib-2.0/glib/gmem.h
+	<glib/gutils.h>
+
+1478781615 /usr/include/glib-2.0/glib/gnode.h
+	<glib/gmem.h>
+
+1478781615 /usr/include/glib-2.0/glib/ghmac.h
+	<glib/gtypes.h>
+	"gchecksum.h"
+
+1478781615 /usr/include/glib-2.0/glib/ghook.h
+	<glib/gmem.h>
+
+1478781615 /usr/include/glib-2.0/glib/ghostutils.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/giochannel.h
+	<glib/gconvert.h>
+	<glib/gmain.h>
+	<glib/gstring.h>
+
+1478781615 /usr/include/glib-2.0/glib/gmain.h
+	<glib/gpoll.h>
+	<glib/gslist.h>
+	<glib/gthread.h>
+
+1478781615 /usr/include/glib-2.0/glib/gpoll.h
+	<glibconfig.h>
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gslist.h
+	<glib/gmem.h>
+	<glib/gnode.h>
+
+1478781615 /usr/include/glib-2.0/glib/gstring.h
+	<glib/gtypes.h>
+	<glib/gunicode.h>
+	<glib/gbytes.h>
+	<glib/gutils.h>
+
+1478781615 /usr/include/glib-2.0/glib/gunicode.h
+	<glib/gerror.h>
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gkeyfile.h
+	<glib/gbytes.h>
+	<glib/gerror.h>
+
+1478781615 /usr/include/glib-2.0/glib/gmappedfile.h
+	<glib/gbytes.h>
+	<glib/gerror.h>
+
+1478781615 /usr/include/glib-2.0/glib/gmarkup.h
+	<stdarg.h>
+	<glib/gerror.h>
+	<glib/gslist.h>
+
+1478781615 /usr/include/glib-2.0/glib/gmessages.h
+	<stdarg.h>
+	<glib/gtypes.h>
+	<glib/gmacros.h>
+	<glib/gvariant.h>
+
+1478781615 /usr/include/glib-2.0/glib/goption.h
+	<glib/gerror.h>
+	<glib/gquark.h>
+
+1478781615 /usr/include/glib-2.0/glib/gpattern.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gprimes.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gqsort.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gqueue.h
+	<glib/glist.h>
+
+1478781615 /usr/include/glib-2.0/glib/grand.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gregex.h
+	<glib/gerror.h>
+	<glib/gstring.h>
+
+1478781615 /usr/include/glib-2.0/glib/gscanner.h
+	<glib/gdataset.h>
+	<glib/ghash.h>
+
+1478781615 /usr/include/glib-2.0/glib/gsequence.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gshell.h
+	<glib/gerror.h>
+
+1478781615 /usr/include/glib-2.0/glib/gslice.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gspawn.h
+	<glib/gerror.h>
+
+1478781615 /usr/include/glib-2.0/glib/gstrfuncs.h
+	<stdarg.h>
+	<glib/gmacros.h>
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gstringchunk.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gtestutils.h
+	<glib/gmessages.h>
+	<glib/gstring.h>
+	<glib/gerror.h>
+	<glib/gslist.h>
+
+1478781615 /usr/include/glib-2.0/glib/gthreadpool.h
+	<glib/gthread.h>
+
+1478781615 /usr/include/glib-2.0/glib/gtimer.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gtrashstack.h
+	<glib/gutils.h>
+
+1478781615 /usr/include/glib-2.0/glib/gtree.h
+	<glib/gnode.h>
+
+1478781615 /usr/include/glib-2.0/glib/gurifuncs.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gvarianttype.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gvariant.h
+	<glib/gvarianttype.h>
+	<glib/gstring.h>
+	<glib/gbytes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gversion.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/gwin32.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/deprecated/gallocator.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/deprecated/gcache.h
+	<glib/glist.h>
+
+1478781615 /usr/include/glib-2.0/glib/deprecated/gcompletion.h
+	<glib/glist.h>
+
+1478781615 /usr/include/glib-2.0/glib/deprecated/gmain.h
+	<glib/gmain.h>
+
+1478781615 /usr/include/glib-2.0/glib/deprecated/grel.h
+	<glib/gtypes.h>
+
+1478781615 /usr/include/glib-2.0/glib/deprecated/gthread.h
+	<glib/gthread.h>
+	<sys/types.h>
+	<pthread.h>
+
+1478781615 /usr/include/glib-2.0/glib/glib-autocleanups.h
+
+1478781615 /usr/include/glib-2.0/glib/gprintf.h
+	<glib.h>
+	<stdio.h>
+	<stdarg.h>
+
+1478781615 /usr/include/glib-2.0/glib/gstdio.h
+	<glib/gprintf.h>
+	<sys/stat.h>
+
+1234337713 /home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working//irssi_otr.h
+	<common.h>
+	<core/commands.h>
+	<core/modules.h>
+	<core/servers.h>
+	<core/signals.h>
+	<core/levels.h>
+	<core/queries.h>
+	<fe-common/core/printtext.h>
+	<fe-common/core/fe-windows.h>
+	<fe-common/core/module-formats.h>
+	<core/modules.h>
+	<core/settings.h>
+	<irc/core/irc.h>
+	<irc/core/irc-queries.h>
+	<fe-text/statusbar-item.h>
+
+1234337713 /home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working//xchat_otr.h
+	"xchat-plugin.h"
+
+1449964889 /home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working//xchat-plugin.h
+	<time.h>
+
+1449966372 /home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/io-config.h
+
+1449968529 /home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/otr-formats.h
+
+1234337713 source:/home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/otr_key.c
+	"otr.h"
+	<libgen.h>
+	<sys/types.h>
+	<sys/wait.h>
+	<sys/poll.h>
+	<signal.h>
+
+1234337713 source:/home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/otr_ops.c
+	"otr.h"
+
+1234337713 source:/home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/otr_util.c
+	"otr.h"
+	<gcrypt.h>
+
+1449968529 source:/home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/xchat-formats.c
+	"otr.h"
+
+1234337713 source:/home/clayton/.xchat2-dev/otr/irssi-xchat-otr-0.3-working/xchat_otr.c
+	"otr.h"
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/proto.h
+	"context.h"
+	"version.h"
+	"tlv.h"
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/context.h
+	<gcrypt.h>
+	"dh.h"
+	"auth.h"
+	"sm.h"
+	"userstate.h"
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/dh.h
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/auth.h
+	<gcrypt.h>
+	"dh.h"
+	"privkey-t.h"
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/privkey-t.h
+	<gcrypt.h>
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/sm.h
+	<gcrypt.h>
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/userstate.h
+	"context.h"
+	"privkey-t.h"
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/version.h
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/tlv.h
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/message.h
+
+1449965056 /home/clayton/.xchat2-dev/otr/libotr2-git/src/privkey.h
+	<stdio.h>
+	"privkey-t.h"
+	"userstate.h"
+
+1476622885 /usr/include/libotr/proto.h
+	"context.h"
+	"version.h"
+	"tlv.h"
+
+1476622885 /usr/include/libotr/context.h
+	"context_priv.h"
+	<gcrypt.h>
+	"dh.h"
+	"auth.h"
+	"sm.h"
+	"instag.h"
+	"userstate.h"
+
+1476622885 /usr/include/libotr/context_priv.h
+	<gcrypt.h>
+	"dh.h"
+	"auth.h"
+	"sm.h"
+
+1476622885 /usr/include/libotr/dh.h
+
+1476622885 /usr/include/libotr/auth.h
+	<gcrypt.h>
+	<time.h>
+	"dh.h"
+	"privkey-t.h"
+
+1476622885 /usr/include/libotr/privkey-t.h
+	<gcrypt.h>
+
+1476622885 /usr/include/libotr/sm.h
+	<gcrypt.h>
+
+1476622885 /usr/include/libotr/instag.h
+	<stdio.h>
+	<errno.h>
+	"userstate.h"
+
+1476622885 /usr/include/libotr/userstate.h
+	"instag.h"
+	"context.h"
+	"privkey-t.h"
+
+1476622885 /usr/include/libotr/version.h
+
+1476622885 /usr/include/libotr/tlv.h
+
+1476622885 /usr/include/libotr/message.h
+
+1476622885 /usr/include/libotr/privkey.h
+	<stdio.h>
+	"privkey-t.h"
+	"userstate.h"
+
+1480699933 /usr/local/include/libotr/proto.h
+	"context.h"
+	"version.h"
+	"tlv.h"
+
+1480699932 /usr/local/include/libotr/context.h
+	<gcrypt.h>
+	"dh.h"
+	"auth.h"
+	"sm.h"
+	"userstate.h"
+
+1480699932 /usr/local/include/libotr/dh.h
+
+1480699933 /usr/local/include/libotr/auth.h
+	<gcrypt.h>
+	"dh.h"
+	"privkey-t.h"
+
+1480699933 /usr/local/include/libotr/privkey-t.h
+	<gcrypt.h>
+
+1480699933 /usr/local/include/libotr/sm.h
+	<gcrypt.h>
+
+1480699933 /usr/local/include/libotr/userstate.h
+	"context.h"
+	"privkey-t.h"
+
+1480699933 /usr/local/include/libotr/version.h
+
+1480699933 /usr/local/include/libotr/tlv.h
+
+1480699932 /usr/local/include/libotr/message.h
+
+1480699932 /usr/local/include/libotr/privkey.h
+	<stdio.h>
+	"privkey-t.h"
+	"userstate.h"
+

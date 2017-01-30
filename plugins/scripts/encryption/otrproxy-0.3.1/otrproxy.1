@@ -1,0 +1,53 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH OTRPPROXY 1 "January 18, 2005"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+otrproxy \- Off-the-Record Messaging Proxy
+.SH SYNOPSIS
+.B otrproxy
+
+.SH DESCRIPTION
+Off-the-Record (OTR) Messaging allows you to have private conversations
+over IM by providing:
+ - Encryption
+   - No one else can read your instant messages.
+ - Authentication
+   - You are assured the correspondent is who you think it is.
+ - Deniability
+   - The messages you send do \fInot\fP have digital signatures that are
+     checkable by a third party.  Anyone can forge messages after a
+     conversation to make them look like they came from you.  However,
+     \fIduring\fP a conversation, your correspondent is assured the messages
+     he sees are authentic and unmodified.
+ - Perfect forward secrecy
+   - If you lose control of your private keys, no previous conversation
+     is compromised.
+.PP
+The OTR Proxy allows you to participate in Off-the-Record conversations,
+using almost any AIM client.  [Only the AIM protocol is supported at
+this time.]
+.PP
+See the accompanying README file for more information.
+
+.SH SEE ALSO
+.BR "Off-the-Record Messaging" ,
+at
+.UR http://www.cypherpunks.ca/otr/
+http://www.cypherpunks.ca/otr/
+.UE
+.SH AUTHOR
+otrproxy was written by the OTR Dev Team <otr@cypherpunks.ca>.

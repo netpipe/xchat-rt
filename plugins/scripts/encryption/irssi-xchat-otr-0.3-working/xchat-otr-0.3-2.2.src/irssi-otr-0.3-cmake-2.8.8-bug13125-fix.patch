@@ -1,0 +1,20 @@
+Explicitly set PKG_CONFIG_FOUND as CMake 2.8.8 contains a regression that
+doesn't set it, also see http://www.cmake.org/Bug/view.php?id=13125
+the spec file has BuildRequires: cmake >= 2.4.7 anyway
+
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt.orig	2012-04-21 12:56:40.000000000 +0100
++++ CMakeLists.txt	2012-04-21 13:02:11.000000000 +0100
+@@ -59,6 +59,11 @@ MESSAGE(STATUS "Building irssi-otr versi
+ 
+ FIND_PACKAGE(PkgConfig QUIET)
+ 
++# Explicitly set PKG_CONFIG_FOUND as CMake 2.8.8 contains a regression that
++# doesn't set it, also see http://www.cmake.org/Bug/view.php?id=13125
++# the spec file has BuildRequires: cmake >= 2.4.7 anyway
++SET(PKG_CONFIG_FOUND 1)
++
+ IF(NOT PKG_CONFIG_FOUND)
+   MESSAGE(STATUS "Couldn't find the pkg-config cmake module. Seems you're
+   running cmake < 2.4.7. Will try to fetch the module from 2.4.7...")

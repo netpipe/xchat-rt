@@ -1,0 +1,67 @@
+xchat-guile (0.3-2) unstable; urgency=low
+
+  * Remove unnecessary .la file (closes: #633282)
+  * Bump up Standards-Version to 3.9.2
+  * Typo in README
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Sun, 10 Jul 2011 15:39:51 +0200
+
+xchat-guile (0.3-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump up Standards-Version to 3.8.2
+  * Fix watch file to adapt to upstream website change
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Fri, 24 Jul 2009 19:51:50 +0200
+
+xchat-guile (0.2.0.99-7) unstable; urgency=low
+
+  * Allow timer callbacks to report they shall not be called anymore.
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Tue, 04 Mar 2008 15:09:26 +0100
+
+xchat-guile (0.2.0.99-6) unstable; urgency=low
+
+  * Guile console for XChat
+  * Use associative lists instead of lists when returning information.
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Mon, 03 Mar 2008 19:14:40 +0100
+
+xchat-guile (0.2.0.99-5) unstable; urgency=low
+
+  * Install .scm files in 1.8 directory
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Wed, 27 Feb 2008 08:37:30 +0100
+
+xchat-guile (0.2.0.99-4) unstable; urgency=low
+
+  * Use Guile 1.8
+  * Bump up Standards-Version to 3.7.3
+  * Don't ignore "make clean" errors
+  * Make Homepage a real field
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Wed, 27 Feb 2008 08:17:45 +0100
+
+xchat-guile (0.2.0.99-3) unstable; urgency=low
+
+  * Add "Homepage:" to long description.
+  * Upstream URLs moved; adapt them.
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Sat, 27 May 2006 23:36:32 +0200
+
+xchat-guile (0.2.0.99-2) unstable; urgency=low
+
+  * This is a plug-in and not a "normal" shared library; it is thus
+    allowed to have undefined symbols, to be provided by xchat itself.
+    (closes: #384770)
+  * Switch to my Debian address for maintainer.
+  * Bump up Standards-Version
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Sun, 27 Aug 2006 15:09:48 +0200
+
+xchat-guile (0.2.0.99-1) unstable; urgency=low
+
+  * Initial release (closes: #365501)
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Sun, 30 Apr 2006 14:55:21 +0200
+

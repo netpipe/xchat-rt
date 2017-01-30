@@ -1,0 +1,1881 @@
+head	1.15;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.15
+date	2006.01.15.20.06.30;	author doug;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2006.01.15.20.00.33;	author doug;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2003.06.28.02.11.20;	author doug;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2002.10.03.01.35.26;	author doug;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2002.09.02.01.24.41;	author doug;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2002.07.06.00.32.49;	author doug;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2001.12.09.00.51.26;	author doug;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2001.09.28.00.45.39;	author doug;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2001.09.28.00.45.24;	author doug;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2001.09.28.00.44.55;	author doug;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2001.09.28.00.44.32;	author doug;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2001.09.28.00.44.08;	author doug;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2001.09.28.00.43.16;	author doug;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2001.09.28.00.40.46;	author doug;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2001.09.28.00.37.10;	author doug;	state Exp;
+branches;
+next	;
+
+
+desc
+@A Perl script that combines XQF with XChat
+@
+
+
+1.15
+log
+@Version 0.71
+@
+text
+@#!/usr/bin/perl -w
+#
+# XQF -> XChat Script
+# Version 0.71 (Released Jan 15, 2006) 
+# Written by Douglas Bollinger (Doogman) <doug@@sdf.lonestar.org>
+#
+# Special thanks to Ludwig Nussel for bugfixes and additional features and
+# Marcus Garcia (NiTrO) for ideas and testing.  I would also like to thank
+# Steffen Pankratz for bug fixes.
+#
+# More thanks to Gatewood Green (Woody) for Perl coding techniques for
+# working within Xchat.
+#
+# This script is public domain and you are free to use this code as you like
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  Nevertheless, I'm
+# still very interested in bug reports, feature requests and user feedback
+# sent to the above email address.
+#
+# Based on the GameSpy -> mIrc Script by Peter Reinhold
+#
+# This script allows other IRC users to query for stats of a gameserver you
+# are using by typing a command.  Requires XQF and XChat.
+#
+# Also included is optional Licq support.  When you start gaming, the
+# script will set your ICQ status to a user-specified setting and update
+# your autoresponse message with the stats of the game server you are
+# currently using.  When you return from the game, your ICQ status will be
+# set to available and your autoresponse message will be reset.
+#
+# NOTE: The Licq integration is no longer maintained, but you can enable it
+# below.  If you have a patch to make Licq work better again, I would
+# appreciate it.
+#
+# XQF is available at http://www.linuxgames.com/xqf/
+# XChat is available at http://www.xchat.org
+# Licq is available at http://www.licq.com
+#
+# The latest version of this script is available for download at the 
+# XQF -> XChat homepage at http://doug.freeshell.org/xqf-xchat/
+#
+# Tested on Linux XChat 1.8.11, XQF 0.9.11.2 and Licq 1.0.3 
+#
+# To use, copy this script to ~/.xchat/ and enable LaunchInfo.txt support
+# in XQF via preferences/appearance.
+
+package Xqf;
+use strict;
+use vars qw (%message %filepath %flood_times %flood_hits %flood_game
+  %config %flood_setting %nick %licq %script %scriptinfo %flood_ignore
+  @@active_channels);
+
+&IRC::register( "Xqf-XChat", "0.71", "", "" );
+&IRC::add_message_handler( "PRIVMSG", "Xqf::privmsg_handler" );
+&IRC::add_message_handler( "JOIN",    "Xqf::join_handler" );
+&IRC::add_command_handler( "return",  "Xqf::return_handler" );
+&IRC::add_command_handler( "xqf-xchathelp",  "Xqf::help_handler" );
+
+# Global variables for option control
+# Set to 1 to enable, 0 to disable
+$config{'licq'}   = 0;    # Licq support
+$config{'nick'}   = 0;    # Enable nick change that shows the player's gaming
+                          # status ie: nick to nick[game]
+$config{'away'}   = 0;    # Enable setting of /away when you start a game
+$config{'join'}   = 1;    # When you are gaming, alert people who join the
+                          # channel(s) you are using of what command to type
+                          # for your game stats
+$config{'notice'} = 0;    # Alert chatters with notice when you start a game
+$config{'notice_return'} = 0;    # Alert chatters with notice when you return
+                                 # from a game
+$config{'wall'}        = 1; # Alert chatters with wallchan when you start a game
+$config{'wall_return'} = 1; # Alert chatters with wallchan when you return
+                            # from a game
+                            # Note1: wallchan is less annoying to mIRC
+                            # users and is preferred
+							# Note2: wallchan messages are disabled when
+							# using the active_channels feature				
+$config{'licq_status'} = "na";           # Status for Licq while you are gaming
+                                         # Choose from:  na, away, occupied, dnd
+$script{'irccommand'}  = "!gameinfo";    # Command to receive stats
+$script{'pingserver'}  = "!aping"; 		 # Command to activate server pinging
+
+# Below is the setting to enable/disable server pinging.  Here's a typical
+# use for this feature to describe it's function:  You and your friends
+# meet in a IRC channel and decide to use a public server.  Someone uses
+# XQF to find a nice server, uses copy or copy+ to grab the server info,
+# types in xchat "!aping" (default, can be changed) and pastes the server
+# information (the dotted quad IP address) after the command into a xchat
+# window.  All the other xchat users who have this script running with the
+# pingserver feature enabled will automatically ping the server and report
+# the ping results back to that channel for the other users to see.  This
+# way you can find a good server for all the people in the channel quickly
+# and easily with a minimal amount of cut and pasting of IP numbers.
+#
+# Input examples:
+# !aping 205.177.13.20
+# !aping 205.177.13.20:27963
+# !aping 66  205.177.13.20:27963   =JC= Just Cause  mp_assault  10 of 20
+#
+# Output example:
+# 205.177.13.20= 64.219 ms
+#
+# Since this feature probably can be used for nefarious purposes, it is
+# disabled by default; you can enable it below.  It is also recommended to
+# use the active_channels feature to limit the script activity to just the
+# channel(s) that you and your gaming buddies use for meetings.
+
+$config{'pingserver'} = 0;	# Enable server pinging 
+							# Set to 1 to enable, 0 to disable
+
+# Below is the active channel setting.  Normally this script listens for
+# commands and sends the join and notice/wall messages to every channel
+# opened in the main Xchat window.  Sometimes you want to monitor channels
+# while gaming whose participants aren't interested in your gaming
+# information, so the active channels feature was added.  Any channels
+# added to the active channels list will be the ONLY ones monitored for
+# commands or to receive join or notice/wall messages.  Note:  Due to the
+# nature of wall (write all), it will be completely disabled when using
+# active channels.  If you want other chatters (in channels not in the
+# active channel list) to be notified when you start or return from a game,
+# you must activate notice and/or notice_return.  These are set off by
+# default.
+# 
+# Please note that if you activate the "away" setting that people in
+# channels other than the active channel list will see a message.  This is
+# a feature of IRC.
+#
+# Put your active channels inbetween the parenthesis, with a single space
+# between the channels and each channel starting with a pound (#) sign.
+# Add as many channels as you like.  If no active channels are entered,
+# _ALL_ channels will be monitored for commands and receive script output,
+# which is the default setting.
+# 
+# Example:
+# @@active_channels = qw(#clanxqf #myotherclan);
+
+@@active_channels= qw();
+
+# Flood protection settings
+$flood_setting{'attempts'}   = 3;        # Number of irccommands before flood
+                                         # protection is enabled and chatter
+                                         # is ignored
+$flood_setting{'timespan'}   = 30;       # Seconds before flood counter is
+                                         # reset
+$flood_setting{'timeignore'} = 120;      # Seconds before chatter is
+                                         # un-ignored
+
+# Set paths to important files
+$filepath{'launchinfo'} = "$ENV{HOME}/.qf/LaunchInfo.txt";
+$filepath{'licq_fifo'}  = "$ENV{HOME}/.licq/licq_fifo";
+
+$script{'playing'}   = 0;                # You are not gaming by default
+$script{'licq_time'} = 0;                # Reset Licq refresh time
+
+# Global variables containing script info
+$scriptinfo{'name'}    = "XQF -> XChat";
+$scriptinfo{'version'} = "0.71";
+$scriptinfo{'author'}  = "Douglas Bollinger";
+$scriptinfo{'email'}   = "doug\@@sdf.lonestar.org";
+$scriptinfo{'URL'}     = "http://doug.freeshell.org/xqf-xchat/";
+
+# Print script info 
+&IRC::print( "\n\0033" . "-" x 45 . "\003\n" );
+&IRC::print(
+"Loading\002 $scriptinfo{'name'} \002 Version:\002 $scriptinfo{'version'}\002"
+);
+&IRC::print("By: $scriptinfo{'author'} \002<\002$scriptinfo{'email'}\002>\002");
+&IRC::print("$scriptinfo{'URL'}");
+&IRC::print("\nFor help: /xqf-xchathelp");
+&IRC::print( "\0033" . "-" x 45 . "\003\n\n" );
+
+# Remove old LaunchInfo.txt file
+if ( -e $filepath{'launchinfo'} ) { unlink $filepath{'launchinfo'} }
+
+# init messages
+&Xqf::update_messages();
+
+&IRC::add_timeout_handler( 2000, "Xqf::checklaunchinfo_handler" );
+&IRC::add_timeout_handler( 3000, "Xqf::flushignorelist_handler" );
+
+sub update_messages {
+    $Xqf::nick{'default'} = &IRC::get_info(1);    # Gets current nick
+         # If enabled, nick is changed to below while gaming
+         # You can change default nick ending [game] to whatever
+    $Xqf::nick{'game'} = $Xqf::nick{'default'} . "[game]";
+
+    # Various script messages are below
+    $Xqf::message{'ignore'} =
+"$Xqf::nick{'default'}'s XQF -> XChat script is ignoring you for $Xqf::flood_setting{'timeignore'} seconds!";
+    $Xqf::message{'ignore_ret'} =
+      "$Xqf::nick{'default'}'s XQF -> XChat script is listening to you again";
+    $Xqf::message{'away'} =
+      "I'm gaming right now.  $Xqf::script{'irccommand'} for more info.";
+    $Xqf::message{'notice'} =
+"$Xqf::nick{'default'} is gaming.  $Xqf::script{'irccommand'} for more info.";
+    $Xqf::message{'not_playing'} =
+      "$Xqf::nick{'default'} is not gaming right now";
+    $Xqf::message{'return'} = "I'm back from the game!";
+}
+
+sub checklaunchinfo_handler {
+    my (@@channels);
+    if ( !-e $Xqf::filepath{'launchinfo'} ) {
+        &IRC::add_timeout_handler( 2000, "Xqf::checklaunchinfo_handler" );
+    }
+    else {
+        $Xqf::script{'playing'} = 1;
+        &Xqf::update_messages();
+        if ( $Xqf::config{'notice'} ) {
+            @@channels = &Xqf::retrieve_channels;
+            foreach (@@channels) {
+                &IRC::command("/notice $_ $Xqf::message{'notice'}");
+            }
+        }
+        if ( $Xqf::config{'wall'} ) {
+			if ( @@Xqf::active_channels) {
+				&IRC::print("\n\002$Xqf::scriptinfo{'name'}: \0035Sorry,".
+					" wallchan messages are disabled"); 
+				&IRC::print("\002\0035when using a active channel list!");
+			} else {
+				&IRC::command("/WALLCHAN $Xqf::message{'notice'}");
+			}
+        }
+        if ( $Xqf::config{'nick'} ) {
+            &IRC::command("/nick $Xqf::nick{'game'}");
+
+            # Make sure the nick change goes through
+            unless ( &IRC::get_info(1) eq $Xqf::nick{'game'} ) {
+                &IRC::print(
+"\002$Xqf::scriptinfo{'name'}: \0035Waiting for nick change..."
+                );
+                sleep 2;
+            }
+        }
+        if ( $Xqf::config{'away'} ) {
+            &IRC::command("/away $Xqf::message{'away'}");
+        }
+
+        # Print the return instructions to the XChat user
+        &IRC::print(
+            "\n\002$Xqf::scriptinfo{'name'}: \0035" . "#" x 27 . "\n" );
+        &IRC::print(
+            "\002$Xqf::scriptinfo{'name'}: \0035Type /return to reset Xchat\n");
+        &IRC::print(
+            "\002$Xqf::scriptinfo{'name'}: \0035" . "#" x 27 . "\n\n" );
+    }
+    return 0;
+}
+
+sub make_message_serverstats {
+    my (
+        @@launchinfo,       $gamestart,        $server_game,
+        $server_name,      $server_ip,        $server_mod,
+        $server_time_mins, $server_time_secs, @@message
+    );
+    open( LAUNCHINFO, $Xqf::filepath{'launchinfo'} );    # Import server stats
+    chomp( @@launchinfo = <LAUNCHINFO> );
+    close(LAUNCHINFO);
+    foreach (@@launchinfo) { s/^\w+\s// }    # Weed out unnecessary info
+    ( $server_game, $server_name, $server_ip, $server_mod ) =
+      (@@launchinfo)[ 0, 1, 2, 3 ];          # Set variables from array
+    ($gamestart) = ( stat( $Xqf::filepath{'launchinfo'} ) )[9];
+    $server_time_mins = int( ( time - $gamestart ) / 60 );
+    $server_time_secs = ( time - $gamestart ) % 60;
+    $message[0] =
+      "$Xqf::nick{'default'} is playing $server_game " . "/ $server_mod";
+    $message[1] = "Servername: $server_name";
+    $message[2] = "ServerIP: $server_ip";
+    $message[3] =
+"$Xqf::nick{'default'} started playing $server_time_mins mins $server_time_secs secs ago";
+    return @@message;
+}
+
+sub privmsg_handler {
+    my ( $line, $nick, $channel, $message, @@message_outgoing );
+    $line = shift (@@_);
+	# Is the next line crash proof?
+	$line =~ /:(.*)!(.*@@.*) .* (#.*) :(.*)/;
+    $nick = $1;
+	$channel = $3;
+	$message = $4;
+
+	# Don't do anything if the nick is being ignored
+	unless ( exists( $Xqf::flood_ignore{$nick} )) {
+        # If the command comes from a channel in the active_channels list
+		# or the active_channels list is empty, process command
+		if (grep { /^$channel$/ } @@Xqf::active_channels or
+			! @@Xqf::active_channels) {
+			# Process the gameserver stat command
+			if ( $message =~ /^$Xqf::script{'irccommand'}/i ) {
+				if ( !$Xqf::script{'playing'} ) {
+					&IRC::command(
+						"/notice $nick $Xqf::message{'not_playing'}")
+				} else {
+					@@message_outgoing = &Xqf::make_message_serverstats();
+					# Send server stats to person who asked
+					foreach (@@message_outgoing) {
+						&IRC::command("/notice $nick $_");
+					}
+					# Start floodprotection on user who called
+					&Xqf::floodprotect($nick);
+				}
+			}
+			
+			# Process the server ping command
+			if ($message =~ /^$Xqf::script{'pingserver'}/i and 
+				$Xqf::config{'pingserver'}){
+				if ($Xqf::script{'playing'}) {
+					&IRC::command("/notice $nick No pinging while gaming")
+				} else {
+					@@message_outgoing = &Xqf::make_message_ping($message);	
+					# Send ping stats to room
+					foreach (@@message_outgoing) {
+						&IRC::command("/notice $channel $_");
+					}
+					# Start floodprotection on user who called
+					&Xqf::floodprotect($nick);
+				}
+			}
+		}
+	}
+	return 0;
+}
+
+sub make_message_ping {
+
+	my ($line, $ip_number, @@ping_output, $average_ping, $average_line,
+	@@message);
+	$line = shift (@@_);
+	# This regexp should find the dotted quad in the message line, if not
+	# it messages an error to the person who sent the command
+	if ($line !~ /.*?(\d+\.\d+\.\d+\.\d+).*/) {
+		@@message = "Can't understand this IP number: $line";
+	} else {
+		$ip_number = $1;
+        &IRC::print("\002$scriptinfo{'name'}: \0035Pinging $ip_number");
+		# This is the command that will run ping for the server latency.
+		# The -w flag is the maximum seconds ping will run, the -i flag is
+		# how long ping will wait in seconds between packets and the -c
+		# flag is the maximum amount of pings it will send to the ip number
+		# If you seem to have trouble with pingserver, try using -i 1
+		@@ping_output = `ping -w 2 -i .5 -c 3 $ip_number`;
+		$average_line= $ping_output[-1];
+		# Take the last line and use a regexp to grab the average while
+		# checking to make sure the ping output is legit
+		if ($average_line !~ m#^.+= \S+/(\S+)/\S+/.*#) {
+			# Uh-oh, 100% packet loss
+			if ($average_line !~ /^rtt.*/	) {
+				$average_ping = "Cannot connect";
+			} else {
+				# Catch all error message
+				&IRC::print("\002$scriptinfo{'name'}: \0035Having trouble parsing the ping command?!?");
+			}
+		} else {
+			$average_ping = "$1 ms";
+		}
+			@@message = "$ip_number= $average_ping";
+	}
+	return @@message;
+}
+
+sub help_handler {
+	&IRC::print( "\n\0033" . "-" x 55 . "\003\n" );
+	&IRC::print( "Make sure you enabled LaunchInfo.txt support in XQF" );
+	&IRC::print( "via Preferences / Appearance." );
+	&IRC::print( "\nAlso, your Licq (if running) status and autoresponse" );
+	&IRC::print( "message will be changed to reflect your gaming status." );
+	&IRC::print( "This can be defeated by editing this script file." );
+	&IRC::print( "\nWhen you start a game via XQF, the script will" );
+	&IRC::print( "automatically start running.  When you are done gaming, ");
+	&IRC::print( "type /return in a XChat window to inform the script you ");
+	&IRC::print( "have returned. ");
+	&IRC::print( "\0033" . "-" x 55 . "\003\n\n" );
+	return 1;
+}
+
+sub return_handler {
+    my (@@channels);
+    unless ( $Xqf::script{'playing'} ) {
+        &IRC::print("\002$scriptinfo{'name'}: \0035You are not gaming!");
+        return 1;
+    }
+    if ( $Xqf::config{'nick'} ) {
+        &IRC::command("/nick $Xqf::nick{'default'}");
+		# Make sure the nick change goes through
+        unless ( &IRC::get_info(1) eq $Xqf::nick{'default'} ) {
+            &IRC::print(
+                "\002$scriptinfo{'name'}: \0035Waiting for nick change...");
+            sleep 2;
+        }
+    }
+    if ( $Xqf::config{'away'} )          { &IRC::command("/away") }
+    if ( $Xqf::config{'notice_return'} ) {
+        # Tell all valid channels user is returning
+        @@channels = &Xqf::retrieve_channels;
+        foreach (@@channels) {
+            &IRC::command("/notice $_ $Xqf::message{'return'}");
+        }
+    }
+    if ( $Xqf::config{'wall_return'} ) {
+		if ( @@Xqf::active_channels) {
+			&IRC::print("\n\002$Xqf::scriptinfo{'name'}: \0035Sorry,".
+				" wallchan messages are disabled"); 
+			&IRC::print("\002\0035when using a active channel list!");
+		} else {
+	        &IRC::command("/WALLCHAN $Xqf::message{'return'}");
+		}
+    }
+
+    # Delete LaunchInfo.txt and reset playing variable
+    unlink $Xqf::filepath{'launchinfo'};
+    $Xqf::script{'playing'} = 0;
+
+    # Reset Licq auto-response message and set status to online
+    if ( &Xqf::check_licq() ) {
+        system("echo auto_response > $Xqf::filepath{'licq_fifo'}");
+        system("echo status online > $Xqf::filepath{'licq_fifo'}");
+    }
+
+    # Start looking for LaunchInfo.txt again
+    &IRC::add_timeout_handler( 2000, "Xqf::checklaunchinfo_handler" );
+    return 1;
+}
+
+sub join_handler {
+    my ( $line, $nick, $channel );
+    $line = shift (@@_);
+    $line =~ /:(.*)!(.*@@.*) .*:(.*)/;
+    $nick = $1;
+	$channel = $3;
+
+    # If user is playing, send message to channel joiners
+    if ( $Xqf::script{'playing'} and $Xqf::config{'join'} ) {
+        # If the join comes from a channel in the active_channels list
+		# or the active_channels list is empty, send message 
+        if (grep { /^$channel$/ } @@Xqf::active_channels or
+			! @@Xqf::active_channels) {
+			&IRC::command("/notice $nick $Xqf::message{'notice'}");
+		}
+    }
+    return 0;
+}
+
+sub floodprotect {
+    my ($nick);
+    $nick = $_[0];
+
+    # Increment tally for nick 
+    $Xqf::flood_hits{$nick}++;
+
+    # Sets the time of first query.  
+    if ( !exists( $Xqf::flood_times{$nick} ) ) {
+        $Xqf::flood_times{$nick} = time + $Xqf::flood_setting{'timespan'};
+    }
+
+    # Nick exceeded queries/time.  Add nick to flood ignore 
+    if ( $Xqf::flood_hits{$nick} > ( $Xqf::flood_setting{'attempts'} ) ) {
+        &IRC::command("/notice $nick $Xqf::message{'ignore'}");
+        $Xqf::flood_ignore{$nick} = time + $Xqf::flood_setting{'timeignore'};
+    }
+}
+
+sub flushignorelist_handler {
+    my ( $nick, $time );
+    if ( keys(%Xqf::flood_times) ) {
+        while ( ( $nick, $time ) = each(%Xqf::flood_times) ) {
+            if ( $time < time ) {
+                # Times up.  Remove nick to reset query timer
+                delete( $Xqf::flood_times{$nick} );
+                delete( $Xqf::flood_hits{$nick} );
+            }
+        }
+    }
+    if ( keys(%Xqf::flood_ignore) ) {
+        while ( ( $nick, $time ) = each(%Xqf::flood_ignore) ) {
+            if ( $time < time ) {
+                # Times up.  Un-ignore nick & send mess.
+                delete( $Xqf::flood_ignore{$nick} );
+                &IRC::command( "/notice $nick "
+                    . "$nick, $Xqf::message{'ignore_ret'}" );
+            }
+        }
+    }
+
+    # A player might switch servers without restarting the script.
+    # For the Licq message to be accurate we have to check for a
+    # server change at regular intervals
+    if ( $Xqf::script{'playing'} and &Xqf::check_licq() ) {
+        &Xqf::freshen_licq_awaymessage;
+    }
+    &IRC::add_timeout_handler( 3000, "Xqf::flushignorelist_handler" );
+    return 1;
+}
+
+sub check_licq {
+    if ( $Xqf::config{'licq'} and ( grep { /licq/ } `ps -ax` ) ) {
+        return 1;
+    }
+    return 0;
+}
+
+sub retrieve_channels {
+	my (@@channels, @@valid_channels, %seen, $room);
+
+	@@channels = grep { /^#/ } &IRC::channel_list();
+	@@seen{@@Xqf::active_channels} = ();
+	# If we have active channels, go through all the channels we have open
+	# in Xchat and only copy into valid_channel channels that are both
+	# being used and in active_channel.  This way you can put channels in
+	# active_channel that you aren't using every session and not have
+	# errors when the script try to access them and the window isn't open
+	if (@@Xqf::active_channels) {
+		foreach $room (@@channels) {
+			push (@@valid_channels, $room) if exists $seen{$room};
+		}
+	} else {
+		# Empty active_channel?  Then all open channels are fair game
+		@@valid_channels = @@Xqf::active_channels;
+	}
+	return @@valid_channels;
+
+}
+
+sub freshen_licq_awaymessage {
+    my ( $gamestart, @@mesg, $output );
+    ($gamestart) = ( stat( $Xqf::filepath{'launchinfo'} ) )[9];
+
+    # Is Licq autoresponse messsage outdated?
+    if ( $Xqf::script{'licq_time'} < $gamestart ) {
+
+        # Get server stat messages
+        @@mesg = &Xqf::make_message_serverstats();
+
+		# The problem is here:  The shell escaping is off somehow.  It used
+		# to work but now it doesn't. :(
+		#
+        # Need to get \n's to Licq but Perl wants to expand them.
+        # To make Perl ignore them we need to use double \'s
+        # Also need to use \" to get quotes around message so 
+        # shell doesn't choke on special characters. ie '|> etc.
+		$output = "\"status $Xqf::config{'licq_status'} $mesg[0]\\n$mesg[1]\\n$mesg[2]\"";
+
+        # Send status & autoresponse message string to Licq
+        system("echo $output > $Xqf::filepath{'licq_fifo'}");
+
+        # Set time of last Licq away message
+        $Xqf::script{'licq_time'} = $gamestart;
+
+        # Print what's going to X-Chat user
+        &IRC::print(
+"\002$Xqf::scriptinfo{'name'}: \0035Updating Licq autoresponse message & setting status to $Xqf::config{'licq_status'}"
+        );
+    }
+}
+
+@
+
+
+1.14
+log
+@Version 0.71
+@
+text
+@d157 1
+a157 1
+$scriptinfo{'version'} = "0.70";
+@
+
+
+1.13
+log
+@Version 0.70
+@
+text
+@d4 1
+a4 1
+# Version 0.70 (Released Jun 28, 2003) 
+d7 3
+a9 2
+# Special thanks to Ludwig Nussel for bugfixes and additional features
+# and Marcus Garcia (NiTrO) for ideas and testing.
+d11 1
+a11 1
+# Also like to thank Gatewood Green (Woody) for Perl coding techniques for
+d50 2
+a51 1
+  %config %flood_setting %nick %licq %script %scriptinfo @@active_channels);
+d53 1
+a53 1
+&IRC::register( "Xqf-XChat", "0.70", "", "" );
+@
+
+
+1.12
+log
+@Version 0.60
+@
+text
+@d4 1
+a4 1
+# Version 0.60 (Released Oct 3, 2002) 
+d6 1
+d8 4
+d30 4
+d41 1
+a41 1
+# Tested on Linux XChat 1.8.9, XQF 0.9.9 and Licq 1.0.3 
+d49 1
+a49 1
+  %config %flood_setting %nick %licq %script %scriptinfo @@quiet_channels);
+d51 1
+a51 1
+&IRC::register( "Xqf-XChat", "0.60", "", "" );
+d59 1
+a59 1
+$config{'licq'}   = 1;    # Licq support
+d75 1
+a75 1
+							# using the quiet_channels feature				
+d79 1
+d81 35
+a115 6
+# Below is the quiet channel setting.  Normally this script sends the join
+# and notice/wall messages to every channel opened in the main Xchat
+# window.  Sometimes you want to monitor channels while gaming whose
+# participants aren't interested in your gaming information, so the quiet
+# channels feature was added.  Any channels added to the quiet channels
+# list will NOT receive join or notice/wall commands.  Note:  Do to the
+d117 4
+a120 3
+# quiet channels.  If you want other chatters (in channels not in
+# quiet_channels) to be notified when you start or return from a game, you
+# must activate notice and/or notice_return.  These are set off by default.
+d122 3
+a124 2
+# Please note that if you activate the "away" setting that people in quiet
+# channels will see a message.  This is a feature of IRC.
+d126 1
+a126 1
+# Put your quiet channels inbetween the parenthesis, with a single space
+d128 3
+a130 1
+# Add as many channels as you like.
+d133 1
+a133 1
+# @@quiet_channels = qw(#linuxhelp #lokihelp);
+d135 1
+a135 1
+@@quiet_channels= qw();
+d155 1
+a155 1
+$scriptinfo{'version'} = "0.60";
+d214 1
+a214 1
+			if ( @@Xqf::quiet_channels) {
+d217 1
+a217 1
+				&IRC::print("\002\0035when a quiet channel list is active!");
+d273 1
+a273 1
+    my ( $line, $nick_query, @@message_query );
+d275 47
+a321 6
+    $line =~ /:(.*)!(.*@@.*) .*:(.*)/;
+    $nick_query = $1;
+    if ( $3 =~ /^$Xqf::script{'irccommand'}$/i ) {
+        if ( !$Xqf::script{'playing'} ) {
+            &IRC::command(
+                "/notice $nick_query $Xqf::message{'not_playing'}")
+d323 1
+a323 6
+              # Is nick being ignored?  If so, do nothing
+        }
+        elsif ( exists( $Xqf::flood_ignore{$nick_query} ) ) {
+        }
+        else {
+            @@message_query = &Xqf::make_message_serverstats();
+d325 33
+a357 10
+            # Send server stats to person who asked
+            foreach (@@message_query) {
+                &IRC::command("/notice $nick_query $_");
+            }
+
+            # Start floodprotection on user who called
+            &Xqf::floodprotect($nick_query);
+        }
+    }
+    return 0;
+d383 1
+d392 1
+a392 1
+        # Tell all channels user is returning
+d399 1
+a399 1
+		if ( @@Xqf::quiet_channels) {
+d402 1
+a402 1
+			&IRC::print("\002\0035when a quiet channel list is active!");
+d424 1
+a424 1
+    my ( $line, $nick_query, $channel_query );
+d427 2
+a428 2
+    $nick_query = $1;
+	$channel_query = $3;
+d432 5
+a436 2
+        unless (grep { /$channel_query/ } @@Xqf::quiet_channels) {
+			&IRC::command("/notice $nick_query $Xqf::message{'notice'}");
+a465 1
+
+a474 1
+
+d504 13
+a516 4
+	@@seen{@@Xqf::quiet_channels} = ();
+
+	foreach $room (@@channels) {
+		push (@@valid_channels, $room) unless exists $seen{$room};
+a517 1
+
+d532 3
+d539 1
+a539 2
+        $output =
+"\"status $Xqf::config{'licq_status'} $mesg[0]\\n$mesg[1]\\n$mesg[2]\"";
+@
+
+
+1.11
+log
+@Version 0.56
+@
+text
+@d4 1
+a4 1
+# Version 0.56 (Released Sep 2, 2002) 
+d40 1
+a40 1
+  %config %flood_setting %nick %licq %script %scriptinfo);
+d42 1
+a42 1
+&IRC::register( "Xqf-XChat", "0.56", "", "" );
+d51 1
+a51 1
+$config{'nick'}   = 1;    # Enable nick change that shows the player's gaming
+d53 1
+a53 1
+$config{'away'}   = 1;    # Enable setting of /away when you start a game
+d55 1
+a55 1
+                          # channel(s) you are using of the command to type
+d60 1
+a60 1
+$config{'wall'}        = 0; # Alert chatters with wallchan when you start a game
+d63 1
+a63 1
+                            # Note:  wallchan is less annoying to mIRC
+d65 2
+d71 23
+d112 1
+a112 1
+$scriptinfo{'version'} = "0.56";
+d165 1
+a165 1
+            @@channels = grep { /^#/ } &IRC::channel_list();
+d171 7
+a177 1
+            &IRC::command("/WALLCHAN $Xqf::message{'notice'}");
+a288 1
+
+d290 1
+a290 1
+        @@channels = grep { /^#/ } &IRC::channel_list();
+d296 7
+a302 1
+        &IRC::command("/WALLCHAN $Xqf::message{'return'}");
+d321 1
+a321 1
+    my ( $line, $nick_query );
+d325 1
+d329 3
+a331 1
+        &IRC::command("/notice $nick_query $Xqf::message{'notice'}");
+d394 14
+@
+
+
+1.10
+log
+@Version 0.55
+@
+text
+@d4 1
+a4 1
+# Version 0.55 (Released Jul 7, 2002) 
+d42 1
+a42 1
+&IRC::register( "Xqf-XChat", "0.55", "", "" );
+d87 1
+a87 1
+$scriptinfo{'version'} = "0.55";
+d142 1
+a142 1
+                &IRC::command("/notice $_ $Xqf::message{'notice'}\r\n");
+d146 1
+a146 1
+            &IRC::command("/WALLCHAN $Xqf::message{'notice'}\r\n");
+d149 1
+a149 1
+            &IRC::command("/nick $Xqf::nick{'game'}\r\n");
+d160 1
+a160 1
+            &IRC::command("/away $Xqf::message{'away'}\r\n");
+d206 1
+a206 1
+                "/notice $nick_query $Xqf::message{'not_playing'}\r\n")
+d217 1
+a217 1
+                &IRC::command("/notice $nick_query $_\r\n");
+d249 1
+a249 1
+        &IRC::command("/nick $Xqf::nick{'default'}\r\n");
+d256 1
+a256 1
+    if ( $Xqf::config{'away'} )          { &IRC::command("/away\r\n") }
+d262 1
+a262 1
+            &IRC::command("/notice $_ $Xqf::message{'return'}\r\n");
+d266 1
+a266 1
+        &IRC::command("/WALLCHAN $Xqf::message{'return'}\r\n");
+d292 1
+a292 1
+        &IRC::command("/notice $nick_query $Xqf::message{'notice'}\r\n");
+d311 1
+a311 1
+        &IRC::command("/notice $nick $Xqf::message{'ignore'}\r\n");
+d335 1
+a335 1
+                    . "$nick, $Xqf::message{'ignore_ret'}\r\n" );
+@
+
+
+1.9
+log
+@Version 0.54
+@
+text
+@d4 1
+a4 1
+# Version 0.54 (Released Dec 9, 2001) 
+d30 1
+a30 1
+# XQF -> XChat homepage at http://sdf.lonestar.org/~doug/xqf-xchat
+d32 1
+a32 1
+# Tested on Linux XChat 1.8.1, XQF 0.9.6g and Licq 1.0.3 
+d42 1
+a42 1
+&IRC::register( "Xqf-XChat", "0.54", "", "" );
+d46 1
+d87 1
+a87 1
+$scriptinfo{'version'} = "0.54";
+d90 1
+a90 1
+$scriptinfo{'URL'}     = "http://sdf.lonestar.org/~doug/xqf-xchat";
+d99 1
+d225 15
+@
+
+
+1.8
+log
+@Version 0.53
+@
+text
+@d4 1
+a4 1
+# Version 0.53 (Released Aug 3, 2001) 
+d32 1
+a32 1
+# Tested on Linux XChat 1.8.1, XQF 0.9.5 and Licq 1.0 
+d39 2
+a40 2
+use vars qw (%message %filepath %flood_times %flood_hits %flood_game 
+             %config %flood_setting %nick %licq %script %scriptinfo);
+d42 4
+a45 4
+&IRC::register("Xqf-XChat","0.53","","");
+&IRC::add_message_handler("PRIVMSG","Xqf::privmsg_handler");
+&IRC::add_message_handler("JOIN","Xqf::join_handler");
+&IRC::add_command_handler("return","Xqf::return_handler");
+d48 19
+a66 19
+		       # Set to 1 to enable, 0 to disable
+$config{'licq'}   = 1; # Licq support
+$config{'nick'}   = 1; # Enable nick change that shows the player's gaming 
+		       # status ie: nick to nick[game]
+$config{'away'}   = 1; # Enable setting of /away when you start a game
+$config{'join'}   = 1; # When you are gaming, alert people who join the 
+		       # channel(s) you are using of the command to type 
+		       # for your game stats 
+$config{'notice'} = 0; # Alert chatters with notice when you start a game
+$config{'notice_return'} = 0; # Alert chatters with notice when you return 
+			      # from a game
+$config{'wall'} = 0;  # Alert chatters with wallchan when you start a game
+$config{'wall_return'} = 1; # Alert chatters with wallchan when you return 
+			    # from a game
+			    # Note:  wallchan is less annoying to mIRC
+			    # users and is preferred
+$config{'licq_status'} = "na";     # Status for Licq while you are gaming
+				   # Choose from:  na, away, occupied, dnd
+$script{'irccommand'} = "!gameinfo";  # Command to receive stats
+d69 8
+a76 7
+$flood_setting{'attempts'}   =   3; # Number of irccommands before flood 
+				    # protection is enabled and chatter
+				    # is ignored
+$flood_setting{'timespan'}   =  30; # Seconds before flood counter is 
+				    # reset
+$flood_setting{'timeignore'} = 120; # Seconds before chatter is 
+				    # un-ignored
+d81 2
+a82 2
+$script{'playing'}   = 0;             # You are not gaming by default
+$script{'licq_time'} = 0;             # Reset Licq refresh time
+d85 5
+a89 5
+$scriptinfo{'name'}     = "XQF -> XChat";
+$scriptinfo{'version'}  = "0.53";
+$scriptinfo{'author'}   = "Douglas Bollinger";
+$scriptinfo{'email'}    = "doug\@@sdf.lonestar.org";
+$scriptinfo{'URL'}      = "http://sdf.lonestar.org/~doug/xqf-xchat";
+d92 4
+a95 2
+&IRC::print("\n\0033" . "-" x 45 ."\003\n");
+&IRC::print("Loading\002 $scriptinfo{'name'} \002 Version:\002 $scriptinfo{'version'}\002");
+d98 1
+a98 1
+&IRC::print("\0033" . "-" x 45 ."\003\n\n");
+d101 1
+a101 1
+if (-e $filepath{'launchinfo'}) { unlink $filepath{'launchinfo'} }
+d106 2
+a107 2
+&IRC::add_timeout_handler(2000, "Xqf::checklaunchinfo_handler");
+&IRC::add_timeout_handler(3000, "Xqf::flushignorelist_handler");
+d109 18
+a126 12
+sub update_messages{
+	$Xqf::nick{'default'} = &IRC::get_info(1); # Gets current nick
+	# If enabled, nick is changed to below while gaming
+	# You can change default nick ending [game] to whatever
+	$Xqf::nick{'game'} = $Xqf::nick{'default'} . "[game]"; 
+	# Various script messages are below
+	$Xqf::message{'ignore'} = "$Xqf::nick{'default'}'s XQF -> XChat script is ignoring you for $Xqf::flood_setting{'timeignore'} seconds!";
+	$Xqf::message{'ignore_ret'} = "$Xqf::nick{'default'}'s XQF -> XChat script is listening to you again";
+	$Xqf::message{'away'} = "I'm gaming right now.  $Xqf::script{'irccommand'} for more info.";
+	$Xqf::message{'notice'} = "$Xqf::nick{'default'} is gaming.  $Xqf::script{'irccommand'} for more info.";
+	$Xqf::message{'not_playing'} = "$Xqf::nick{'default'} is not gaming right now";
+	$Xqf::message{'return'} = "I'm back from the game!"
+d130 40
+a169 32
+	my (@@channels);
+	if (! -e $Xqf::filepath{'launchinfo'}) {
+		&IRC::add_timeout_handler(2000,"Xqf::checklaunchinfo_handler")
+	} else {
+		$Xqf::script{'playing'} = 1;
+		&Xqf::update_messages();
+		if ($Xqf::config{'notice'}) {
+			@@channels = grep { /^#/ } &IRC::channel_list();
+			foreach (@@channels) {
+				&IRC::command("/notice $_ $Xqf::message{'notice'}\r\n")
+			}
+		}
+		if ($Xqf::config{'wall'}) {
+			&IRC::command("/WALLCHAN $Xqf::message{'notice'}\r\n")
+		}
+		if ($Xqf::config{'nick'}) {
+			&IRC::command("/nick $Xqf::nick{'game'}\r\n");
+			# Make sure the nick change goes through
+			unless (&IRC::get_info(1) eq $Xqf::nick{'game'}) {
+				&IRC::print("\002$Xqf::scriptinfo{'name'}: \0035Waiting for nick change...");
+				sleep 2
+			}
+		}
+		if ($Xqf::config{'away'}) {
+			&IRC::command("/away $Xqf::message{'away'}\r\n")
+		}
+		# Print the return instructions to the XChat user
+		&IRC::print("\n\002$Xqf::scriptinfo{'name'}: \0035" . "#" x 27 . "\n");
+		&IRC::print("\002$Xqf::scriptinfo{'name'}: \0035Type /return to reset Xchat\n");
+		&IRC::print("\002$Xqf::scriptinfo{'name'}: \0035" . "#" x 27 . "\n\n")
+	}
+	return 0
+d173 21
+a193 18
+	my (@@launchinfo, $gamestart, $server_game, $server_name,
+	    $server_ip, $server_mod, $server_time_mins,
+	    $server_time_secs, @@message);
+	open(LAUNCHINFO, $Xqf::filepath{'launchinfo'}); # Import server stats  
+	chomp(@@launchinfo = <LAUNCHINFO>);	
+	close (LAUNCHINFO);	
+	foreach (@@launchinfo) {s/^\w+\s//}  # Weed out unnecessary info
+	($server_game,$server_name,$server_ip,$server_mod)
+		= (@@launchinfo)[0,1,2,3];   # Set variables from array
+	($gamestart) = (stat($Xqf::filepath{'launchinfo'}))[9];
+	$server_time_mins = int((time-$gamestart)/60);
+	$server_time_secs = (time-$gamestart)%60;
+	$message[0] = "$Xqf::nick{'default'} is playing $server_game ". 
+		"/ $server_mod";
+	$message[1] = "Servername: $server_name"; 
+	$message[2] = "ServerIP: $server_ip"; 
+	$message[3] = "$Xqf::nick{'default'} started playing $server_time_mins mins $server_time_secs secs ago";
+	return @@message
+d197 26
+a222 20
+	my ($line, $nick_query, @@message_query);
+	$line = shift(@@_);
+	$line =~ /:(.*)!(.*@@.*) .*:(.*)/; 
+	$nick_query = $1;
+	if ($3 =~ /^$Xqf::script{'irccommand'}$/i) {
+		if (! $Xqf::script{'playing'}) {
+			&IRC::command("/notice $nick_query $Xqf::message{'not_playing'}\r\n")
+		# Is nick being ignored?  If so, do nothing
+		} elsif (exists ($Xqf::flood_ignore{$nick_query})) {
+		} else {
+			@@message_query = &Xqf::make_message_serverstats();
+			# Send server stats to person who asked
+			foreach (@@message_query) {
+				&IRC::command("/notice $nick_query $_\r\n");
+			}
+			# Start floodprotection on user who called
+			&Xqf::floodprotect($nick_query)
+		}
+	}
+	return 0
+d226 39
+a264 34
+	my (@@channels);
+	unless ($Xqf::script{'playing'}) {
+		&IRC::print("\002$scriptinfo{'name'}: \0035You are not gaming!");
+		return 1
+	}  
+	if ($Xqf::config{'nick'}) {
+		&IRC::command("/nick $Xqf::nick{'default'}\r\n");
+		unless (&IRC::get_info(1) eq $Xqf::nick{'default'}) {
+			&IRC::print("\002$scriptinfo{'name'}: \0035Waiting for nick change...");
+			sleep 2
+		}
+	}
+	if ($Xqf::config{'away'}) { &IRC::command("/away\r\n") }
+	if ($Xqf::config{'notice_return'}) {
+		# Tell all channels user is returning
+		@@channels = grep { /^#/ } &IRC::channel_list();
+		foreach (@@channels) {
+			&IRC::command("/notice $_ $Xqf::message{'return'}\r\n")
+		}
+	}
+	if ($Xqf::config{'wall_return'}) {
+		&IRC::command("/WALLCHAN $Xqf::message{'return'}\r\n");
+	}
+	# Delete LaunchInfo.txt and reset playing variable
+	unlink $Xqf::filepath{'launchinfo'};
+	$Xqf::script{'playing'} = 0;
+	# Reset Licq auto-response message and set status to online
+	if (&Xqf::check_licq()) {
+		system("echo auto_response > $Xqf::filepath{'licq_fifo'}");
+		system("echo status online > $Xqf::filepath{'licq_fifo'}")
+	}
+	# Start looking for LaunchInfo.txt again
+	&IRC::add_timeout_handler(2000,"Xqf::checklaunchinfo_handler");
+	return 1
+d268 10
+a277 9
+	my ($line, $nick_query);
+	$line = shift(@@_);
+	$line =~ /:(.*)!(.*@@.*) .*:(.*)/; 
+	$nick_query = $1;
+	# If user is playing, send message to channel joiners
+	if ($Xqf::script{'playing'} and $Xqf::config{'join'}) {
+		&IRC::command("/notice $nick_query $Xqf::message{'notice'}\r\n")
+	}
+	return 0
+d281 16
+a296 15
+	my ($nick);
+	$nick = $_[0];
+	# Increment tally for nick 
+	$Xqf::flood_hits{$nick}++;
+	# Sets the time of first query.  
+	if (! exists($Xqf::flood_times{$nick})) {
+		$Xqf::flood_times{$nick} = time + 
+			$Xqf::flood_setting{'timespan'}
+	}
+	# Nick exceeded queries/time.  Add nick to flood ignore 
+	if ($Xqf::flood_hits{$nick} > ($Xqf::flood_setting{'attempts'})) {
+		&IRC::command("/notice $nick $Xqf::message{'ignore'}\r\n");
+		$Xqf::flood_ignore{$nick} = time + 
+			$Xqf::flood_setting{'timeignore'}
+	}
+d300 31
+a330 28
+	my ($nick, $time);
+	if (keys (%Xqf::flood_times)) {
+		while (($nick, $time) = each (%Xqf::flood_times)) {
+			if ($time < time) {
+				# Times up.  Remove nick to reset query timer
+				delete ($Xqf::flood_times{$nick});
+				delete ($Xqf::flood_hits{$nick})
+			}
+		}
+	}
+	if (keys (%Xqf::flood_ignore)) {
+		while (($nick, $time) = each (%Xqf::flood_ignore)) {
+			if ($time < time) {
+				# Times up.  Un-ignore nick & send mess.
+				delete ($Xqf::flood_ignore{$nick});
+				&IRC::command ("/notice $nick " . 
+					"$nick, $Xqf::message{'ignore_ret'}\r\n")
+			}
+		}
+	}
+	# A player might switch servers without restarting the script.
+	# For the Licq message to be accurate we have to check for a
+	# server change at regular intervals
+	if ($Xqf::script{'playing'} and &Xqf::check_licq()) {
+		&Xqf::freshen_licq_awaymessage
+		}
+	&IRC::add_timeout_handler(3000, "Xqf::flushignorelist_handler");
+	return 1
+d333 5
+a337 5
+sub check_licq{
+	if ($config{'licq'} and ( grep { /licq$/ } `ps -ax`)) {
+		return 1
+	}
+	return 0 
+d340 28
+a367 19
+sub freshen_licq_awaymessage { 
+	my ($gamestart, @@mesg, $output);
+	($gamestart) = (stat($Xqf::filepath{'launchinfo'}))[9];
+	# Is Licq autoresponse messsage outdated?
+	if ($Xqf::script{'licq_time'} < $gamestart) { 
+		# Get server stat messages
+		@@mesg = &Xqf::make_message_serverstats();
+		# Need to get \n's to Licq but Perl wants to expand them.
+		# To make Perl ignore them we need to use double \'s
+		# Also need to use \" to get quotes around message so 
+		# shell doesn't choke on special characters. ie '|> etc.
+		$output = "\"status $Xqf::config{'licq_status'} $mesg[0]\\n$mesg[1]\\n$mesg[2]\"";
+		# Send status & autoresponse message string to Licq
+		system ("echo $output > $Xqf::filepath{'licq_fifo'}");
+		# Set time of last Licq away message
+		$Xqf::script{'licq_time'} = $gamestart;
+		# Print what's going to X-Chat user
+		&IRC::print("\002$Xqf::scriptinfo{'name'}: \0035Updating Licq autoresponse message & setting status to $Xqf::config{'licq_status'}")
+	}
+@
+
+
+1.7
+log
+@Version 0.52
+@
+text
+@d4 1
+a4 1
+# Version 0.52 (Released Jul 25, 2001) 
+d42 1
+a42 1
+&IRC::register("Xqf-XChat","0.52","","");
+d85 1
+a85 1
+$scriptinfo{'version'}  = "0.52";
+d99 3
+@
+
+
+1.6
+log
+@Version 0.51
+@
+text
+@d4 1
+a4 1
+# Version .51 (Released Jun 15, 2001) 
+d6 1
+d12 1
+a12 1
+# sent to me at the above email address.
+d20 4
+a23 4
+# script will set your ICQ status to N/A and update your away message with
+# the stats of the game server you are currently using.  When you return
+# from the game, your ICQ status will be set to available and your away
+# message will be reset.
+d32 1
+a32 1
+# Tested on Linux XChat 1.6.3, XQF 0.9.5 and Licq 1.0 
+d42 1
+a42 1
+&IRC::register("Xqf-XChat",".51","","");
+a52 2
+$config{'notice'} = 0; # Alert chatters when you start a game
+$config{'return'} = 0; # Alert chatters when you return from a game
+d56 10
+a65 1
+
+d80 3
+d85 1
+a85 1
+$scriptinfo{'version'}  = ".51";
+a99 8
+# See if Licq is running.  If it isn't and Licq is enabled above, disable
+# Licq support and print a warning
+if ($config{'licq'} & (! grep { /licq$/ } `ps -ax`)) {
+	&IRC::print("\002$scriptinfo{'name'}: \0035Licq doesn't seem to be running?!?\n");
+	&IRC::print("\002$scriptinfo{'name'}: \0035Licq support disabled!\n");
+	$config{'licq'} = 0
+}
+
+d114 1
+a114 1
+	$Xqf::message{'return'} = "$Xqf::nick{'default'} has returned from the game!"
+d130 3
+d135 1
+d137 1
+a137 1
+				&IRC::print("\002$scriptinfo{'name'}: \0035Waiting for nick change...");
+d145 3
+a147 3
+		&IRC::print("\n\002$scriptinfo{'name'}: \0035" . "#" x 27 . "\n");
+		&IRC::print("\002$scriptinfo{'name'}: \0035Type /return to reset Xchat\n");
+		&IRC::print("\002$scriptinfo{'name'}: \0035" . "#" x 27 . "\n\n")
+d149 1
+d198 4
+d209 2
+a210 4
+	if ($Xqf::config{'away'}) {
+		&IRC::command("/away\r\n")
+	}
+	if ($Xqf::config{'return'}) {
+d217 3
+d224 1
+a224 1
+	if ($Xqf::config{'licq'}) {
+d239 1
+a239 1
+	if ($Xqf::script{'playing'} & $Xqf::config{'join'}) {
+d287 2
+a288 2
+	if ($Xqf::config{'licq'} & $Xqf::script{'playing'}) {
+		&Xqf::freshen_licq_awaymessage()
+d290 9
+a298 1
+	&IRC::add_timeout_handler(3000, "Xqf::flushignorelist_handler")
+d304 2
+a305 1
+	if ($Xqf::licq{'time'} < $gamestart) { # Licq away messsage is outdated
+d312 1
+a312 1
+		$output = "\"status na $mesg[0]\\n$mesg[1]\\n$mesg[2]\"";
+d316 3
+a318 1
+		$Xqf::licq{'time'} = $gamestart
+d321 1
+@
+
+
+1.5
+log
+@Version 0.50
+@
+text
+@d4 1
+a4 1
+# Version .50 (Released Mar 16, 2001) 
+d31 1
+a31 1
+# Tested on Linux XChat 1.6.4, XQF 0.9.5 and Licq 1.0 
+d39 1
+a39 1
+             %flood_setting %nick %licq %script %scriptinfo);
+d41 4
+a44 4
+IRC::register("Xqf-XChat",".50","","");
+IRC::add_message_handler("PRIVMSG","Xqf::privmsg_handler");
+IRC::add_message_handler("JOIN","Xqf::join_handler");
+IRC::add_command_handler("return","Xqf::return_handler");
+d47 11
+a57 3
+$licq{'enable'} = 1; # Set to 1 to enable Licq support; 0 to disable
+$nick{'change'} = 1; # Set to 1 to enable nick change that shows the player's
+		     # gaming status ie: nick to nick[game]
+d61 1
+a61 1
+$flood_setting{'attempts'} = 3;     # Number of irccommands before flood 
+d64 1
+a64 1
+$flood_setting{'timespan'} = 30;    # Seconds before flood counter is 
+d73 2
+a74 2
+$scriptinfo{'name'}     = "XQF->XChat";
+$scriptinfo{'version'}  = ".50";
+d80 5
+a84 5
+IRC::print("\n\0033" . "-" x 45 ."\003\n");
+IRC::print("Loading\002 $scriptinfo{'name'} \002 Version:\002 $scriptinfo{'version'}\002");
+IRC::print("By: $scriptinfo{'author'} \002<\002$scriptinfo{'email'}\002>\002");
+IRC::print("$scriptinfo{'URL'}");
+IRC::print("\0033" . "-" x 45 ."\003\n\n");
+d91 4
+a94 4
+if ($licq{'enable'} & (! grep { /licq$/ } `ps -ax`)) {
+	IRC::print("\n\002$scriptinfo{'name'}: \0035Licq doesn't seem to be running?!?\n");
+	IRC::print("\002$scriptinfo{'name'}: \0035Licq support disabled!\n\n");
+	$licq{'enable'} = 0
+d97 2
+a98 4
+&Xqf::update_messages();
+
+IRC::add_timeout_handler(2000, "Xqf::checklaunchinfo_handler");
+IRC::add_timeout_handler(3000, "Xqf::flushignorelist_handler");
+d101 1
+a101 1
+	$Xqf::nick{'default'} = IRC::get_info(1); # Gets current nick
+d106 3
+a108 2
+	$Xqf::message{'ignore'} = "$Xqf::nick{'default'}'s XQF->XChat script is ignoring you for $Xqf::flood_setting{'timeignore'} seconds!";
+	$Xqf::message{'ignore_ret'} = "$Xqf::nick{'default'}'s XQF->XChat script is listening to you again";
+d117 1
+a117 1
+		IRC::add_timeout_handler(2000,"Xqf::checklaunchinfo_handler")
+d119 1
+d121 5
+a125 5
+		IRC::print("\n\0035" . "#" x 52 . "\n");
+		IRC::print("\0035Type /return to reset Xchat when returning from game\n");
+		IRC::print("\0035" . "#" x 52 . "\n\n");
+		if ($Xqf::nick{'change'}) {
+			IRC::command("/nick $Xqf::nick{'game'}\r\n")
+d127 9
+a135 4
+		# Send message_notice to each channel we are using
+		@@channels = grep { /^#/ } IRC::channel_list();
+		foreach (@@channels) {
+			IRC::command("/notice $_ $Xqf::message{'notice'}\r\n")
+d137 4
+a140 1
+		$Xqf::script{'playing'} = 1
+d172 1
+a172 1
+			IRC::command("/notice $nick_query $Xqf::message{'not_playing'}\r\n");
+d176 1
+a176 1
+			@@message_query = make_message_serverstats();
+d179 1
+a179 1
+				IRC::command("/notice $nick_query $_\r\n");
+d190 16
+a205 5
+	IRC::command("/nick $Xqf::nick{'default'}\r\n");
+	# Tell all channels user is returning
+	@@channels = grep { /^#/ } IRC::channel_list();
+	foreach (@@channels) {
+		IRC::command("/notice $_ $Xqf::message{'return'}\r\n")
+d211 1
+a211 1
+	if ($Xqf::licq{'enable'}) {
+d216 1
+a216 1
+	IRC::add_timeout_handler(2000,"Xqf::checklaunchinfo_handler");
+d226 2
+a227 2
+	if ($Xqf::script{'playing'}){
+		IRC::command("/notice $nick_query $Xqf::message{'notice'}\r\n")
+d240 1
+a240 1
+			$Xqf::flood_setting{'timespan'};
+d244 1
+a244 1
+		IRC::command("/notice $nick $Xqf::message{'ignore'}\r\n");
+d266 1
+a266 1
+				IRC::command ("/notice $nick " . 
+d274 1
+a274 1
+	if ($Xqf::licq{'enable'} & $Xqf::script{'playing'}) {
+d277 1
+a277 1
+	IRC::add_timeout_handler(3000, "Xqf::flushignorelist_handler")
+d294 1
+a294 1
+		$Xqf::{'licq_time'} = $gamestart
+@
+
+
+1.4
+log
+@Version 0.43
+@
+text
+@d4 1
+a4 1
+# Version .43 (Released Feb 12, 2001) 
+d16 1
+a16 1
+# are using by typing a command.  Requires XQF and XChat
+d31 1
+a31 1
+# Tested on Linux XChat 1.6.3, XQF 0.9.5 and Licq 1.0 
+d36 1
+d38 2
+d41 22
+a62 13
+IRC::register("Xqf-XChat",".43","","");
+IRC::add_message_handler("PRIVMSG","xqf_privmsg_handler");
+IRC::add_message_handler("JOIN","xqf_join_handler");
+IRC::add_command_handler("return","return_handler");
+IRC::print "\n\0035:: Loading XQF -> XChat ::\n\n";
+
+my ($irccommand, $nick_game, $nick_default, $flood_timespan,
+    $flood_attempts, $flood_timeignore, $message_notice, $message_not,
+    $message_return, $message_ignore, $message_ignore_ret, @@channels,
+    $path_launchinfo, $path_licq_fifo, $playing, %flood_times, 
+    %flood_hits, %flood_ignore, $licq_time, $licq_enable);
+
+$licq_enable = 1; # Set to 1 to enable Licq support; 0 to disable
+d64 13
+a76 3
+# Set paths to important files
+$path_launchinfo = "$ENV{HOME}/.qf/LaunchInfo.txt";
+$path_licq_fifo = "$ENV{HOME}/.licq/licq_fifo";
+d79 1
+a79 1
+if (-e $path_launchinfo) { unlink $path_launchinfo }
+d83 22
+a104 31
+if ($licq_enable & (! grep { /licq$/ } `ps -ax`)) {
+	IRC::print "\n\0035Licq doesn't seem to be running?!?\n";
+	IRC::print "\0035Licq support disabled!\n\n";
+	$licq_enable = 0
+}
+
+update_variables();
+
+IRC::add_timeout_handler(2000,"checklaunchinfo_handler");
+IRC::add_timeout_handler(3000, "flushignorelist_handler");
+
+sub update_variables{
+	@@channels = (); # Zero out channels array
+	$irccommand = "!gameinfo";  # Command chatters type to receive stats
+	$nick_default = IRC::get_info(1); # Gets current nick
+	# Below sets array channels to all currently open channel windows
+	@@channels = grep { /^#/ } IRC::channel_list();
+	$flood_attempts = 3;  # Number of irccommands before flood 
+			      # protection is enabled and chatter is ignored
+	$flood_timespan = 30; # Seconds before flood counter is reset
+	$flood_timeignore = 120; # Seconds before chatter is un-ignored
+	# Nick is changed to below while gaming
+	$nick_game = $nick_default . "[game]"; 
+	# Various game messages are below
+	$message_ignore = "* This script is ignoring you for" . 
+		" $flood_timeignore seconds *";
+	$message_ignore_ret = "I'm listening to you again";
+	$message_notice = "$nick_default is gaming.  $irccommand" . 
+		" for more info.";
+	$message_not = "$nick_default is not gaming right now";
+	$message_return = "$nick_default has returned from the game!"
+d108 3
+a110 2
+	if (! -e $path_launchinfo) {
+		IRC::add_timeout_handler(2000,"checklaunchinfo_handler")
+d112 7
+a118 6
+		update_variables();
+		IRC::print "\n\0035" . "#" x 52 . "\n";
+		IRC::print "\0035Type /return to reset Xchat when " .
+			"returning from game\n";
+		IRC::print "\0035" . "#" x 52 . "\n\n";
+		IRC::command("/nick $nick_game\r\n");
+d120 1
+d122 1
+a122 1
+			IRC::command("/notice $_ $message_notice\r\n")
+d124 1
+a124 1
+		$playing = 1
+d132 1
+a132 1
+	open(LAUNCHINFO, $path_launchinfo); # Import raw server stats  
+d138 1
+a138 1
+	($gamestart) = (stat($path_launchinfo))[9];
+d141 1
+a141 1
+	$message[0] = "$nick_default is playing $server_game ". 
+d145 1
+a145 2
+	$message[3] = "$nick_default started playing $server_time_mins mins ".
+		"$server_time_secs secs ago";
+d149 1
+a149 1
+sub xqf_privmsg_handler {
+d154 3
+a156 3
+	if ($3 =~ /^$irccommand$/i) {
+		if (! $playing) {
+			IRC::command("/notice $nick_query $message_not\r\n");
+d158 1
+a158 1
+		} elsif (exists ($flood_ignore{$nick_query})) {
+d166 1
+a166 1
+			floodprotect($nick_query)
+d173 2
+a174 1
+	IRC::command("/nick $nick_default\r\n");
+d176 1
+d178 1
+a178 1
+		IRC::command("/notice $_ $message_return\r\n")
+d181 2
+a182 2
+	unlink $path_launchinfo;
+	$playing = 0;
+d184 3
+a186 3
+	if ($licq_enable) {
+		system("echo auto_response > $path_licq_fifo");
+		system("echo status online > $path_licq_fifo")
+d189 1
+a189 1
+	IRC::add_timeout_handler(2000,"checklaunchinfo_handler");
+d193 1
+a193 1
+sub xqf_join_handler {
+d199 3
+a201 1
+	if ($playing){IRC::command("/notice $nick_query $message_notice\r\n")}
+d209 1
+a209 1
+	$flood_hits{$nick}++;
+d211 3
+a213 2
+	if (! exists($flood_times{$nick})) {
+		$flood_times{$nick} = time + $flood_timespan;
+d216 4
+a219 3
+	if ($flood_hits{$nick} > ($flood_attempts)) {
+		IRC::command("/notice $nick $message_ignore\r\n");
+		$flood_ignore{$nick} = time + $flood_timeignore
+d225 2
+a226 2
+	if (keys (%flood_times)) {
+		while (($nick, $time) = each (%flood_times)) {
+d229 2
+a230 2
+				delete ($flood_times{$nick});
+				delete ($flood_hits{$nick})
+d234 2
+a235 2
+	if (keys (%flood_ignore)) {
+		while (($nick, $time) = each (%flood_ignore)) {
+d238 1
+a238 1
+				delete ($flood_ignore{$nick});
+d240 1
+a240 1
+					"$nick, $message_ignore_ret\r\n")
+d247 4
+a250 2
+	if ($licq_enable & $playing) {freshen_licq_awaymessage()}
+	IRC::add_timeout_handler(3000, "flushignorelist_handler")
+d255 2
+a256 2
+	($gamestart) = (stat($path_launchinfo))[9];
+	if ($licq_time < $gamestart) { # Licq away messsage is outdated
+d258 1
+a258 1
+		@@mesg = make_message_serverstats();
+d265 1
+a265 1
+		system ("echo $output > $path_licq_fifo");
+d267 1
+a267 1
+		$licq_time = $gamestart
+@
+
+
+1.3
+log
+@Version 0.41
+@
+text
+@d4 1
+a4 1
+# Version .41
+d7 5
+a11 1
+# This script is public domain, you are free to use this code as you like
+d15 2
+a16 2
+# This script allows other IRC users to query for stats of a
+# gameserver you are using by typing a command.  Requires XQF and XChat
+d19 4
+a22 4
+# script will set your ICQ status to N/A and update your autoresponse
+# message with the stats of the game server you are using.  When you return
+# from the game, your ICQ status will be set to available and the
+# autoresponse message will be reset.
+d28 4
+a31 1
+# Tested on Linux XChat 1.6.2, XQF 0.9.5 and Licq 1.0 
+d38 3
+a40 3
+IRC::register("Xqf-XChat",".41","","");
+IRC::add_message_handler("PRIVMSG","privmsg_handler");
+IRC::add_message_handler("JOIN","join_handler");
+d61 1
+a61 1
+if ((! grep { /licq$/ } `ps -ax`) & $licq_enable) {
+d134 1
+a134 1
+sub privmsg_handler {
+d146 3
+a148 3
+			# Tell all channels user is gaming
+			foreach $line (@@message_query) {
+				IRC::command("/notice $nick_query $line\r\n");
+d176 1
+a176 1
+sub join_handler {
+d230 1
+a230 1
+sub freshen_licq_awaymessage {
+d233 1
+a233 1
+	if ($licq_time < $gamestart) {
+@
+
+
+1.2
+log
+@Version 0.40
+@
+text
+@d4 1
+a4 1
+# Version .40
+d31 1
+a31 1
+IRC::register("Xqf-XChat",".40","","");
+d40 2
+a41 2
+    $path_launchinfo, $path_licq_fifo, $path_licq_pid, $playing, 
+    %flood_times, %flood_hits, %flood_ignore, $licq_time, $licq_enable);
+a47 1
+$path_licq_pid = "$ENV{HOME}/.licq/licq.pid";
+d54 1
+a54 1
+if ((! -e $path_licq_pid) & $licq_enable) {
+@
+
+
+1.1
+log
+@Version 0.30
+@
+text
+@d4 1
+a4 1
+# Version .30
+d11 8
+a18 2
+# This script allows other users of chat channels you are in to see stats
+# of a gameserver you are using by typing a command.  Requires XQF and XChat
+d22 1
+d24 1
+a24 1
+# Tested on Linux XChat 1.6.0 and XQF 0.9.5
+d31 1
+a31 1
+IRC::register("Xqf-XChat",".30","","");
+d35 1
+a35 1
+IRC::print "\n\0035:: Loading XQF -> XChat ::\003\n\n";
+d38 1
+a38 1
+    $flood_attempts, $flood_ignore, $message_notice, $message_not,
+d40 2
+a41 1
+    $path_launchinfo, $playing, %flood_times, %flood_hits, %flood_ignore);
+d43 1
+a43 7
+$irccommand = "!gameinfo";  # Command chatters type to receive stats
+$flood_attempts = 3;   # Number of irccommands before flood protection 
+		       # is enabled and chatter is ignored
+$flood_timespan = 30;  # Time in seconds before flood counter is reset
+$flood_ignore = 120;   # Time in seconds before chatter is un-ignored
+$message_ignore = "* This script is ignoring you for $flood_ignore seconds *";
+$message_ignore_ret = "I'm listening to you again";
+d45 1
+d47 2
+d50 1
+d53 10
+d66 4
+a69 4
+sub update_messages{
+	my (@@channel_list, $i);
+	$nick_default = IRC::get_info(1);    # Gets current nick
+	@@channel_list = IRC::channel_list(); 
+d71 6
+a76 4
+	foreach $i (@@channel_list) {  
+		if ($i =~ /^#/) {push @@channels, $i}
+	}
+	# Nick is changed to this while gaming
+d78 4
+a81 1
+	# More messages below
+d85 1
+a85 1
+	$message_return = "$nick_default is back from the slaughter!"
+a88 1
+	my ($channel);
+d92 1
+a92 1
+		update_messages();
+d99 2
+a100 2
+		foreach $channel (@@channels) {
+			IRC::command("/notice $channel $message_notice\r\n")
+d106 22
+d129 1
+a129 3
+	my ($line, $nick_query, @@launchinfo, $gamestart, $server_game, 
+	    $server_name, $server_ip, $server_mod, $server_time_mins, 
+	    $server_time_secs);
+d136 1
+a136 1
+		# Is Nick being ignored?  If so, do nothing
+d139 5
+a143 18
+			open(LAUNCHINFO, $path_launchinfo); 
+			chomp(@@launchinfo = <LAUNCHINFO>);	
+			close (LAUNCHINFO);	
+			foreach (@@launchinfo) {s/^\w+\s//}	
+			($server_game,$server_name,$server_ip,$server_mod)
+				= (@@launchinfo)[0,1,2,3];
+			($gamestart) = (stat($path_launchinfo))[9];
+			$server_time_mins = int((time-$gamestart)/60);
+			$server_time_secs = (time-$gamestart)%60;
+			IRC::command("/notice $nick_query $nick_default " .
+				"is playing $server_game / $server_mod\r\n");
+			IRC::command("/notice $nick_query Servername: " .
+				"$server_name\r\n"); 
+			IRC::command("/notice $nick_query ServerIP: " . 
+				"$server_ip\r\n"); 
+			IRC::command("/notice $nick_query $nick_default " .
+				"started playing $server_time_mins mins " .
+				"$server_time_secs secs ago\r\n");
+a151 1
+	my ($channel);
+d154 2
+a155 2
+	foreach $channel (@@channels) {
+		IRC::command("/notice $channel $message_return\r\n")
+d157 1
+a157 1
+	# Delete LaunchInfo.txt and reset a few variables
+d160 5
+a164 1
+	@@channels = ();
+d189 1
+a189 1
+	# Nick exceeded queries/time.  Add nick to has flood ignore 
+d192 1
+a192 1
+		$flood_ignore{$nick} = time + $flood_ignore
+d217 4
+d224 17
+@

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AgEditor" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="AgEditor" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug Win32" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="AgEditor" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release Win32" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-W" />
+					<Add option="-D_UNICODE" />
+					<Add directory="../Includes" />
+					<Add directory="../../Luna-GameEngine/includes" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../Includes" />
+					<Add directory="../../Luna-GameEngine/includes" />
+				</ResourceCompiler>
+				<Linker>
+					<Add directory="../libs" />
+					<Add directory="../../Luna-GameEngine/libs" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="`wx-config --cflags --gl-libs`" />
+			<Add option="`pkg-config gtk+-2.0 --cflags`" />
+			<Add option="-fpermissive" />
+			<Add directory="/home/Dev/libs/game/Irrlicht-SVN/include" />
+			<Add directory="/usr/include/glib-2.0" />
+			<Add directory="/usr/include/gtk-2.0" />
+			<Add directory="/usr/lib/glib/include" />
+			<Add directory="/home/clayton/.xchat2-dev/otr/libotr2-git/src" />
+			<Add directory="src" />
+			<Add directory="/usr/include/libotr" />
+		</Compiler>
+		<Linker>
+			<Add option="`wx-config --libs`" />
+			<Add option="`pkg-config gtk+-2.0 --libs`" />
+			<Add library="X11" />
+			<Add library="gcrypt" />
+			<Add library="otr" />
+			<Add directory="/home/Dev/libs/game/Irrlicht-SVN/lib/Linux" />
+			<Add directory="/home/clayton/.xchat2-dev/otr/libotr2-git/src/.libs" />
+			<Add directory="./src" />
+		</Linker>
+		<Unit filename="config.h" />
+		<Unit filename="src/accountlist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/accountlist.h" />
+		<Unit filename="src/buffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/buffer.h" />
+		<Unit filename="src/charset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/charset.h" />
+		<Unit filename="src/flappacket.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/flappacket.h" />
+		<Unit filename="src/httposcar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/httposcar.h" />
+		<Unit filename="src/httpproxy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/httpproxy.h" />
+		<Unit filename="src/netstate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/netstate.h" />
+		<Unit filename="src/netutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/netutil.h" />
+		<Unit filename="src/oscarproxy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/oscarproxy.h" />
+		<Unit filename="src/otrproxy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/otrproxy.h" />
+		<Unit filename="src/proxyevent.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/proxyevent.h" />
+		<Unit filename="src/servsock.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/servsock.h" />
+		<Unit filename="src/sockdef.h" />
+		<Unit filename="src/socksproxy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/socksproxy.h" />
+		<Unit filename="src/uisync.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/uisync.h" />
+		<Unit filename="src/util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/util.h" />
+		<Unit filename="wxui/wxmainframe.cpp" />
+		<Unit filename="wxui/wxmainframe.h" />
+		<Unit filename="wxui/wxotrdialog.cpp" />
+		<Unit filename="wxui/wxotrdialog.h" />
+		<Unit filename="wxui/wxotrpolicy.cpp" />
+		<Unit filename="wxui/wxotrpolicy.h" />
+		<Unit filename="wxui/wxotrpolicybox.cpp" />
+		<Unit filename="wxui/wxotrpolicybox.h" />
+		<Unit filename="wxui/wxotrproxy.cpp" />
+		<Unit filename="wxui/wxotrproxy.h" />
+		<Unit filename="wxui/wxprefframe.cpp" />
+		<Unit filename="wxui/wxprefframe.h" />
+		<Unit filename="wxui/wxproxyevent.cpp" />
+		<Unit filename="wxui/wxproxyevent.h" />
+		<Unit filename="wxui/wxstatwrtext.cpp" />
+		<Unit filename="wxui/wxstatwrtext.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

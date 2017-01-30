@@ -1,0 +1,20 @@
+How to package OTR Proxy for OS/X:
+
+- Make sure you have a copy of libotr and otrproxy and that they
+  compile.
+- Edit build-package and change PROXYSRC and LIBOTRSRC to point to the
+  proxy and libotr sources respectively.
+- Run build-package.
+- If you got no errors, you should have a directory named after the
+  proxy version (e.g. 0.1.1), and it should have two subdirectories:
+  root and resources.
+- open otrproxy.psmp in PackageMaker
+  (/Developer/Applications/Utilities/PackageMaker.app)
+- Change the version correspond to the current one in the Version tab
+- On the Files tab, choose root subdirectory of the package (e.g.
+  0.1.1/root).
+- On the Resources tab, choose the resources subdirectory of the
+  package.
+- Make a package (Command-K) 
+- Create a new disk image using disk utility and copy the package into
+  it for distribution.

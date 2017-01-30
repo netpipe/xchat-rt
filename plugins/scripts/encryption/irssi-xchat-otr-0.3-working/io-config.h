@@ -1,0 +1,3 @@
+#define HAVE_STRSIGNAL
+/* #undef HAVE_GREGEX_H */
+#define IRSSIOTR_VERSION "0.3"

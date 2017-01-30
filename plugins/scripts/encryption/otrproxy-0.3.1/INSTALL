@@ -1,0 +1,43 @@
+REQUIREMENTS
+
+To compile the OTR proxy, you'll need at least:
+ - libgpg-error 1.0  [ftp://ftp.gnupg.org/gcrypt/libgpg-error/]
+ - libgcrypt 1.2.0   [ftp://ftp.gnupg.org/gcrypt/libgcrypt/]
+ - libotr 2.0.1      [http://www.cypherpunks.ca/otr/]
+ - wxWidgets 2.5.x   [http://www.wxwidgets.org/]
+
+If you install these with a package manager, you'll probably need the
+-dev or -devel versions of the packages.
+
+COMPILING
+
+If you're got a CVS copy, you will need to regenerate the configure
+script using:
+
+    autoreconf -s -i
+
+Once you have the configure script (which comes with the source
+deistribution), run it with any options that may be necessary for your
+system.  Some examples:
+
+Linux:
+    ./configure --prefix=/usr --mandir=/usr/share/man
+
+NETBSD:
+    CPPFLAGS="-I/usr/pkg/include" LDFLAGS="-R/usr/pkg/lib -L/usr/pkg/lib" \
+	./configure --prefix=/usr/pkg
+
+mingw cross-compiler from Debian Linux:
+    ./configure --build=`./config.guess` --host=i586-mingw32msvc  \
+	--prefix=/usr/i586-mingw32msvc \
+	--with-wx-config=/usr/i586-mingw32msvc/bin/wx-config
+
+
+Once the configure script writes a Makefile, you should be able to just
+run "make".
+
+INSTALLATION
+
+You should be able to simply do "make install".  If you want to install
+somewhere other than / (this is useful for package creators), use
+something like "make DESTDIR=/path/to/install/to install".

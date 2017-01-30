@@ -1,0 +1,19 @@
+Source: cwirc
+Section: hamradio
+Priority: optional
+Maintainer: Joop Stakenborg <pa3aba@debian.org>
+Build-Depends: debhelper (>> 4.0.0), libgtk2.0-dev, xchat-common (>= 2.0.2-1)
+Standards-Version: 3.6.1
+
+Package: cwirc
+Architecture: any
+Depends: ${shlibs:Depends}, xchat (>= 2.0.2-1)
+Description: X-Chat morse plugin
+ CWirc is a plugin for the X-Chat IRC client to transmit raw morse code over
+ the internet using IRC servers as reflectors. The transmitted morse code can
+ be received in near real-time by other X-Chat clients with the CWirc plugin.
+ CWirc tries to emulate a standard amateur radio rig : it sends and receives
+ morse over virtual channels, and it can listen to multiple senders transmitting
+ on the same channel. Morse code is keyed locally using a straight or iambic
+ key connected to a serial port, or using the mouse buttons, and the sound is
+ played through the soundcard.

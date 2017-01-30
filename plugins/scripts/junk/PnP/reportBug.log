@@ -1,0 +1,3624 @@
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "~/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Tcl/8.5/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "~/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "Azure.app/Contents/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Applications/XChat/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "./lib/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Frameworks/Tcl.framework/Versions/8.5/Resources/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "~/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Tcl/8.5/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "~/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "Azure.app/Contents/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Applications/XChat/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "./lib/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Frameworks/Tcl.framework/Versions/8.5/Resources/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "~/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Tcl/8.5/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "~/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "Azure.app/Contents/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Applications/XChat/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "./lib/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/System/Library/Frameworks/Tcl.framework/Versions/8.5/Resources/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+empty expression
+in expression ""
+    (parsing expression "")
+    invoked from within
+"if {}"
+    (file "/home/hxm/Dropbox/PnP/main.tcl" line 18)
+    invoked from within
+"source /home/hxm/Dropbox/PnP/main.tcl"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+couldn't open "/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "~/Library/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "~/Library/Tcl/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "Azure.app/Contents/Frameworks/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "/Applications/XChat/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+couldn't open "./lib/tclIndex": no such file or directory
+    while executing
+"open [file join $dir tclIndex]"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can not find channel named "sock18"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock18"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 xicosolitoencasaa!iqhfa@DjLwB7.DlkZmL.virtual #sexo PRIVMSG {busco xiassss solitas en casa.....} {:xicosolitoencasaa!iqhfa@DjLwB7.Dlk..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 hombreIdeasClaras!ircap@DvYCNj.CKFDOt.virtual #sexo PRIVMSG {alguna mujer que quiera vivir la vida sin complicaciones?} {:hombreIdeas..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 estoicachonda69!o7BC0E@DJqQry.B4thUP.virtual #sexo PRIVMSG {skipe por cam} {:estoicachonda69!o7BC0E@DJqQry.B4thUP.virtual PRIVMSG #se..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 tragon-alicante!1@B4q9RW.DEnD7R.virtual #sexo PRIVMSG {busco sexo ahora con tio} {:tragon-alicante!1@B4q9RW.DEnD7R.virtual PRIVMSG #s..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 _nen_virgn!n5Da4A@AjI2fj.Bc9Hf1.virtual #sexo PRIVMSG ola {:_nen_virgn!n5Da4A@AjI2fj.Bc9Hf1.virtual PRIVMSG #sexo :ola} SpamProtect 0"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 _carolina!a7fmsr1@D3fq8l.C0gHXG.virtual #sexo PRIVMSG jajaja {:_carolina!a7fmsr1@D3fq8l.C0gHXG.virtual PRIVMSG #sexo :jajaja} SpamPro..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 elbutano!3mfbq@AN9Y8d.BpA8Y1.virtual #sexo PRIVMSG {4vamos de putas y nos follamos a tu madre} {:elbutano!3mfbq@AN9Y8d.BpA8Y1.virtua..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 MadrilenioCam!0BgAen@C1y5Lv.BXfPAY.virtual #sexo PRIVMSG {estoy a 100 alguna nena kiere verme y jugar??} {:MadrilenioCam!0BgAen@C1y5L..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 RichardC!3oAc@BFK2vz.BmgMVt.virtual #sexo PRIVMSG 7hola {:RichardC!3oAc@BFK2vz.BmgMVt.virtual PRIVMSG #sexo :7hola} SpamProtect 0"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 alicantemorboconellas!hB@CK83ca.CjSChi.virtual #sexo PRIVMSG {Alguien en Alicante para morbo con nuestras chicas.En real.Me encanta s..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 sumiso_34_x_AMA!hc5@CBHZ73.DLkiDy.virtual #sexo PRIVMSG {hay alguna chica que quiera dominarme...me dejo hacer...} {:sumiso_34_x_AMA!..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 MadrilenioCam!0BgAen@C1y5Lv.BXfPAY.virtual #sexo PRIVMSG {vamos a jugar estoy desnudo} {:MadrilenioCam!0BgAen@C1y5Lv.BXfPAY.virtual P..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 elbutano!3mfbq@AN9Y8d.BpA8Y1.virtual #sexo PRIVMSG {4que lo hace gratis} {:elbutano!3mfbq@AN9Y8d.BpA8Y1.virtual PRIVMSG #sexo :4que..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 _carolina!a7fmsr1@D3fq8l.C0gHXG.virtual #sexo PRIVMSG jajaja {:_carolina!a7fmsr1@D3fq8l.C0gHXG.virtual PRIVMSG #sexo :jajaja} SpamPro..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 madrid_ir-de-putas!mnbg@AIMjkT.AwXyny.virtual #sexo PRIVMSG {4yo invito vamos de putas} {:madrid_ir-de-putas!mnbg@AIMjkT.AwXyny.virt..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 tragon-alicante!1@B4q9RW.DEnD7R.virtual #sexo PRIVMSG {busco sexo ahora con tio discretoCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC..."
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"regexp "$regexp" $text"
+    (procedure "__xctcl_000010b3" line 14)
+    invoked from within
+"__xctcl_000010b3 BUSCO_MUJER_CON_CAM!gD@CBYF3Z.A4KYOV.virtual #sexo PRIVMSG {VNECESITO MUJER CON CAM YO HOMBRE DE BUEN CUERPO BUEN PENE Y UN RICO CULO..."
+=====================================================
+=====================================================
+can not find channel named "sock17"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock17"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock17"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock17"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock21"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock21"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+wrong # args: should be "getcontext"
+    while executing
+"getcontext [channel]"
+=====================================================
+=====================================================
+wrong # args: should be "command ?server|network|context? ?#channel|nick? text"
+    while executing
+"command"
+=====================================================
+=====================================================
+can not find channel named "sock21"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock21"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock21"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock21"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::cfg": variable is array
+    while executing
+"array names $::cfg"
+=====================================================
+=====================================================
+can't read "::cfg": variable is array
+    while executing
+"array names $::cfg"
+    (procedure "__xctcl_00001052" line 17)
+    invoked from within
+"__xctcl_00001052 SET repeat"
+=====================================================
+=====================================================
+can't read "::cfg": variable is array
+    while executing
+"array names $::cfg"
+=====================================================
+=====================================================
+can't read "::cfg": variable is array
+    while executing
+"array names $::cfg"
+    (procedure "__xctcl_0000108a" line 17)
+    invoked from within
+"__xctcl_0000108a SET repeat"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+pax: Access/modification time set failed on: . <Operation not permitted>
+pax: Access/modification time set failed on: . <Operation not permitted>
+    while executing
+"exec pax -r < aviunzipped/Archive.pax"
+    ("eval" body line 1)
+    invoked from within
+"eval "exec pax -r < aviunzipped/Archive.pax""
+    (file "/Users/hxm/Library/Application Support/XChat Azure/avirtualinferno.tcl" line 5)
+    invoked from within
+"source $f "
+=====================================================
+=====================================================
+can't read "host": no such variable
+    while executing
+"nhistory set $host $nick"
+=====================================================
+=====================================================
+can't read "host": no such variable
+    while executing
+"nhistory set $host $nick"
+    (procedure "__xctcl_00001033" line 7)
+    invoked from within
+"__xctcl_00001033 Sentencia:0ñññ0!hxm@DmFuxQ.DZEzxC.virtual Sentencia NICK {} {:Sentencia:0ñññ0!hxm@DmFuxQ.DZEzxC.virtual NICK Sentencia} history..."
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+wrong # args: should be "regexp ?switches? exp string ?matchVar? ?subMatchVar subMatchVar ...?"
+    while executing
+"regexp  "sadf 66677788.8""
+=====================================================
+=====================================================
+wrong # args: should be "timer ?-repeat? ?-count times? seconds {script | procname ?args?}"
+    while executing
+"timer"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[NenaShow
+"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[NenaShow
+"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[NenaShow
+"
+    (procedure "__xctcl_000011fb" line 2)
+    invoked from within
+"__xctcl_000011fb"
+=====================================================
+=====================================================
+invalid command name "aray"
+    while executing
+"iunknown aray names eGuard"
+=====================================================
+=====================================================
+invalid command name "aray"
+    while executing
+"iunknown aray names eGuard"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel iunknown $args"
+=====================================================
+=====================================================
+invalid command name "aray"
+    while executing
+"aray names eGuard"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+wrong # args: should be "_md5 string"
+    while executing
+"_md5"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[NenaShow
+"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[NenaShow
+"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[NenaShow
+"
+    (procedure "__xctcl_0000128b" line 2)
+    invoked from within
+"__xctcl_0000128b"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[Casado30_LaRioja
+"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[Casado30_LaRioja
+"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"array unset ::eGuard repeat,*dune.irc-hispano.org,#sexo,[Casado30_LaRioja
+"
+    (procedure "__xctcl_00001355" line 2)
+    invoked from within
+"__xctcl_00001355"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"lsearch -nocase -regexp -all -inline [array names ::cfg] $var"
+=====================================================
+=====================================================
+couldn't compile regular expression pattern: quantifier operand invalid
+    while executing
+"lsearch -nocase -regexp -all -inline [array names ::cfg] $var"
+    (procedure "__xctcl_00001011" line 17)
+    invoked from within
+"__xctcl_00001011 SET *spam*"
+=====================================================
+=====================================================
+can't find package tcllibc
+    while executing
+"package require tcllibc"
+=====================================================
+=====================================================
+can't find package md5c
+    while executing
+"package require md5c"
+=====================================================
+=====================================================
+can't find package cryptkit
+    while executing
+"package require cryptkit"
+=====================================================
+=====================================================
+can not find channel named "sock14"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock14"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+=====================================================
+=====================================================
+couldn't open "/Users/hxm/Dropbox/PnP/profile/profile": no such file or directory
+    while executing
+"open $pnp(profileconf) r"
+=====================================================
+=====================================================
+couldn't open "/Users/hxm/Dropbox/PnP/profile/profile": no such file or directory
+    while executing
+"open $pnp(profileconf) r"
+    (procedure "profile" line 16)
+    invoked from within
+"profile load [profile current]"
+=====================================================
+=====================================================
+couldn't open "/Users/hxm/Dropbox/PnP/profile/profile": no such file or directory
+    while executing
+"open $pnp(profileconf) r"
+    (procedure "profile" line 16)
+    invoked from within
+"profile load [profile current]"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 76)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+=====================================================
+=====================================================
+couldn't open "/Users/hxm/Dropbox/PnP/profile/profile": no such file or directory
+    while executing
+"open $pnp(profileconf) r"
+    (procedure "profile" line 16)
+    invoked from within
+"profile load [profile current]"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 76)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+    (file "/Users/hxm/Library/Application Support/XChat Azure/main.tcl" line 1)
+    invoked from within
+"source [xchatdir]/main.tcl"
+=====================================================
+=====================================================
+couldn't open "/Users/hxm/Dropbox/PnP/profile/profile": no such file or directory
+    while executing
+"open $pnp(profileconf) r"
+    (procedure "profile" line 16)
+    invoked from within
+"profile load [profile current]"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 76)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+    (file "/Users/hxm/Library/Application Support/XChat Azure/main.tcl" line 1)
+    invoked from within
+"source [xchatdir]/main.tcl"
+    (procedure "__xctcl_00001126" line 3)
+    invoked from within
+"__xctcl_00001126 PNP {}"
+=====================================================
+=====================================================
+couldn't read file "/Users/hxm/Library/Application Support/XChat Azure/pnp.tcl": no such file or directory
+    while executing
+"source [xchatdir]/pnp.tcl"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 75)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 75)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+    (file "/Users/hxm/Library/Application Support/XChat Azure/main.tcl" line 1)
+    invoked from within
+"source [xchatdir]/main.tcl"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 75)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+    (file "/Users/hxm/Library/Application Support/XChat Azure/main.tcl" line 1)
+    invoked from within
+"source [xchatdir]/main.tcl"
+    (procedure "__xctcl_00001126" line 3)
+    invoked from within
+"__xctcl_00001126 PNP {}"
+=====================================================
+=====================================================
+couldn't read file "/Users/hxm/Library/Application Support/XChat Azure/pnp.tcl": no such file or directory
+    while executing
+"source [xchatdir]/pnp.tcl"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 75)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 75)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+    (file "/Users/hxm/Library/Application Support/XChat Azure/main.tcl" line 1)
+    invoked from within
+"source [xchatdir]/main.tcl"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 75)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+    (file "/Users/hxm/Library/Application Support/XChat Azure/main.tcl" line 1)
+    invoked from within
+"source [xchatdir]/main.tcl"
+    (procedure "__xctcl_00001126" line 3)
+    invoked from within
+"__xctcl_00001126 PNP {}"
+=====================================================
+=====================================================
+couldn't read file "/Users/hxm/Library/Application Support/XChat Azure/pnp.tcl": no such file or directory
+    while executing
+"source [xchatdir]/pnp.tcl"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"source [xchatdir/pnp.tcl"
+=====================================================
+=====================================================
+couldn't read file "/Users/hxm/Library/Application Support/XChat Azure/pnp.tcl": no such file or directory
+    while executing
+"source [xchatdir]/pnp.tcl"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 75)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+=====================================================
+=====================================================
+missing )
+in expression "![file isdirectory $pnp(profileDir]"
+    (parsing expression "![file isdirectory $pn...")
+    invoked from within
+"if {![file isdirectory $pnp(profileDir]} {
+                file mkdir $pnp(profileDir)
+            }"
+    (procedure "profile" line 22)
+    invoked from within
+"profile check"
+    (file "/Users/hxm/Dropbox/PnP/main.tcl" line 75)
+    invoked from within
+"source {/Users/hxm/Dropbox/PnP/main.tcl}"
+    (file "/Users/hxm/Library/Application Support/XChat Azure/main.tcl" line 1)
+    invoked from within
+"source [xchatdir]/main.tcl"
+=====================================================
+=====================================================
+pax: Access/modification time set failed on: . <Operation not permitted>
+pax: Access/modification time set failed on: . <Operation not permitted>
+    while executing
+"exec pax -r < aviunzipped/Archive.pax"
+    ("eval" body line 1)
+    invoked from within
+"eval "exec pax -r < aviunzipped/Archive.pax""
+    (file "/Users/hxm/Library/Application Support/XChat Azure/avirtualinferno.tcl" line 5)
+    invoked from within
+"source $f "
+=====================================================
+=====================================================
+pax: Access/modification time set failed on: . <Operation not permitted>
+pax: Access/modification time set failed on: . <Operation not permitted>
+    while executing
+"exec pax -r < aviunzipped/Archive.pax"
+    ("eval" body line 1)
+    invoked from within
+"eval "exec pax -r < aviunzipped/Archive.pax""
+    (file "/Users/hxm/Library/Application Support/XChat Azure/avirtualinferno.tcl" line 5)
+    invoked from within
+"source $f "
+=====================================================
+=====================================================
+can't find package tcllibc
+    while executing
+"package require tcllibc"
+=====================================================
+=====================================================
+can't find package md5c
+    while executing
+"package require md5c"
+=====================================================
+=====================================================
+can't find package cryptkit
+    while executing
+"package require cryptkit"
+=====================================================
+=====================================================
+can't read "host": no such variable
+    while executing
+"nhistory set $host $nick"
+=====================================================
+=====================================================
+can't read "host": no such variable
+    while executing
+"nhistory set $host $nick"
+    (procedure "__xctcl_00001033" line 7)
+    invoked from within
+"__xctcl_00001033 Sentencia:0ñññ0!hxm@178.Red-213-98-77.staticIP.rima-tde.net Sentencia NICK {} {:Sentencia:0ñññ0!hxm@178.Red-213-98-77.staticIP...."
+=====================================================
+=====================================================
+can't find package mierda
+    while executing
+"package require mierda"
+=====================================================
+=====================================================
+can't find package tcllibc
+    while executing
+"package require tcllibc"
+=====================================================
+=====================================================
+can't find package md5c
+    while executing
+"package require md5c"
+=====================================================
+=====================================================
+can't find package cryptkit
+    while executing
+"package require cryptkit"
+=====================================================
+=====================================================
+pax: Access/modification time set failed on: . <Operation not permitted>
+pax: Access/modification time set failed on: . <Operation not permitted>
+    while executing
+"exec pax -r < aviunzipped/Archive.pax"
+    ("eval" body line 1)
+    invoked from within
+"eval "exec pax -r < aviunzipped/Archive.pax""
+    (file "/Users/hxm/Library/Application Support/XChat Azure/avirtualinferno.tcl" line 5)
+    invoked from within
+"source $f "
+=====================================================
+=====================================================
+pax: Access/modification time set failed on: . <Operation not permitted>
+pax: Access/modification time set failed on: . <Operation not permitted>
+    while executing
+"exec pax -r < aviunzipped/Archive.pax"
+    ("eval" body line 1)
+    invoked from within
+"eval "exec pax -r < aviunzipped/Archive.pax""
+    (file "/Users/hxm/Library/Application Support/XChat Azure/avirtualinferno.tcl" line 5)
+    invoked from within
+"source $f "
+=====================================================
+=====================================================
+can't find package tcllibc
+    while executing
+"package require tcllibc"
+=====================================================
+=====================================================
+can't find package md5c
+    while executing
+"package require md5c"
+=====================================================
+=====================================================
+can't find package cryptkit
+    while executing
+"package require cryptkit"
+=====================================================
+=====================================================
+can't read "host": no such variable
+    while executing
+"nhistory set $host $nick"
+=====================================================
+=====================================================
+can't read "host": no such variable
+    while executing
+"nhistory set $host $nick"
+    (procedure "__xctcl_00001033" line 7)
+    invoked from within
+"__xctcl_00001033 Sentencia:0ñññ0!hxm@BbUfnC.AP8BVb.virtual Sentencia NICK {} {:Sentencia:0ñññ0!hxm@BbUfnC.AP8BVb.virtual NICK Sentencia} history..."
+=====================================================
+=====================================================
+divide by zero
+    while executing
+"expr ($rediff*100)/$total"
+=====================================================
+=====================================================
+divide by zero
+    while executing
+"expr ($rediff*100)/$total"
+    (procedure "__xctcl_0000101e" line 24)
+    invoked from within
+"__xctcl_0000101e GuarroBuscaSexoTelefono!gAf485@Cb2ZFG.D1vsb7.virtual #sexo PRIVMSG  {:GuarroBuscaSexoTelefono!gAf485@Cb2ZFG.D1vsb7.virtual PRIVMSG #..."
+=====================================================
+=====================================================
+divide by zero
+    while executing
+"expr ($rediff*100)/$total"
+=====================================================
+=====================================================
+divide by zero
+    while executing
+"expr ($rediff*100)/$total"
+    (procedure "__xctcl_0000101e" line 24)
+    invoked from within
+"__xctcl_0000101e GuarroBuscaSexoTelefono!gAf485@Cb2ZFG.D1vsb7.virtual #sexo PRIVMSG  {:GuarroBuscaSexoTelefono!gAf485@Cb2ZFG.D1vsb7.virtual PRIVMSG #..."
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"puts "[lang CurrentProfile [profile get]"
+    "
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"puts "[lang CurrentProfile [profile get]"
+    "
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"puts "[lang CurrentProfile [profile get]"
+    "
+    invoked from within
+"if {$_rest eq ""} {
+        puts "[lang CurrentProfile [profile get]"
+    }"
+=====================================================
+=====================================================
+missing close-bracket
+    while executing
+"puts "[lang CurrentProfile [profile get]"
+    "
+    invoked from within
+"if {$_rest eq ""} {
+        puts "[lang CurrentProfile [profile get]"
+    }"
+    (procedure "__xctcl_00002249" line 4)
+    invoked from within
+"__xctcl_00002249 PROFILE {}"
+=====================================================
+=====================================================
+can not find channel named "sock16"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock16"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock16"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock16"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Evi si? @ {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Karonte www.youtube.com/watch?v=qHV6NzLGq4M {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join wapaxwapo22 #sexo r01@BmXKzq.Bv7dIx.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} webchat-2979664 {que os den por culo cobardes} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Evi {no me suena} @ {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} el_ganoso {yo tengo unma varita} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Jesus20 {Hola alguien que se deje ver por cam!} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join vicioso______50 #sexo 2@DqvWoA.B8dDi2.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join mirona3to #sexo lcs@BuMhlX.BWrsyh.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} sariiita_19 {enseño de todo acambio de una recrgaa!} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} moreniiito18 {cambio msn de chicas conectadas ! cambio msn de chicas conectadas ! cambio msn d..."
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join Niceman-36 #sexo de7B@AMSMvx.Ayc6I8.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Kriptos 12http://www.youtube.com/watch?v=luhxjU35Z88 @ {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Coste {13CARTAGENA PRESENTE} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} fuerteee {alguna con las tetas pekeñas, por favor?} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} unaentreuntrillon {4[Audemars4] :), es como si volviera q quemarse la biblioteca de Al..."
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join vte39 #sexo Ap@ClVcAh.D1Z4CD.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} el_ganoso {para que esa sangre} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join discreto_37wpt #sexo A0lr35q1@CJRMdc.DdaLvg.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join abejonejita #sexo Abejoneja4@BorNJc.DxW5YL.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join H-BCN36 #sexo H-BCN36@Dp9MYO.BZmIYu.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Kriptos {si de los 80} @ {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} el_ganoso {se calme} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join vanesshaa #sexo sEqg@Djd4LB.AwTClB.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} DONDURO {4Tengo LA VERGA DURA y me corro frente la cam, hasta botar leche, ALGUNA MUJER kier..."
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} el_ganoso mmmmm {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join cornudosumiso #sexo B6@Dh2DWN.C1RE1Y.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} tuinvitada {13maromoman estas o k?} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} lia66 {hola karonte} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join MasculinoNOSOLOsexo46 #sexo sE7@C2UFZo.AxDmII.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Pedro-23 {2Necesito sexo. Urgente.} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda 13wenas {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} webchat-2979664 {vasi a comer mierda y ruina} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda {13stoii huemda} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} koper {4Alguna de Malaga?} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Karonte {hola lia66} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda {13busco m adu ros} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda 13mmmm {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} butanero {alguna mujer andaluza} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} el_ganoso {te deseo} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} ProfeXXXMaduro {BUSCO...chicas warrillas..1x...2x...3x..4x...FISICO NORMAL...TETITAS..mandadme..."
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Part $nick $usermask [channel]"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Part $nick $usermask [channel]"
+    (procedure "__xctcl_00001008" line 18)
+    invoked from within
+"__xctcl_00001008 {} {} XC_PART {} {Part MasculinoNOSOLOsexo46 sE7@C2UFZo.AxDmII.virtual #sexo} part 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda {13ca li ente} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join MADURO1960 #sexo eq@AMu0eD.Dj7ECt.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} javier-tf {alguna chica para sexo por telefono ?} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} lia66 hola {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Part $nick $usermask [channel]"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Part $nick $usermask [channel]"
+    (procedure "__xctcl_00001008" line 18)
+    invoked from within
+"__xctcl_00001008 {} {} XC_PART {} {Part akqolatronix1 no4@DFIYxy.Bj8Hvr.virtual #sexo} part 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} vanesshaa {olaaa espñaaa} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join casada_de_medellin_colombia #sexo Ef0nphg1@CacL9S.DTkl8v.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Kriptos {italo disco, en aquella epoca se poinia mucho} @ {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} invitado-178500 {2algun chico me da polla para mamar??} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} casada34 {06dos varios meses asi} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} cotita_20guapa {busco chico con cam que les guste jugar con su ano, con buen cuerpo y pene, me..."
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} bi_ernene_sevillano {4algun nene del aljarafae ke ste bueno para kedar discrecionnn} {} {}} ..."
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} pris-wolff7 {alguien q le guste el incesto} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Jesus20 {alguien que se deje ver por cam que sea mujer} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Part $nick $usermask [channel]"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Part $nick $usermask [channel]"
+    (procedure "__xctcl_00001008" line 18)
+    invoked from within
+"__xctcl_00001008 {} {} XC_PART {} {Part Juan79 orl0ep@B0Sucg.BEsVOW.virtual #sexo} part 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Neniitaahh18 {13yo quieor ver pollas corriendosee} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Neniitaahh18 13sseeeeee {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Neniitaahh18 13(L) {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join Activo_21cm #sexo rdeEgo0@AhdmtU.ANsKPJ.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join curioso6 #sexo curioso6@DKF6D7.CRmoPL.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} bigboy7 {holaaa sarritaaa} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} lia66 {q pusiste no se puede ver karonte} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} gordita_25 {quiero ponerle los cuernos ami novio con un pedazo de negro q la tenga muy grande ..."
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda 13wenas {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda {13wenasstoii huemda} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join robermadr #sexo roberto@CnKJJT.AsKhHV.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} chicovirgenn {alguna mujer de madrid me ayuda} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda {13busco m adu ros} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} invitado-504286 {quien me quiere comer el caki y las cacas} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join carlos53 #sexo carlos@CwTpom.AnxJML.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} rubiaahuemda 13mmmm {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} cette_nuit {alguna sevillana} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Part $nick $usermask [channel]"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Part $nick $usermask [channel]"
+    (procedure "__xctcl_00001008" line 18)
+    invoked from within
+"__xctcl_00001008 {} {} XC_PART {} {Part es-tia-y-es-trapn eibrg@CU5P2W.B3NTi8.virtual #sexo} part 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} solo35bcn {Alguna quiere mirar ?} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} Kriptos {hasta los 90} @ {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join pblito-oviedo #sexo Aeai@DeLnBP.CPQbPz.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": no such file or directory
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 16)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join pasivocerdo #sexo n27el4A@C9BDDm.AneOaN.virtual} clone 0"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+wrong # args: should be "xconfig value"
+    while executing
+"xconfig"
+=====================================================
+=====================================================
+couldn't read file "/home/hxm/.xchat2/main.tcl": no such file or directory
+    while executing
+"source [xchatdir]/main.tcl"
+=====================================================
+=====================================================
+couldn't read file "/home/hxm/.xchat2/main.tcl": no such file or directory
+    while executing
+"source [xchatdir]/main.tcl"
+    (procedure "__xctcl_00001011" line 3)
+    invoked from within
+"__xctcl_00001011 PNP {}"
+=====================================================
+=====================================================
+couldn't read file "/home/hxm/.xchat2/main.tcl": no such file or directory
+    while executing
+"source [xchatdir]/main.tcl"
+=====================================================
+=====================================================
+couldn't read file "/home/hxm/.xchat2/main.tcl": no such file or directory
+    while executing
+"source [xchatdir]/main.tcl"
+    (procedure "__xctcl_00001011" line 3)
+    invoked from within
+"__xctcl_00001011 PNP {}"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 20)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join kdar39ya #sexo 7c5f@BKd0jA.CEyeWP.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 20)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join bideporxactvpollon #sexo nA53o@CEUoee.Dgcecy.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 20)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join GOES #sexo g8d@CltCFE.A0dyYq.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} 27chico_camXcam {hola casada 34} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 20)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join guaranay #sexo x-cript51@DeoC1y.CCuhBB.virtual} clone 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} 20invitado-829929 {MALLORCA UN ACHICAAAAAAAAAAAAAAAAAAAAA} {} {}} FixEncoding 0"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent {Channel Message} $nick [encoding convertfrom $msg] $mode"
+    (procedure "__xctcl_0000100d" line 10)
+    invoked from within
+"__xctcl_0000100d {} {} XC_CHANMSG {} {{Channel Message} 22leoo_rikkoo {alguna chica de san luis potosii  ke desee konversar mande pvvv o diga yo} {} ..."
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/.xchat2/pevents.conf": permission denied
+    while executing
+"open $pnp(peventsconf)"
+    (procedure "xevent" line 4)
+    invoked from within
+"xevent Join $nick [channel] $usermask"
+    (procedure "__xctcl_00001007" line 20)
+    invoked from within
+"__xctcl_00001007 {} {} XC_JOIN {} {Join Peluchito #sexo nhbq5Be@A8tb93.BHdo7M.virtual} clone 0"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+pax: Access/modification time set failed on: . <Operation not permitted>
+pax: Access/modification time set failed on: . <Operation not permitted>
+    while executing
+"exec pax -r < aviunzipped/Archive.pax"
+    ("eval" body line 1)
+    invoked from within
+"eval "exec pax -r < aviunzipped/Archive.pax""
+    (file "/Users/hxm/Library/Application Support/XChat Azure/avirtualinferno.tcl" line 5)
+    invoked from within
+"source $f "
+=====================================================
+=====================================================
+pax: Access/modification time set failed on: . <Operation not permitted>
+pax: Access/modification time set failed on: . <Operation not permitted>
+    while executing
+"exec pax -r < aviunzipped/Archive.pax"
+    ("eval" body line 1)
+    invoked from within
+"eval "exec pax -r < aviunzipped/Archive.pax""
+    (file "/Users/hxm/Library/Application Support/XChat Azure/avirtualinferno.tcl" line 5)
+    invoked from within
+"source $f "
+=====================================================
+=====================================================
+can't find package tcllibc
+    while executing
+"package require tcllibc"
+=====================================================
+=====================================================
+can't find package md5c
+    while executing
+"package require md5c"
+=====================================================
+=====================================================
+can't find package cryptkit
+    while executing
+"package require cryptkit"
+=====================================================
+=====================================================
+can't read "host": no such variable
+    while executing
+"nhistory set $host $nick"
+=====================================================
+=====================================================
+can't read "host": no such variable
+    while executing
+"nhistory set $host $nick"
+    (procedure "__xctcl_00001034" line 7)
+    invoked from within
+"__xctcl_00001034 Sentencia:0ñññ0!hxm@CPvIyf.CKvHS0.virtual Sentencia NICK {} {:Sentencia:0ñññ0!hxm@CPvIyf.CKvHS0.virtual NICK Sentencia} history..."
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+invalid command name "menu"
+    while executing
+"iunknown menu ADD {$NICK/CHaN}"
+=====================================================
+=====================================================
+invalid command name "menu"
+    while executing
+"iunknown menu ADD {$NICK/CHaN}"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel iunknown $args"
+=====================================================
+=====================================================
+invalid command name "menu"
+    while executing
+"menu ADD {$NICK/CHaN}"
+=====================================================
+=====================================================
+invalid command name "menu"
+    while executing
+"menu ADD {$NICK/CHaN}"
+    (procedure "chanMenu" line 2)
+    invoked from within
+"chanMenu"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+wrong # args: should be "chanop nick"
+    while executing
+"chanop"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+can't read "::errorInfo": no such variable
+    while executing
+"set savedErrorInfo $::errorInfo"
+=====================================================
+=====================================================
+couldn't execute "osascript": no such file or directory
+    while executing
+"exec osascript -e {tell application "iTunes" to return artist of current track}"
+=====================================================
+=====================================================
+couldn't execute "osascript": no such file or directory
+    while executing
+"exec osascript -e {tell application "iTunes" to return artist of current track}"
+    (procedure "__xctcl_00001004" line 4)
+    invoked from within
+"__xctcl_00001004 ITUNES {}"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/Dropbox/PnP/kicks.txt": no such file or directory
+    while executing
+"open $file r"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/Dropbox/PnP/kicks.txt": no such file or directory
+    while executing
+"open $file r"
+    (procedure "fileRead" line 2)
+    invoked from within
+"fileRead [file join $::pnp(scriptDir) PnP kicks.txt]"
+=====================================================
+=====================================================
+couldn't open "/home/hxm/Dropbox/PnP/kicks.txt": no such file or directory
+    while executing
+"open $file r"
+    (procedure "fileRead" line 2)
+    invoked from within
+"fileRead [file join $::pnp(scriptDir) PnP kicks.txt]"
+    (procedure "__xctcl_00001200" line 11)
+    invoked from within
+"__xctcl_00001200 K {Inversor }"
+=====================================================
+=====================================================
+can not find channel named "sock13"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock13"
+    while executing
+"eof $sock"
+=====================================================
+=====================================================
+can not find channel named "sock13"
+    while executing
+"eof $sock"
+=====================================================

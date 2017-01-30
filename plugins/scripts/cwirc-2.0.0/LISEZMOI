@@ -1,0 +1,1097 @@
+                      CWirc - plugin morse pour X-Chat
+                      --------------------------------
+                                   2.0.0
+                                   -----
+
+                                   F8EJF
+                Pierre-Philippe Coupard <pcoupard@skynet.be>
+                                 20/05/2006
+
+
+
+  CWirc est un plugin pour le client IRC X-Chat pour transmettre du code morse
+par internet en utilisant des serveurs IRC comme réflecteurs. Le code morse
+transmis peut être reçu quasiment en temps réel par d'autres clients X-Chat
+munis du plugin CWirc. CWirc s'efforce d'imiter un vrai transceiver radio :
+il envoie et reçoit le signal morse sur des canaux virtuels, et il peut
+recevoir plusieurs émetteurs transmettant simultanément sur un même canal.
+Le code morse est envoyé localement à l'aide d'un manipulateur de type pioche
+ou double contact connecté à un port série, ou à l'aide des boutons de la
+souris, et le son est émis par la carte son, ou bien par un sondeur externe.
+
+  A noter que CWirc ne décode pas le code morse : il transmet et reçoit
+simplement des timings sonores. Un chatteur IRC normal sur le même canal IRC
+sur lequel vous êtes en train de transmettre en morse ne verra que des lignes
+codées. Seuls d'autres utilisateurs de CWirc peuvent recevoir vos transmissions.
+
+
+
+1 - Installer CWirc
+
+  - Editez le Makefile pour choisir le système d'exploitation cible (LINUX,
+    FREEBSD or NETBSD) et les chemins d'installation pour les exécutable de
+    CWirc.
+
+  - Tapez "make" pour compiler le programme
+
+  - Installez le plugin et son interface utilisateur en tapant "make install"
+    en tant que root
+
+
+
+2 - Utiliser CWirc
+
+    CWirc est composé de deux parties : un plugin pour X-Chat qui intercepte et
+  envoie le code morse sous forme de texte IRC, et un programme d'interface
+  graphique séparé pour interagir avec l'utilisateur. L'interface graphique est
+  démarrée par le plugin uniquement, et ne peut pas être utilisée en tant que
+  programme séparé.
+
+    Pour utiliser CWirc, X-Chat doit d'abord charger le plugin. Normalement, le
+  plugin CWirc est installé dans le répertoire des plugins d'X-Chat sous le nom
+  "cwirc.so", et est automatiquement chargé par X-Chat au démarrage. Vous
+  pouvez vérifier qu'il a été chargé correctement en allant dans le menu
+  "Windows" -> "Plugins and Scripts" d'X-Chat vérifier que CWirc apparaît
+  dans la liste.
+
+    Quand le fichier "cwirc.so" est chargé, il ajoute une nouvelle commande
+  appelée "/CW" (faites "/HELP CW" pour le vérifier), et il ajoute également
+  un bouton "CWirc" dans les boutons utilisateurs d'X-Chat (si vous ne le voyez
+  pas, essayez d'activer "Userlist button enabled" dans le menu
+  "Preferences -> User list". La commande "/CW" et le bouton "CWirc" tous deux
+  activent et désactivent le plugin. A noter que CWirc ne devrait avoir aucune
+  incidence sur vos discussions IRC normales, sur aucun canal, mais qu'il
+  filtre en permanence les trames de morse, qu'il soit activé ou non, afin de
+  vous permettre de chatter normalement sur un canal IRC dédié au morse même
+  quand le plugin est désactivé.
+
+    Lorsque le plugin est activé, l'interface graphique est appelée et le
+  panneau de contrôle de CWirc apparaît à l'extérieur d'X-Chat. Dans le panneau
+  de contrôle, il y a six pages : la page principale ("Main") mais aussi les
+  pages de réglage du générateur iambic ("Keyer settings"), de simulation,
+  de gestion des informations personnelles ("Personal info"), de configuration
+  d'entrées/sorties ("I/O configuration") et d'information sur le programme
+  ("About").
+
+
+  2.1 - La page principale ("Main")
+
+    2.1.1 - Le S-mètre et bouton "sidetone"
+
+        Il s'agit de la simulation d'un S-mètre à aiguille classique. Quand la
+      simulation de force du signal est utilisée (voir plus bas), il indique
+      la puissance du signal d'entrée. Quand aucune simulation n'est utilisée,
+      il est simplement décoratif et l'aiguille bouge de S0 a S9+30 quelle que
+      soit la provenance du signal.
+
+        Quand on clique sur le S-mètre, CWirc passe en mode "sidetone". Quand
+      on clique à nouveau, CWirc revient en mode normal. En mode "sidetone",
+      vous pouvez manipuler localement sans émettre quoi que ce soit. C'est
+      utile pour ajuster son manipulateur, ou pour s'entraîner à manipuler,
+      sans déranger personne sur le canal.
+
+
+    2.1.2 - Le réglage du canal ("Channel")
+
+        CWirc implémente le concept de "canal CW", différent du canal IRC.
+      Il s'apparente à la fréquence que l'on sélectionne sur un vrai
+      transceiver radio. Vous pouvez envoyer ou recevoir du morse sur un seul
+      canal CW à la fois. CWirc ignore les signaux morses envoyés sur les
+      autres canaux CW. Il y a 4000 canaux CW disponibles (de 0 à 3999), par
+      conséquent sur un canal IRC donné, il peut y avoir jusqu'à 4000 QSOs
+      distincts en même temps.
+
+        Le sélecteur "PR x" sélectionne l'un des 5 canaux prérèglés. Le numéro
+      du canal juste au dessous permet de règler le canal CW pour le canal
+      prérèglé choisi. Ainsi, vous pouvez programmer jusqu'à 5 canaux CW
+      favoris : par exemple, vous pourriez régler le canal prérèglé no.1 sur
+      1000 pour le canal CQ, le canal no.2 sur 1100 pour le canal sur lequel
+      vous faites QSY le plus souvent, le canal no.3 sur 912 pour écouter le
+      canal des nouvelles en morse, ...
+
+
+    2.1.3 - Le réglage de la tonalité du son reçu ("RX pitch")
+
+        Ce réglage change la hauteur du son du code morse reçu, permettant
+      d'écouter votre correspondant à la fréquence audio qui vous est la plus
+      confortable à l'oreille, ou permettant de faire la distinction entre
+      plusieurs opérateurs émettant sur le même canal, si vous avez une
+      "meilleure oreille" pour une tonalité particulière.
+
+      NOTE: ce réglage est ineffectif si CWirc émet des clics de sondeur à la
+            place de bips, ou si la sortie CW est un sondeur externe seul
+            (voir plus bas).
+
+
+    2.1.4 - Le réglage de la tonalité du son émis ("TX pitch")
+
+        Ce réglage change la hauteur du son de votre propre signal qui vous est
+      renvoyé localement. Vous pouvez l'ajuster en mode "sidetone" (voir
+      ci-dessus) pour éviter d'émettre n'importe quoi sur le canal.
+
+      NOTE: ce réglage est ineffectif si CWirc émet des clics de sondeur à la
+            place de bips, ou si la sortie CW est un sondeur externe seul
+            (voir plus bas).
+
+
+    2.1.5 - Le réglage du silencieux ("Squelch")
+
+        Si vous utilisez la simulation de QRN (voir plus bas), la statique
+      radio simulée est émise continuellement et devient rapidement fatiguante.
+      Comme avec une véritable radio, pour couper le bruit de fond quand il
+      n'est pas utile (quand vous n'êtes pas en train d'émettre ou de recevoir
+      quelque chose), réglez le silencieux assez haut pour couper le bruit de
+      fond, et assez bas pour réactiver le son quand un signal utile arrive.
+
+        Notez que si vous utilisez la simulation de force du signal et/ou la
+      simulation de couche E sporadique (voir plus bas), utiliser le silencieux
+      peut vous faire perdre des signaux faibles.
+
+
+    2.1.6 - The réglage du volume ("AF gain")
+
+        Ce réglage change le volume des bips ou des clics de sondeur émis par
+      la carte son. Notez que le périphérique de mixage de votre ordinateur
+      n'est pas utilisé pour régler le volume : CWirc génère simplement des
+      signaux sonores de moindre amplitude en interne.
+
+
+    2.1.7 - Le réglage du manipulateur ("Key")
+
+        Ce bouton indique à CWirc d'interpréter les clics souris dans la zone
+      de manipulation, ou un vrai manipulateur connecté à un port série (voir
+      plus bas), comme une pioche (straight) ou un manipulateur double contact
+      utilisant le générateur iambic interne ("iambic"). L'image affichée dans
+      la zone de manipulation par la souris change en conséquence, soit l'image
+      d'une pioche, ou bien celle d'un manipulateur double contact.
+
+
+    2.1.8 - Le réglage de vitesse du générateur iambic ("keyer")
+
+        Si vous choisissez "iambic" dans le réglage "Key", vous pouvez régler
+      la vitesse du générateur iambic en mots par minute ("WPM"). Le générateur
+      fonctionnera alors à cette vitesse, en accord avec les réglages de la
+      page "Keyer settings" (voir plus bas).
+
+
+    2.1.9 - La zone de manipulation par la souris
+
+        Si vous avez activé la souris comme mode de manipulation (voir plus
+      bas), vous pouvez manipuler avec la souris en plaçant le pointeur dans
+      l'icône représentant un manipulateur morse et en utilisant les boutons
+      de la souris comme pioche ou manipulateur double contact. Si vous
+      définissez le manipulateur comme étant de type double contact (iambic),
+      les boutons gauche et droits de la souris émulent les deux contacts. Si
+      vous définissez le manipulateur comme étant de type pioche, l'un ou
+      l'autre bouton de la souris émule le contact unique du manipulateur.
+
+
+    2.1.10 - The décodeur de morse automatique
+
+        En bas du panneau de contrôle, il y a une ligne de texte contenant les
+      caractères décodés en provenance du signal morse en cours de réception.
+
+        Le décodeur de morse qui génère ces caractères simule un décodeur
+      automatique réel, connecté à la sortie audio d'un transceiver radio réel.
+      Par conséquent, it ne fonctionnera que si une seule personne transmet à
+      la fois. Si plusieurs personnes envoient du morse en même temps sur le
+      même canal CW, comme dans un pileup, ou bien si vous transmettez par
+      dessus le signal de quelque'un, le décodeur sera perdu et décodera
+      n'importe quoi. Si vous avez vraiment besoin de décoder une personne en
+      particulier dans un pileup avec le décodeur, vous pouvez utiliser la
+      commande IRC "/IGNORE" pour faire taire tous les autres émetteurs.
+
+        Si vous utilisez la simulation de force du signal ou la simulation de
+      couche E sporadique, le décodeur ne fonctionnera pas si le signal reçu
+      est trop faible ou fluctuant, ou ne décodera pas correctement. De la
+      même manière, si un signal fort arrive en méme temps qu'un signal faible,
+      seul le signal fort sera décodé. Si plus d'un signal fort arrive en même
+      temps, le décodeur sera perdu.
+
+        Le décoder a également besoin "d'entendre" un peu de signal avant de
+      pouvoir se synchroniser correctement avec l'émetteur, ou avec vous. Par
+      conséquent, le ou les premiers caractères seront erronés le temps que le
+      décodeur devine le timing du code morse. Il se re-synchronisera de la
+      même façon si l'émetteur change brutalement sa vitesse de transmission
+      de manière conséquente, ou si vous-même ne répondez pas à une vitesse
+      proche de celle de votre correspondant. Enfin, bien que le décodeur
+      tolère des timings morse légèrement incorrects et des vitesses de
+      transmission qui dérivent, il a tout de même besoin de recevoir du code
+      morse "propre" pour fonctionner correctement. Vous ferez aussi bien
+      d'utiliser vos oreilles pour copier un mauvais opérateur, ou un opérateur
+      qui utilise un rapport de durée dit/silence très atypique.
+
+        Le décodeur est aussi utile en mose "sidetone" (voir plus haut) pour
+      s'entraîner a manipuler du code morse clair avec un timing correct.
+
+      NOTE: Si vous faites un QSO dans un code autre que le code morse moderne
+            ou le code DOT, comme par exemple en code morse américain, le
+            décodeur ne comprendra pas et produira n'importe quoi.
+
+
+    2.1.11 - L'indicateur de vitesse du décodeur, et bouton de remise à zero
+
+        L'indicateur de vitesse du morse reçu par le décoder à la droite du
+      texte décodé, en mots par minutes, est une mesure de la vitesse de
+      manipulation de votre correspondant. La vitesse est déterminée
+      directement à partir du signal reçu ou envoyé, et donc peut être assez
+      approximative. Si le décodeur est perdu à cause de deux signaux
+      simultanés, ou à cause d'un signal fluctuant, l'indicateur de vitesse
+      se met à varier tout le temps et ne veut plus rien dire. Si le code morse
+      n'utilise pas un rapport de durée dit/silence de 50%, l'indicateur de
+      vitesse sera aussi faussé.
+
+        Cet indicateur sert aussi de bouton de remise à zéro du décodeur.
+      en cliquant dessus, le tampon de caractères décodés est effacé et l'état
+      interne du décodeur est remis à zéro.
+
+
+    2.1.12 - Le sélecteur de langue du décodeur de morse automatique
+
+        A droite de l'indicateur de vitesse, vous pouvez sélectionner quelle
+      langue ou quel code vous souhaitez que le décodeur utilise. Le morse
+      Anglais (international), Français, Russe et Japonais (katakana), ainsi
+      que le code DOT (qui est un code historique distinct du morse) sont
+      supportés.
+
+        Afin de voir les caractères décodés dans une langue autre que l'Anglais
+      (morse ou DOT), vous devez avoir un jeu de fontes Unicode/ISO-10646
+      installé sur votre système. Si vous êtes intéressé par un code morse
+      different de l'Anglais, il y a de bonnes chances que votre machine soit
+      déjà configurée correctement. Sinon, un bon document à lire pour
+      configurer vos fontes correctement sous X est le document "XFree86
+      Font De-uglification HOWTO" (en Anglais, pas de VF disponible à ma
+      connaissance), disponible sur :
+
+      http://www.tldp.org/HOWTO/FDU/index.html
+
+        Si vous trouvez le décodeur gênant, ou que vous ne pouvez pas vous
+      empêcher de le regarder lorsque vous vous entraînez à la copie,
+      sélectionnez "No decoder" pour l'arrêter.
+     
+
+
+  2.2 - La page de réglage du générateur iambic ("Keyer settings")
+
+      Cette page vous permet d'ajuster le générateur iambic à votre goût.
+    Les caractéristiques et réglages d'un générateur iambic sont une affaire
+    très personnelle : des générateurs de différents fabricants (ou des
+    réalisations personnelles), et même quelquefois des modèles différents d'un
+    même fabricant, ont tous des réponses légèrement différentes à la même
+    manipulation d'un opérateur, et presque tous les opérateurs ont tendance à
+    préférer les caractéristiques du générateur avec lequel ils ont appris
+    l'iambic. Le générateur interne de CWirc peut être ajusté pour reproduire
+    les caractéristiques de presque tous les générateurs qui existent.
+
+
+    2.2.1 - Le sélecteur de mode iambic
+
+        Sélectionnez le mode iambic que vous voulez que le générateur utilise
+      (mode A ou B). Le mode iambic change seulement le comportement du
+      générateur lorsque les deux contacts sont relâchés après avoir été mis
+      en oeuvre les deux à la fois (c'est la définition du mode iambic) : en
+      mode A, quand les deux contacts sont relâchés au milieu d'un élément en
+      cours d'émission (dit ou dah), l'élément est complété, puis le générateur
+      s'arrête. En mode B, l'élément est complété, puis le générateur ajoute
+      automatiquement un élément opposé, puis s'arrête.
+
+        Si, quand vous manipulez, vos Cs se transforment régulièrement en Ks,
+      vous utilisez probablement le mode A alors que vous êtes habitué au mode
+      B. A l'inverse, si vos Ks se transforment en Cs, vous êtes probablement
+      habitué au mode A.
+
+
+    2.2.2 - La mémoire de dit et la mémoire de dah ("dit memory", "dah memory")
+
+        Si vous activez la mémoire de dit, quand le générateur détecte le
+      contact des dits se fermer durant l'émission d'un dah, même brievement,
+      il s'en "souvient" et émet un dit dès que le timing morse le permet.
+      de la même manière, la mémoire de dah autorise l'insertion automatique
+      d'un dah quand le contact des dahs est fermé brievement durant l'émission
+      d'un dit.
+
+        Typiquement, la mémoire de dit et de dah sont utilisées pour générer
+      des Ns et des As en fermant rapidement les deux contacts successivement,
+      l'un après l'autre (mais sans fermer les deux contacts à la fois, ce qui
+      ferait entrer le générateur en mode iambic). Elles sont aussi très
+      utiles pour générer des lettres telles que Y, Q, L ou F en envoyant un
+      flot de dahs ou de dits, et en insérant un dit ou un dah en fermant
+      rapidement le contact opposé au moment adéquat.
+
+
+    2.2.3 - Le mode B de demi-élément ("mid-element mode-B")
+
+        La plupart des générateurs en mode B ajoutent automatiquement un
+      élément opposé lorsque les deux contacts sont relâchés à n'importe quel
+      moment durant l'élément en cours d'émission, en mode iambic. Cependant,
+      certains générateurs semblent faire la distinction entre le cas où les
+      deux contacts sont relâchés avant le milieu de l'élément en cours
+      d'émission, et le cas où ils sont relâchés après. Dans le second cas, ces
+      générateurs n'envoient pas un élément opposé supplémentaire, alors qu'ils
+      le font dans le premier cas. Ces générateurs semblent être assez rare
+      cependant.
+
+        Si vos As se transforment régulièrement en Rs, et vos Us en Fs, mais
+      que votre manipulation est correcte le reste du temps en mode B,
+      peut-être êtes-vous habitué à ce "demi mode B" et que cette option pourra
+      corriger le problème.
+
+
+    2.2.4 - L'espacement de caractères automatique ("auto character spacing")
+
+        Quand cette option est activée, le générateur vous force à attendre
+      la durée correcte entre les lettres. Essayez cette option si vous avez
+      du mal à bien séparer les lettres.
+
+
+    2.2.5 - L'espacement de mots automatique ("auto word spacing")
+
+        En plus de l'espacement de caractères automatique, vous pouvez utiliser
+      cette option pour forcer le générateur à vous faire attendre la durée
+      correcte entre les mots et vous aider à formater votre transmission de
+      façon parfaite. Essayez d'utiliser cette option si vous avez constament
+      des difficultés à laisser assez d'espace entre les mots. Sachez cependant
+      que cette option requiert une bonne maîtrise générale de la technique de
+      manipulation pour être utilisée efficacement, car elle vous force à
+      attendre une durée de pause entre mots complète à chaque fois que vous
+      hésitez sur une lettre.
+
+
+    2.2.6 - L'option d'inversement des contacts ("invert paddles")
+
+        Si vous êtes gaucher, ou si vous êtes habitué à manipuler avec le
+      contact de gauche a droite et celui de droite à gauche, activez cette
+      option.
+
+
+    2.2.7 - Le réglage du rapport de durée dit/silence ("dit weight")
+
+        A l'époque où les radios avaient souvent un peu de retard entre le
+      moment où le manipulateur était activé et le moment où elles commençaient
+      à émettre, il était souvent utile d'augmenter artificiellement la
+      longueur des éléments émis par le générateur iambic, afin que le signal
+      qui était transmis au final par la radio se retrouve avec un timing
+      correct. De nos jours, la plupart des transceivers n'ont plus besoin
+      de cette astuce pour envoyer de la CW au format correct, mais certains
+      opérateurs ont gardé leurs rapports de durée dit/silence inhabituels
+      car ils pensent que celà "sonne" mieux, ou pour "personnaliser" leurs
+      signaux. Le générateur interne de CWirc vous permet également de changer
+      le rapport de durée dit/silence, bien que celà soit totalement inutile
+      pour faire de la CW sur le net.
+
+        La valeur correspondant au timing normal du code morse est 50%.
+
+      NOTE: n'exagérez pas le réglage : si vous réglez le rapport trop éloigné
+            de 50%, la plupart des opérateur ne vous copieront pas
+            confortablement, et certains peuvent ne pas vous copier du tout.
+
+
+  2.3 - La page de simulation
+
+      Cette page vous permet de régler CWirc afin d'obtenir une approximation
+    du son que peut produire un véritable poste radio, pour vous entraîner à la
+    copie de signaux qui ne sont pas parfait, et qui sont moins "artificiels"
+    qu'avec les réglages de base.
+
+
+    2.3.1 - La simulation de QRN
+
+        Activez "simulate QRN" pour ajouter du bruit et de la statique aux
+      signaux reçus. Utilisez la réglette "QRN level" pour ajuster le niveau
+      de statique que vous souhaitez. Le niveau de QRN que vous avez choisi
+      se traduit par une montée de l'aiguille du S-mètre correspondante dans
+      le panneau principal.
+
+
+    2.3.2 - La simulation de propagation
+
+        Activez "simulate signal strength for signals with grid squares" pour
+      associer aux signaux reçus une force de signal simulée, calculée à partir
+      de votre locator et de ceux des émetteurs des signaux en question, pour
+      les émetteurs qui ont choisi d'envoyer leur locator dans leur signal.
+
+        Pour que cette option fonctionne, vous devez entrer votre locator dans
+      la page de gestion des informations personnelles (voir ci-dessous) :
+      CWirc détermine la force simulée d'un signal en calculant la distance
+      entre vous et la personne qui émet le signal, donc il doit connaître
+      votre position sur Terre, ainsi que celle de l'émetteur. La personne qui
+      émet a cependant le choix de ne pas divulger son locator : si le locator
+      n'est pas envoyé avec un signal, ce signal se verra attribuer une force
+      de signal simulée par défaut, que vous pouvez ajuster avec la réglette
+      intitulée "default signal strength for signals without grid squares".
+
+        En plus de la simulation de force de signal, vous pouvez y ajouter la
+      simulation de couche E sporadique en activant "simulate sporadic-E for
+      weak signals". Le véritable phénomène de couche E sporadique est un type
+      de réflection des ondes radios sur la couche ionosphérique E, causé par
+      des zones d'ionisation inhabituellement denses dans l'atmosphère, qui
+      permet de faire de nombreux contacts longue-distance en VHF. Ces signaux
+      réfléchis on tendance a fluctuer lors des mouvements des zones
+      d'ionisation dans l'atmosphère, ce qui rend ces contacts longue-distance
+      difficile à établir et à maintenir. Avec la simulation de couche E
+      sporadique activée, CWirc fait fluctuer la force de tous les signaux
+      faibles qu'il reçoit (environ en dessous de S3) comme s'ils venaient
+      d'une réflexion sur la couche ionosphérique E.
+
+
+  2.4 - La page de gestion des informations personnelles ("Personal info")
+
+    2.4.1 - L'indicatif ("Callsign")
+
+        Si vous êtes radioamateur, vous pouvez entrer votre indicatif pour que
+      les autres utilisateurs le voient dans vos messages morses, ou lorsqu'ils
+      interrogent votre client CWirc avec la commande /CTCP CWIRC (voir plus
+      bas).
+
+
+    2.4.2 - Le locator ("Grid square")
+
+        Entrez le locator correspondant à votre position physique sur Terre.
+      Si vous voulez pouvoir utiliser la simulation de force de signal et la
+      simulation de couche E sporadique. Si vous ne connaissez pas votre
+      position sur la grille, vous pouvez la déterminer sur la page suivante,
+      à l'aide de la carte, ou si vous connaissez votre latitude et longitude :
+
+      http://www4.plala.or.jp/nomrax/GL/index.html
+
+        CWirc accepte les locators au format de base à 4 caractères ("AB12"),
+      ou au format plus précis à 6 caractères ("AB12CD").
+
+
+    2.4.3 - L'envoi de l'indicatif avec le signal ("send callsign with CW")
+
+        Si vous sélectionnez cette option, CWirc enverra votre indicatif en
+      parallèle avec votre signal CW, et les autres utilisateurs de CWirc
+      pourront le voir lorsqu'ils recevront votre signal. Si vous choisissez de
+      diffuser votre indicatif, il sera transmis sous forme codée dans le
+      message IRC, afin que seuls les autres utilisateurs de CWirc puissent le
+      voir.
+
+        C'est utile si vous voulez rester anonyme sur IRC aux yeux des
+      chatteurs IRC normaux, mais vous souhaitez être connu des autres
+      utilisateurs de CWirc par votre indicatif en même temps.
+
+    
+    2.4.4 - L'envoi du locator avec le signal ("send grid square with CW")
+
+        Si vous sélectionnez cette option, votre locator sera transmis en
+      parallèle avec votre signal CW, ce qui permettra aux autres utilisateurs
+      de CWirc d'utiliser la simulation de force de signal avec votre signal.
+      Si vous choisissez de diffuser votre locator, il sera transmis sous forme
+      codée dans le message IRC. Si vous voulez rester vague sur votre position
+      exacte, entrez votre locator sur 4 caractères seulement (de tels locators
+      définissent une zone de 110 km x 160 km environ en Europe ou en Amerique
+      du nord).
+
+    
+    2.4.5 - Les options CTCP
+
+        CWirc peut répondre à une requête CTCP spéciale (CTCP CWIRC) pour
+      annoncer quelle version vous utilisez, le canal sur lequel vous êtes
+      actuellement, votre indicatif et votre locator.
+        
+        Si vous ne voulez divulger aucune de ces informations, désactivez
+      l'option "reply to CTCP CWIRC queries". Si vous l'activez cependant,
+      CWIRC donnera à quiconque tapera "/CTCP <votre nick> CWIRC" la version de
+      votre client CWirc.
+
+        Vous pouvez également activer "send callsign in CTCP reply" pour
+      laisser CWirc divulger votre indicatif, "send grid square in CTCP reply"
+      pour divulger votre locator, et "send current channel in CTCP reply" pour
+      divulger le canal sur lequel vous êtes actuellement.
+
+        Additionally, you can also check "send callsign in CTCP reply", "send
+      grid square in CTCP reply, or "send current channel in CTCP reply" to
+      give those details along with the CWirc version.
+
+
+  2.5 - La page de configuration d'entrées/sorties ("I/O configuration")
+
+      Cette page vous permet de régler les paramètres pour les périphériques
+    l'entrée et de sortie des signaux CW, et le réglage du tampon de réception.
+    Les réglages dans cette page ne sont effectifs qu'après que vous aillez
+    cliqué sur le bouton "Change/Save". Si un paramètre est erroné, une boîte
+    d'erreur vous informera de la raison de l'erreur.
+
+
+    2.5.1 - Le périphérique d'entrée de la CW ("CW input")
+
+        Pour manipuler dans CWirc, vous pouvez utiliser la souris en cliquant
+      dans la zone de manipulation souris dans le panneau principal (voir plus
+      haut) en sélectionnant "mouse", un vrai manipulateur connecté un a port
+      série (voir plus bas) en sélectionnant "real key", ou les deux en
+      sélectionnant "both". Si vous sélectionnez un vrai manipulateur ou les
+      deux méthodes, the port série ("Serial device") doit être défini.
+
+
+    2.5.2 - Le périphérique de sortie de la CW ("CW output")
+
+        Pour émettre le son du morse, CWirc peut utiliser une carte son en
+      sélectionnant "soundcard", un sondeur externe connecté à un port série
+     (voir plus bas) en sélectionnant "sounder", ou les deux en sélectionnant
+     "both". Si vous sélectionnez la carte son ou les deux, le périphérique
+     son ("Sound device") doit être défini. Si vous sélectionnez le sondeur ou
+     les deux, le port série ("Serial device") doit être défini.
+
+      NOTE: Si vous utilisez à la fois un vrai manipulateur et un sondeur, ils
+            partageront le même port série.
+
+      NOTE: Si vous utilisez un sondeur, vous devriez éviter d'utiliser la
+            simulation de force de signal. En effet, comme le sondeur n'a pas
+            de concept de volume, des signaux faibles ne seraient tout
+            simplement pas émis.
+
+      NOTE: L'option "sounder" (c'est-à-dire un sondeur externe comme seul
+            périphérique de sortie) n'est pas disponible sous FreeBSD ou
+            NetBSD, car ces systèmes d'exploitation n'ont pas d'implémentation
+            correcte de l'interface /dev/rtc, par conséquent CWirc a toujours
+            besoin d'une carte son pour obtenir un timing en temps réel.
+
+
+    2.5.3 - L'option du son de la CW ("CW sound")
+
+        Si le périphérique de sortie de la CW est une carte son ou les deux,
+      vous pouvez choisir d'émettre le son du code morse entrant ou sortant
+      comme des bips traditionnels, ou comme des clics de sondeur. La plupart
+      des radioamateurs "modernes" choisira l'option "beeps". Les clics de
+      sondeur ("sounder clicks") sont une option destinée à ceux qui
+      s'intéressent à l'histoire du télégraphe, à ceux qui veulent faire
+      l'expérience du son de la télégraphie d'une époque révolue qu'on pouvait
+      entendre dans les stations de télégraphie des les gares de chemin de
+      fer de la conquête de l'ouest, ou qui veulent s'essayer au code morse
+      Américain originel (qui est différent du code morse international que
+      tout le monde connait aujourd'hui).
+
+        Notez que les clics de sondeur émis par CWirc proviennent d'un
+      véritable sondeur Vail, et que les timings du bras du sondeur qui vont
+      de haut en bas ont été reproduits fidèlement.
+
+    
+    2.5.4 - L'anti-rebond pour les contacts du manipulateur ("Key debounce")
+
+        Quand un manipulateur connecté à un port série est utilisé, le ou les
+      contact(s) du manipulateur sont lus à intervalles réguliers pour
+      déterminer leur(s) état(s). Si vous constatez que des dits ou des dahs
+      parasites se produisent quand vous manipulez, il est très possible que le
+      ou les contact(s) présente(nt) un phénomène de "rebond" qui se produit
+      lorsque un contact électrique est coupé. Le "rebond" est un phénomène
+      électrique courant qui se produit avec presque tous les contacts
+      électriques. Pour remédier au problème, augmentez la valeur de l'anti-
+      rebond ("Key debounce") jusqu'à ce que le problème disparaisse.
+
+      NOTE: plus la valeur de l'anti-rebond est faible, meilleure sera la
+            précision du timing, ce qui est important surtout si vous êtes un
+            opérateur rapide. Si vous trouvez le manipulateur "mou" et/ou si
+            vous ratez des éléments quand vous manipulez vite, essayez de
+            diminuer l'anti-rebond.
+
+
+    2.5.5 - Le réglage du tampon de réception ("Recv buffering")
+
+        Ce réglage indique à CWirc pendant combien de temps (en millisecondes)
+      il doit stocker le début d'un signal morse reçu. Sur des serveurs IRC
+      raisonnablement responsifs, 1000 ms (1 s) est en général suffisant. Si
+      vous êtes connecté à un server IRC chargé et lent, essayez d'augmenter la
+      valeur pour augmenter la quantité de signal morse dans le tampon de
+      réception. Si vous êtes connecté à un serveur IRC local, ou si vous
+      recevez un signal d'un opérateur avec lequel vous êtes en DCC CHAT
+      (voir plus bas), vous pouvez diminuer la valeur.
+ 
+        Plus vous augmenter la valeur du tampon de réception, moins votre
+      client CWirc sera sujet à des coupures de signal dues à un retard des
+      données entrantes, mais plus le temps de latence en réception augmentera.
+
+
+    2.5.6 - Le périphérique son ("Sound device")
+
+        Si le périphérique de sortie de la CW est la carte son ou les deux,
+      ce réglage indique à CWirc quel fichier de périphérique son utiliser pour
+      accéder à la carte son. En général, il s'agit de "/dev/dsp" sous Linux,
+      "/dev/dsp0.0" sous FreeBSD, ou "/dev/audio0" sous NetBSD, si vous n'avez
+      qu'une seule carte son.
+
+      NOTE: si vous voulez utiliser the démon aRts avec CWirc, vous pouvez
+            grâce au convertisseur artsdsp et avec un peu de bricolage, au
+            dépend de la latence audio :
+
+            - En tant que root, renommez l'exécutable "cwirc_frontend"
+              (d'habitude installé dans /usr/bin ou /usr/local/bin) en
+              "cwirc_frontend.REAL"
+
+            - En tant que root, éditez un nouveau script shell dénommé
+              "cwirc_frontend" à la place du vrai exécutable, contenant les
+              lignes suivantes :
+
+                #!/bin/sh
+                artsdsp cwirc_frontend.REAL $*
+
+              et rendez-le exécutable en invoquant
+
+                chmod +x cwirc_frontend
+
+            - Redémarrez CWirc et assurez-vous que le périphérique son est
+              "/dev/dsp". Le son devrait alors être redirigé vers le démon
+              aRts.
+
+
+    2.5.7 - Le port série ("Serial device")
+
+        Si le périphérique d'entrée de la CW est un vrai manipulateur ou les
+      deux, ou bien si le périphérique de sortie de la CW est un sondeur ou les
+      deux, ce réglage indique à CWirc sur quel port série sont connectés le
+      manipulateur et/ou le sondeur. En général, utilisez /dev/ttyS0 pour COM1,
+      /dev/ttyS1 pour COM2 ... sous Linux, /dev/cuaa0 pour COM1, /dev/cuaa1
+      pour COM2 ... sous FreeBSD, ou /dev/tty00 pour COM1, /dev/tty01 pour
+      COM2 ... sous NETBSD.
+
+
+  2.6 - Faire des QSOs sur un canal IRC
+
+      Une fois que CWirc est configuré comme vous le souhaitez, connectez-vous
+    à un server IRC et rejoignez un canal IRC où l'on trouve du trafic morse.
+    N'oubliez pas de régler le canal CW sur le même que celui des autres
+    participants (généralement 1000 est le canal de CQ).
+
+      Le morse que vous manipulez sera envoyé sur le canal IRC sous forme de
+    lignes de texte codées toutes les 2 secondes. De la même manière, votre
+    client CWirc recevra des signaux morse envoyés sous forme de lignes codées.
+    Notez que le morse reçu sur les canaux autres que celui sur lequel vous
+    êtes sera ignoré.
+
+    IMPORTANT: CWirc utilise un protocole qui ressemble beaucoup à des
+               caractères aléatoires envoyés à grande vitesse, aux yeux des
+               chatteurs IRC qui n'utilisent pas CWirc. Soyez vigilants et
+               n'utilisez pas CWirc sur des canaux IRC de chat généraux
+               (c'est-à-dire non-dédiés au trafic morse) à moins que vous ne
+               connaissiez les chatteurs et que vous ne les préveniez à
+               l'avance.
+
+
+  2.7 - Faire des QSOs hors d'un canal IRC
+
+      Il est possible que vous ne souhaitiez pas discuter de certaines choses
+    sur un canal IRC public, afin que n'importe qui sur votre canal CW
+    n'entende pas ce que vous dites. Il est possible de discuter en privé avec
+    une autre personne en utilisant la commande IRC /QUERY, en morse, comme
+    vous le feriez pour envoyer des messages IRC normaux en privé. Toutefois,
+    vous est votre correspondant devez tout de même rester sur le même canal CW.
+
+      Vous pouvez aussi chatter en DCC CHAT avec l'autre correspondant : dans
+    ce cas, la connection entre vous et l'autre correspondant est directe,
+    se passe complètement du server IRC, ce qui a pour avantage de réduire
+    le délai entre les 2 clients IRC, et vous assure de ne pas vous faire
+    "sortir" du canal IRC pour raison de flooding.
+
+
+  2.8 - Bloquer CWirc sur un canal IRC
+
+      Normalement, CWirc reçoit et envoie du morse sur le canal IRC courant.
+    Si vous ne faites que du morse, c'est généralement suffisant. Cependant,
+    il est possible que vous vouliez faire du morse sur un canal IRC, tout en
+    chattant normalement sur un autre. Typiquement, la situation se présente
+    quand vous attendez que quelqu'un lance l'appel sur un canal IRC dédié au
+    morse, et que vous vouliez chatter avec des amis sur un autre canal IRC
+    en attendant.
+
+      Vous pouvez ordonner à CWirc de ne pas suivre le canal courant. Pour
+    faire celà, allez sur le canal IRC sur lequel vous voulez faire du morse
+    et tapez la commande "/CWLOCK" : CWirc vous dit alors qu'il est maintenant
+    bloqué sur ce canal IRC. Vous pouvez alors aller faire ce que vous voulez
+    sur d'autres canaux IRC, CWirc restera sur le canal sur lequel vous l'avez
+    bloqué. Si vous voulez bloquer CWirc sur un autre canal, allez sur ce
+    nouveau canal et tapez la commande "/CWLOCK" à nouveau. Si vous voulez
+    revenir au mode par défaut qui est de suivre le canal IRC courant, tapez
+    la commande "/CWUNLOCK".
+
+      Notez que vous pouvez également bloquer et débloquer CWirc sur des
+    fenêtres de chat privé et de chat en DCC CHAT.
+    
+
+  2.9 - Notes sur l'utilisation de la simulation
+
+      Si vous utilisez la simulation de force de signal, et particulièrement si
+    vous y ajoutez la simulation de couche E sporadique, il est très possible
+    de ne pas entendre un signal du tout malgré que CWirc dit le recevoir, s'il
+    est trop faible (si l'opérateur qui envoie le signal est trop éloigné de
+    vous physiquement) ou s'il est trop atténué par la simulation de couche E
+    sporadique.
+
+      De plus, bien que celà soit possible, çà n'est pas une très bonne idée
+    d'utiliser la simulation de force de signal ou de couche E sporadique avec
+    un sondeur : si le signal est trop faible, le son du sondeur s'arrêtera
+    tout bonnement, puisque il s'agit d'un périphérique tout-ou-rien.
+
+      Enfin, bien que celà soit possible également, notez qu'utiliser des sons
+    de clics de sondeur avec du QRN simulé, ou avec la simulation de force de
+    signal ou de couche E sporadique, n'a aucun sens : les sondeurs étaient
+    utilisés pour la télégraphie filaire, et donc ne généraient jamais de
+    statiques ou de signaux faibles.
+
+
+
+3 - Connecter un vrai manipulateur
+
+    Manipuler à la souris est acceptable quand aucune autre solution n'existe,
+  mais çà n'est vraiment pas idéal. Si vous avez un vrai manipulateur, vous
+  pouvez l'utiliser avec CWirc en le connectant à votre ordinateur avec un
+  simple câble série :
+
+
+  3.1 - Utiliser une pioche
+
+    En supposant que votre port série utilise un connecteur DB9, le schéma de
+    câblage est le suivant :
+
+      No. du fil DB9                             Manipulateur 
+
+                                                    =====
+      6 (ligne DSR) --------------------+-------------|
+
+      4 (ligne DTR) --------------------+-------------O
+
+    
+    Une fois que le manipulateur est connecté, configurez CWirc en réglant
+    l'entrée de la CW sur "real key" ou "both" et le type de manipulateur sur
+    "straight" dans le panneau principal.
+
+
+  3.2 - Utiliser un manipulateur double contact
+
+    En supposant que votre port série utilise un connecteur DB9, le schéma de
+    câblage est le suivant :
+
+      No. du fil DB9                             Manipulateur 
+
+      8 (ligne CTS) --------------------+--------O--===== Contact de droite
+
+      4 (ligne DTR) --------------------+--------|        Commun
+
+      6 (ligne DSR) --------------------+--------O--===== Contact de gauche
+
+
+    Une fois que le manipulateur est connecté, configurez CWirc en réglant
+    l'entrée de la CW sur "real key" ou "both" et le type de manipulateur sur
+    "iambic" dans le panneau principal.
+
+
+
+4 - Connecter un sondeur externe
+
+    CWirc peut contrôler un sondeur, un générateur de bips, ou même la ligne
+  PTT de votre transceiver, au travers de la ligne RTS du port série. Il est
+  possible de faire en sorte que cette ligne change d'état en fonction du code
+  morse reçu ou émis, en parallèle avec la carte son, ou à la place de la
+  carte son. C'est une fonction utile pour différents types d'utilisateurs :
+
+  - Ceux dont la carte son ne peut être utilisée par plus d'un processus à la
+    fois et qui veulent écouter quelque chose en même temps qu'ils font de
+    la CW
+
+  - Les gens qui veulent faire l'expérience du son originel du télégraphe
+    (c'est-à-dire le son du sondeur), qui étaient non pas des bips mais des
+    clics
+
+  - Les radioamateurs qui veulent retransmettre un QSO CW internet sur les
+    ondes
+
+  - Les utilisateurs qui ont un problème d'audition et qui ont besoin d'une
+    indication visuelle des dits et des dahs
+
+  Bien entendu, on ne peut pas trouver d'appareils pour faire du morse
+  contrôlés par une ligne RTS de port RS232 tout faits dans le commerce, donc
+  il vous faudra probablement dépoussiérer votre fer à souder et le faire vous-
+  même. Le plus simple est probablement de fabriquer une petite interface à
+  relai contrôlé par la ligne RTS, avec un optocoupleur pour protéger votre
+  port série, puis d'utiliser le relai pour injecter une tension dans un 
+  oscillateur d'entraînement tout fait, un buzzer, une ampoule ou une bobine
+  de sondeur.
+
+
+    En supposant que votre port série utilise un connecteur DB9, le schéma de
+  câblage est le suivant :
+
+    No. du fil DB9
+
+    7 (ligne RTS) --------------------+-------- Sortie sondeur
+
+    5 (ligne GND) --------------------+-------- Masse logique
+
+
+    Une fois que le sondeur est connecté, configurez CWirc en réglant
+  la sortie de la CW sur "sounder" ou "both".
+
+    Avec un sondeur, si plusieurs opérateurs envoient du morse sur le même
+  canal CW en même temps, il n'est pas possible de discerner entre eux grâce
+  à la hauteur du son, vu que la seule information disponible avec une ligne
+  de donnée unique est la présence ou l'absence de signal.
+
+  NOTE: si vous réglez la sortie de la CW sur "sounder" (option disponible
+        seulement sous Linux), CWirc ne pourra pas utiliser la carte son pour
+        obtenir son timing en temps réel. Donc, il essayera d'utiliser
+        l'horloge en temps réel de l'ordinateur à la place, à travers
+        l'interface /dev/rtc. Vous devez cependant configurer certains choses
+        pour autoriser un programme utilisateur à accéder à /dev/rtc :
+
+        - Activez l'option "Enhanced Real Time Clock Support" dans le noyau
+          Linux, soit en tant que module, soit compilé dans le noyau
+
+        - Changez les permissions du fichier /dev/rtc pour qu'il soit
+          accessible par un utilisateur normal
+
+        - Autorisez CWirc à demander au noyaux de générer 1024 interruptions
+          par seconde en tapant la commande suivante, en étant root :
+
+            echo 1024 > /proc/sys/dev/rtc/max-user-freq
+
+          (Le plus simple est de mettre cette ligne dans un script de démarrage
+          afin que l'horloge en temps réel soit toujours configurée
+          correctement à chaque redémarrage de la machine.)
+
+        Si vous utilisez la sortie CW par la carte son et par le sondeur en
+        même temps, vous n'avez pas besoin de faire la configuration ci-dessus.
+        En effet, CWirc utilise automatiquement la carte son pour se
+        synchroniser à chaque fois que c'est possible.
+ 
+
+
+5 - Programmes d'extensions pour CWirc
+
+    Depuis la version 1.7.0, CWirc supporte des programmes externes pour
+  étendre ses fonctionnalités. Une interface de programmation simple permet
+  à un programme conçu ou modifié pour fonctionner avec CWirc de recevoir
+  l'audio de CWirc de façon synchrone, et de manipuler comme si vous manipuliez
+  vous-même.
+
+    Si vous avez un programme d'extension installé, une page supplémentaire
+  apparaîtra dans le menu afin de vous permettre de le démarrer. Notez qu'un
+  seul programme d'extension peut fonctionner à la fois.
+
+
+
+6 - Note sur l'interfaçage de CWirc et de CWCom
+
+    Le type d'interfaçage de périphériques externes par le port série utilisé
+  par CWirc est strictement identique à celui utilisé par le programme CWCom
+  pour Windows, de MRX Software (http://www.mrx.com.au/d_cwcom.htm). Donc, si
+  vous utilisez déjà CWCom dans Windows avec un manipulateur et/ou un sondeur
+  connecté au port série, vous n'aurez pas besoin de modifier quoi que ce soit
+  à votre installation matérielle pour utiliser CWirc sous Unix.
+
+
+
+7 - Résoudre le problème de son haché
+
+    Sur certaines machines équipées de cartes sons bas-de-gamme (typiquement
+  les chipsets SiS, i8x0 ou VIA), il est possible que CWirc produise un son
+  désagréable et haché quand le système est chargé, même modérément. Si vous
+  entendez un tel son haché, essayez d'installer le programme d'interface
+  graphique (généralement le fichier /usr/bin/cwirc_frontend ou
+  /usr/local/bin/cwirc_frontend) avec l'attribut suid root, en tapant les
+  commandes suivantes en étant root :
+
+    chown root <chemin d'installation de l'interface graphique>/cwirc_frontend
+    chmod u+s <chemin d'installation de l'interface graphique>/cwirc_frontend
+
+  puis en redémarrant CWirc. Celà devrait supprimer le problème, ou au moins
+  l'améliorer.
+
+    Quand CWirc est exécuté avec l'attribut suid root, il demande au système de
+  donner à sa routine d'entrées/sorties une priorité d'exécution supérieure à
+  la plupart des autres processus du système, ce qui contribue à éliminer le
+  retard de transfer de données vers la carte son à l'origine du son haché.
+  CWirc ne peut demander ce traitement de faveur au système que s'il a les
+  mêmes droits que le superutilisateur (root), d'où la nécessité d'installer
+  le programme suid root.
+
+    CWirc est normalement installé sans l'attribut suid root par défault,
+  car bien qu'il renonce aux droits du superutilisateur immédiatement après
+  avoir changé sa propre priorité système, presque au tout début du programme,
+  et par conséquent devrait être très sûr, les programmes avec l'attribut suid
+  root sont en général considérés comme un risque pour la sécurité du système,
+  et de toute façon la plupart des utilisateurs n'auront aucun problème de son
+  avec CWirc tournant avec une priorité système normale. C'est la raison pour
+  laquelle il vous est laissé le soin de changer l'attribut suid root du
+  fichier de l'interface graphique à la main, seulement si vous en avez besoin.
+
+    Si le problème semble persister, vous pouvez vérifier que CWirc a
+  effectivement réussi à changer la priorité de sa routine d'entrée/sorties
+  avec les droits du superutilisateur. Pour celà, invoquez :
+
+    ps x | grep cwirc_frontend
+
+  alors que CWirc tourne, et vérifiez que l'un des deux processus appelés
+  "cwirc_frontend" a un "<" marqué devant son nom, ce qui signifie que le
+  processus possède une priorité élevée.
+  
+
+
+8 - FAQ
+
+  Q: Quand je règle "CW output" sur "sounder", quand je démarre le plugin, il
+     dit "Error : cannot open /dev/rtc." mais je suis sûr que mon noyau a
+     le support pour l'horloge en temps réel, qu'il est configuré correctement
+     et que le fichier /dev/rtc a les permissions correctes.
+
+  R: Des programmes qui utilisent /dev/rtc comme VMware ou mplayer ont le
+     contrôle exclusif de l'horloge en temps réel et doivent être arrêtés avant
+     de pouvoir utiliser CWirc. Tapez "lsof /dev/rtc" pour voir quel est le
+     processus actuellement en train d'utiliser /dev/rtc.
+
+  Q: Quand je règle "CW output" sur "sounder", quand je démarre le plugin, il
+     dit "cannot set /dev/rtc to generate 1024 interrupts per second."
+
+  R: Par défaut, le noyau Linux ne laisse pas les programme non-root demander
+     plus de 64 interruptions par seconde à l'horloge en temps réel. CWirc en
+     a besoin de 1024, donc il faut que vous leviez cette barrière de sécurité
+     dans le noyau. Voir la section traitant de l'utilisation d'un sondeur
+     plus haut pour les details. Si vous ne pouvez pas changer les paramètres
+     du noyau parce que vous n'avez pas l'accès au système en tant que
+     superutilisateur, vous devrez utiliser la carte son en même temps.
+
+  Q: Quand j'essaye de démarrer CWirc, X-Chat me dit "CWirc : error : cannot
+     execute cwirc_frontend" ".
+
+  R: cwirc_frontend est l'exécutable pour l'interface graphique de CWirc. Il
+     doit être dans votre chemin de recherche "PATH" pour que le plugin puisse
+     le démarrer.
+
+  Q: Quand je manipule, après un moment, le serveur IRC me "sort"
+
+  R: Quand vous transmettez, beaucoup de données sont envoyées au server IRC
+     très rapidement. La plupart des serveurs IRC autorisent jusqu'à une ligne
+     de taille raisonnable toutes les 2 secondes, mais certain serveurs peuvent
+     interpréter vos messages comme du "flooding" et vous déconnecter. De plus,
+     si vous manipulez très vite, les lignes envoyées au server IRC peuvent
+     devenir assez longues et déclencher le mécanisme de protection anti-flood
+     du serveur. Essayez d'utiliser un serveur plus permissif, de manipuler
+     moins vite, ou de faire des QSOs privés en DCC CHAT.
+
+  Q: Le plugin démarre correctement, mais rien ne se passe quand je manipule
+     avec un vrai manipulateur
+
+  R: Assurez-vous que le fichier du port série que vous avez configuré
+     correspond bien au port série sur lequel vous avez connecté votre
+     manipulateur. Le plugin ne peut pas détecter votre manipulateur morse.
+
+  Q: Quand quelqu'un transmet, le flot de CW est coupé de temps en temps
+
+  R: C'est très probablement dû au retard entre la machine de la personne et
+     le serveur IRC, ou entre votre machine et le serveur IRC. Essayez
+     d'augmenter la valeur du tampon de réception, essayer de vous connecter
+     à un serveur plus responsif et moins chargé, ou bien initiez une session
+     en DCC CHAT avec l'autre personne pour communiquer directement sans passer
+     par le server IRC.
+
+  Q: J'ai augmenté la valeur du tampon de réception mais le son est toujours
+     haché, ou bien le son est haché lorsque je fais tourner beaucoup de
+     programmes dans mon système
+
+  R: Voir la section "Résoudre le problème de son haché" plus haut
+
+  Q: Un ami a CWirc installé, je peux voir des trames encodées qui proviennent
+     de son client, et il peut voir les miennes, et aucun de nous ne peut
+     entendre l'autre, ou alors seulement partiellement
+
+  R: Le format des trames a changé à la version 0.3.0, puis de nouveau à la
+     version 0.8.0, et encore une fois à la version 1.7.0 de CWirc. Les trames
+     générées par les versions précédentes de CWirc sont ignorées et
+     considérées comme des messages IRC normaux. Installez la dernière version
+     pour résoudre le problème.
+
+  Q: J'ai rejoint mon canal favori sur mon server IRC favori, j'ai envoyé un
+     ou deux CQs pour voir si je pouvais faire un contact avec un autre
+     utilisateur de CWirc, et le résultat a été que j'ai été "éjecté" du
+     canal / banni / insulté. Que se passe-t-il ?
+
+  R: Quand CWirc est chargé, il filtre les trames CW entrantes ou sortantes
+     et affiche seulement "sending" ou "receiving" (ou rien du tout) pour vous
+     éviter d'avoir à lire du texte encodé. Cependant, les autres chatteurs qui
+     n'utilisent pas CWirc verront le texte et vous prendront très rapidement
+     pour un mauvais plaisantin qui s'amuse à casser leurs conversations, et
+     vous classeront dans la catégorie "nuisance". Demandez toujours s'il y a
+     d'autres utilisateurs de CWirc sur un canal avant d'émettre, et ensuite,
+     soit initiez une conversation en privé avec eux avec la commande "/QUERY"
+     ou en DCC CHAT, soit créez un nouveau canal IRC pour faire du morse avec
+     les gens intéressés, afin que les autres ne soient pas ennuyés.
+
+  Q: Pourquoi l'option "sounder" n'est-elle pas disponible sous FreeBSD ou
+     NetBSD, dans le réglage de la sortie de la CW ?
+
+  R: Normalement, CWirc utilise la carte son comme horloge en temps réel,
+     c'est-à-dire qu'il tire avantage du fait qu'il faut à la carte son un
+     temps très précis pour émettre un fragment audio. Avec l'option "sounder",
+     la carte son n'est pas utilisée du tout. Donc, CWirc doit se rabattre sur
+     une autre source de timings précis. Sous Linux, il est possible d'utiliser
+     l'interface /dev/rtc dans ce but. Sous FreeBSD ou NetBSD, il n'y a pas de
+     telle interface, et le module rtc disponible avec l'émulation Linux n'est
+     pas complet et il lui manque certaines des fonctions utilisées par CWirc.
+     Par conséquent, l'option "sounder" est simplement désactivée sous ces
+     systèmes d'exploitation. 
+
+  Q: Que signifie l'option "DOT" dans le sélecteur de langue du décodeur ?
+
+  R: Le code DOT n'est pas une langue mais un ancien code télégraphique dérivé
+     directement d'un code à fanions. Il était utilisé par l'armée U.S. pendant
+     la guerre civile Américaine. Le code DOT n'est pas un code morse, et n'est
+     plus utilisé, sauf durant les présentations et les reconstitutions
+     historiques. Si l'histoire du télégraphe vous intéresse et que vous
+     voudriez reconstituer une station télégraphique de cette époque, vous
+     pouvez utiliser les sons de clics de sondeur et passer le décodeur en
+     code DOT pour vous aider à copier ce vieux code.
+     
+  Q: Je manipule, mais apparement personne ne m'entend
+
+  R: Vérifiez que vous n'êtes pas en mode "sidetone". Dans ce mode, CWirc
+     fonctionne exactement comme en mode normal, sauf qu'il ne transmet rien.
+
+
+
+9 - Contributions
+
+    Si vous pensez pouvoir améliorer le plugin, n'hésitez pas à m'envoyer vos
+  modifications, je les incorporerai avec plaisir. Aussi, si vous administrez
+  un serveur IRC et vous voulez dédier un canal pour faire du morse, faites-le
+  moi savoir afin que je poste l'adresse de votre serveur. Personnellement,
+  j'utilise le server irc.freenode.net, qui est un serveur assez performant et
+  permissif.
+
+
+
+10 - Crédits
+
+    Un grand merci aux personnes suivantes :
+
+  - Patrick Maille <patrick@arcturusnetworks.com> pour avoir testé CWirc sur de
+    nombreuses distributions Linux, et pour ses suggestions.
+
+  - Juha Nygard <juha.nygard1@netikka.fi> pour son aide avec FreeBSD, et pour
+    le compte sur sa machine FreeBSD.
+
+  - Bill Meahan <wmeahan@wa8tzg.org> pour les patchs NetBSD, et son aide pour
+    le testage et le déboguage.
+
+  - Ted Wagner <trwagner1@yahoo.com> & David T. Bock <bock@marketcommander.com>
+    pour leur aide concernant le code DOT dans le décodeur automatique.
+
+  - Mac WA4CAW, pour son temps, son aide et la documentation afin de bien
+    comprendre les générateurs iambic.
+
+  - Ted WA0EIR, pour son aide et sa capacité à dénicher des bogues obscurs.
+
+  - Joop Stakenborg PG4I <pa3aba@debian.org> pour maintainir le paquetage
+    Debian and pour les corrections de bogues.
+
+
+
+11 - Mentions légale
+
+    Ce logiciel est distribué sous les termes de la License Publique Générale
+  GNU (GPL). Voir le fichier "COPYING" pour plus de détails.
+
+  Ah oui, j'oubliais :
+
+  AVERTISSEMENT :
+
+    Je ne suis pas responsable des dommages que ce logiciel pourrait causer
+  à votre ordinateur, votre manipulateur morse, ou bien s'il efface votre
+  disque dur, ou s'il déclenche une bombe atomique, etc ...

@@ -1,0 +1,2 @@
+/home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/src-tarball.dir
+/home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/cscope.dir

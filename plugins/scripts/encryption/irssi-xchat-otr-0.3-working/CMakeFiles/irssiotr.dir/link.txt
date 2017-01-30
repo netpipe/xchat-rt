@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -g  -L/usr/lib64 -lgcrypt -ldl -lgpg-error -lglib-2.0 -shared -Wl,-soname,libotr.so -o libotr.so CMakeFiles/irssiotr.dir/irssi_otr.o CMakeFiles/irssiotr.dir/otr_util.o CMakeFiles/irssiotr.dir/otr_ops.o CMakeFiles/irssiotr.dir/otr_key.o CMakeFiles/irssiotr.dir/otr-formats.o -lglib-2.0 /usr/local/lib64/libotr.so -Wl,-rpath,/usr/local/lib64 

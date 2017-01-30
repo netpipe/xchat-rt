@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug Win32" />
+	<File name="src/proxyevent.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="934" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="27" />
+			<Collapse line="42" />
+		</Folding>
+	</File>
+	<File name="wxui/wxmainframe.cpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="359" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="27" />
+			<Collapse line="37" />
+			<Collapse line="72" />
+			<Collapse line="96" />
+			<Collapse line="103" />
+			<Collapse line="123" />
+			<Collapse line="144" />
+			<Collapse line="166" />
+			<Collapse line="195" />
+			<Collapse line="207" />
+			<Collapse line="214" />
+			<Collapse line="220" />
+		</Folding>
+	</File>
+	<File name="wxui/wxprefframe.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14244" topLine="21" />
+		</Cursor>
+		<Folding>
+			<Collapse line="29" />
+			<Collapse line="40" />
+			<Collapse line="147" />
+			<Collapse line="158" />
+			<Collapse line="177" />
+			<Collapse line="193" />
+			<Collapse line="205" />
+			<Collapse line="216" />
+			<Collapse line="274" />
+			<Collapse line="293" />
+			<Collapse line="299" />
+			<Collapse line="332" />
+			<Collapse line="344" />
+			<Collapse line="362" />
+			<Collapse line="383" />
+			<Collapse line="405" />
+			<Collapse line="429" />
+			<Collapse line="445" />
+			<Collapse line="475" />
+		</Folding>
+	</File>
+	<File name="src/otrproxy.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3458" topLine="75" />
+		</Cursor>
+		<Folding>
+			<Collapse line="49" />
+			<Collapse line="86" />
+			<Collapse line="137" />
+			<Collapse line="146" />
+			<Collapse line="155" />
+			<Collapse line="160" />
+			<Collapse line="167" />
+			<Collapse line="179" />
+			<Collapse line="185" />
+			<Collapse line="190" />
+			<Collapse line="197" />
+			<Collapse line="203" />
+			<Collapse line="211" />
+			<Collapse line="216" />
+			<Collapse line="222" />
+			<Collapse line="229" />
+			<Collapse line="236" />
+			<Collapse line="242" />
+			<Collapse line="250" />
+			<Collapse line="270" />
+			<Collapse line="279" />
+			<Collapse line="304" />
+			<Collapse line="314" />
+			<Collapse line="336" />
+			<Collapse line="342" />
+		</Folding>
+	</File>
+	<File name="wxui/wxproxyevent.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="962" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="25" />
+			<Collapse line="35" />
+		</Folding>
+	</File>
+	<File name="src/oscarproxy.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1127" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="51" />
+			<Collapse line="132" />
+			<Collapse line="153" />
+			<Collapse line="165" />
+			<Collapse line="178" />
+			<Collapse line="192" />
+			<Collapse line="213" />
+			<Collapse line="228" />
+			<Collapse line="267" />
+			<Collapse line="274" />
+			<Collapse line="284" />
+			<Collapse line="302" />
+			<Collapse line="623" />
+			<Collapse line="813" />
+			<Collapse line="863" />
+		</Folding>
+	</File>
+	<File name="src/sockdef.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="989" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="wxui/wxprefframe.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1123" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="32" />
+			<Collapse line="37" />
+			<Collapse line="45" />
+			<Collapse line="52" />
+			<Collapse line="57" />
+			<Collapse line="61" />
+		</Folding>
+	</File>
+	<File name="wxui/wxotrpolicybox.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7170" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="28" />
+			<Collapse line="36" />
+			<Collapse line="82" />
+			<Collapse line="97" />
+			<Collapse line="138" />
+			<Collapse line="157" />
+			<Collapse line="187" />
+			<Collapse line="200" />
+			<Collapse line="215" />
+			<Collapse line="233" />
+			<Collapse line="249" />
+			<Collapse line="258" />
+			<Collapse line="265" />
+			<Collapse line="308" />
+		</Folding>
+	</File>
+	<File name="src/oscarproxy.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="879" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="28" />
+			<Collapse line="58" />
+		</Folding>
+	</File>
+	<File name="wxui/wxmainframe.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1678" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="33" />
+			<Collapse line="66" />
+		</Folding>
+	</File>
+	<File name="wxui/wxotrpolicy.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="993" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="27" />
+			<Collapse line="33" />
+			<Collapse line="41" />
+			<Collapse line="45" />
+		</Folding>
+	</File>
+	<File name="wxui/wxotrproxy.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1085" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="25" />
+			<Collapse line="48" />
+			<Collapse line="53" />
+			<Collapse line="67" />
+			<Collapse line="136" />
+			<Collapse line="174" />
+			<Collapse line="182" />
+			<Collapse line="200" />
+			<Collapse line="246" />
+			<Collapse line="270" />
+			<Collapse line="291" />
+			<Collapse line="303" />
+			<Collapse line="313" />
+			<Collapse line="321" />
+			<Collapse line="335" />
+			<Collapse line="347" />
+			<Collapse line="353" />
+		</Folding>
+	</File>
+	<File name="src/httpproxy.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="984" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="39" />
+			<Collapse line="60" />
+			<Collapse line="120" />
+			<Collapse line="143" />
+			<Collapse line="167" />
+			<Collapse line="180" />
+			<Collapse line="206" />
+			<Collapse line="277" />
+			<Collapse line="497" />
+		</Folding>
+	</File>
+	<File name="src/otrproxy.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="917" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="wxui/wxotrdialog.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="911" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="23" />
+			<Collapse line="35" />
+		</Folding>
+	</File>
+	<EditorTabsLayout layout="042a5da0588be1170030dd6900000002=0;AgEditor:src/sockdef.h,1;AgEditor:src/httpproxy.c,2;AgEditor:src/oscarproxy.c,3;AgEditor:src/otrproxy.c,4;AgEditor:src/oscarproxy.h,5;AgEditor:src/otrproxy.h,6;AgEditor:wxui/wxotrproxy.cpp,7;AgEditor:wxui/wxotrpolicy.h,8;AgEditor:wxui/wxotrdialog.h,9;AgEditor:wxui/wxprefframe.h,10;AgEditor:wxui/wxmainframe.h,11;AgEditor:wxui/wxotrpolicybox.cpp,12;AgEditor:wxui/wxprefframe.cpp,13;AgEditor:src/proxyevent.h,14;AgEditor:wxui/wxproxyevent.h,15;AgEditor:wxui/wxmainframe.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=357;besth=730;minw=357;minh=730;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=042a5da0588be1170030dd6900000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+</CodeBlocks_layout_file>

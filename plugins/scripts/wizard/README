@@ -1,0 +1,70 @@
+________        ___                  _    ___   ____     ______
+\ \ \ \ \      / (_)______ _ _ __ __| |  / _ \ |___ \   / / / /
+ \ \ \ \ \ /\ / /| |_  / _` | '__/ _` | | | | |  __) | / / / / 
+  \ \ \ \ V  V / | |/ / (_| | | | (_| | | |_| | / __/ / / / /  
+   \_\_\_\_/\_/  |_/___\__,_|_|  \__,_|  \___(_)_____/_/_/_/   
+                                                               
+
+
+			Francois Wisard <zebuwin@yahoo.fr>
+			      	  Aug 6th 2003
+
+
+Tested under X-Chat 1.8.11 on FreeBSD 5.1
+
+Put all the files in your .xchat directory; X-Chat will automatically load the 
+script! Don't forget to edit wizard.pl and ctcpreply.conf to suit your 
+configuration.
+
+Requirements:
+- Perl
+- Xmms
+- Perl's Xmms::Bundle module
+
+
+Available commands:
+
+/j <channel>			joins a channel (don't need the #)
+/cs <message>			message to chanserv
+/ns <message>			message to nickserv
+/insult <nick>			gives <nick> a random insult
+/asc <message>			Puts your message in 1-line ASCII
+/info <nick>			Gives info on <nick>
+/dic <word>			Look up a word in a dictionnary
+/oops				When you typed in the wrong window
+/google <nick>			Ask <nick> to go to google before asking
+				dumb questions.
+/ftp <nick>			Connects to <nick>'s FTP
+/web <nick>			Connects to <nick>'s Web server
+/hs				Performs an host scan
+/lag <nick>			Play a prank on someone, making them think
+				they're lagged.
+/rn				Random nick (hard to read)
+/xmms				Plays/stops Xmms
+/next				Plays next song
+/prev				Plays previous song
+/mp3				Tell others what you're listening to
+
+/x <shell command/program>	Tells what you want to execute and its output
+/vote <question>		Propose a vote.
+/vote yes|no			Vote for the question
+/vote stop			Closes the current vote
+/filter <nick|word>		Filters on the argument
+/seen <nick>			Ask when we last saw <nick>
+				(also triggered by "!seen <nick>" in a channel)
+
+/dbs 				Statistics on the "!seen" database
+/save				Save the variables in a file
+/fdcc <nick> <filename> <size>  Sends <nick> a bogus file 
+/pop <nick> <message>		Sends <nick> a Windows (NT,2000,XP) popup 
+/popf <nick> <message>		Floods <nick> with windows popups
+
+
+TODO
+
+- Auto-away
+
+NEW:
+/x /vote /seen /filter /fdcc /pop /popf /dbs /save
+
+Don't hesitate to mail me suggestions on how to improve this script...                                            

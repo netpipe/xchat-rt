@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="All" />
+	<File name="xchat_otr.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="273" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="16" />
+			<Collapse line="31" />
+			<Collapse line="36" />
+			<Collapse line="116" />
+			<Collapse line="152" />
+			<Collapse line="193" />
+			<Collapse line="204" />
+			<Collapse line="233" />
+			<Collapse line="247" />
+			<Collapse line="282" />
+		</Folding>
+	</File>
+	<File name="otr_key.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2200" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="33" />
+			<Collapse line="43" />
+			<Collapse line="90" />
+			<Collapse line="136" />
+			<Collapse line="211" />
+			<Collapse line="236" />
+			<Collapse line="256" />
+			<Collapse line="281" />
+		</Folding>
+	</File>
+	<File name="otr_ops.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7082" topLine="66" />
+		</Cursor>
+		<Folding>
+			<Collapse line="32" />
+			<Collapse line="83" />
+			<Collapse line="94" />
+			<Collapse line="118" />
+			<Collapse line="136" />
+			<Collapse line="160" />
+			<Collapse line="186" />
+			<Collapse line="215" />
+			<Collapse line="225" />
+			<Collapse line="237" />
+			<Collapse line="247" />
+			<Collapse line="256" />
+			<Collapse line="264" />
+			<Collapse line="270" />
+		</Folding>
+	</File>
+	<EditorTabsLayout layout="04683fd05841b0c600693bdb00000002=0;Irrlicht Pong:otr_key.c,*1;Irrlicht Pong:otr_ops.c,2;Irrlicht Pong:xchat_otr.c@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=359;besth=779;minw=359;minh=779;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=04683fd05841b0c600693bdb00000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+</CodeBlocks_layout_file>

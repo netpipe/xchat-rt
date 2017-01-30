@@ -1,0 +1,39 @@
+#!/bin/sh -e
+
+PROXY_VERSION=0.1.1
+LIBOTR_VERSION=1.0.3
+
+# Have these point to the source directories of the proxy and libotr
+PROXYSRC=../..
+LIBOTRSRC=../../../libotr
+
+PACKAGEROOT=$PROXY_VERSION/root
+RESOURCEROOT=$PROXY_VERSION/resources
+
+
+mkdir -p $PACKAGEROOT/usr/bin
+mkdir -p $PACKAGEROOT/usr/share/man/man1
+mkdir -p $PACKAGEROOT/usr/share/doc/otrproxy
+
+(cd $LIBOTRSRC && make)
+(cd $PROXYSRC && make)
+
+cp $LIBOTRSRC/README $PACKAGEROOT/usr/share/doc/otrproxy/README.toolkit
+cp $LIBOTRSRC/toolkit/otr_toolkit.1 $PACKAGEROOT/usr/share/man/man1/
+
+TOOLKIT="otr_mackey otr_modify otr_parse otr_readforge otr_remac otr_sesskeys"
+
+for tool in $TOOLKIT; do
+  cp $LIBOTRSRC/$tool $PACKAGEROOT/usr/bin
+  ln -s otr_toolkit.1 $PACKAGEROOT/usr/share/man/man1/$tool.1
+done
+
+cp $PROXYSRC/otrproxy $PACKAGEROOT/usr/bin
+cp $PROXYSRC/otrproxy.1 $PACKAGEROOT/usr/share/man/man1
+cp $PROXYSRC/README $PACKAGEROOT/usr/share/doc/otrproxy
+
+mkdir -p $RESOURCEROOT
+cp $PROXYSRC/README $RESOURCEROOT/ReadMe.txt
+cp $PROXYSRC/COPYING $RESOURCEROOT/License.txt
+
+sudo chown -R root $PACKAGEROOT

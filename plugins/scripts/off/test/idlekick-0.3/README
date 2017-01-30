@@ -1,0 +1,44 @@
+ \ Idlekick  Version 0.3
+  \  XChat 2.0 Plugin to kick people who idle to long
+    \-------------------------------------------------
+
+ # Depenencies:
+ --------------
+ Make sure you have xchat-plugin.h, if not you have to get the source and
+ copy xchat-plugin.h to the root of the idlekick source tree.
+
+ You need glib2. Make sure glib2 and the development package of glib2 is
+ installed correctly on your system.
+
+ # Setup:
+ --------
+ Compile it with:
+	make
+ 
+ Finish !
+
+ # Start the plugin
+ ---------------
+ 1. First of all, you have to copy the configuration file (idlekick.conf) to
+    /home/YOURHOME/.xchat2/
+  
+ 2. Edit your configuration file !!!
+
+ 3. Make sure you are channel operator because idlekick only works if your are channel operator !! 
+
+ 4. Then load the plugin with "Window -> Plugin List -> Load" and select the
+    idlekick.so file.
+
+ 5. After this step you can start idlekick with /idlekick start. 
+    It will check the idle time of the users each 'check_idletime_time' milliseconds. 
+
+ KICK THE IDLERS  (BAN THEM, too)  (BAN THEM, too)  (BAN THEM, too)  (BAN THEM, too)  (BAN THEM, too)  (BAN THEM, too)  (BAN THEM, too)  (BAN THEM, too) !!
+
+ # Copyright:
+ ------------
+ 
+ Bernhard Suttner <bender@tuximus.org>
+ 
+ Please read COPYRIGHT carefully.
+  
+

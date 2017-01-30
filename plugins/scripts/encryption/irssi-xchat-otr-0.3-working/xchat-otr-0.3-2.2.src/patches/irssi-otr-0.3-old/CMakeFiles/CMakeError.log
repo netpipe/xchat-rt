@@ -1,0 +1,84 @@
+Determining if the include file glib/gregex.h exists failed with the following output:
+Change Dir: /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_351f1/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_351f1.dir/build.make CMakeFiles/cmTC_351f1.dir/build
+gmake[1]: Entering directory '/home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_351f1.dir/CheckIncludeFile.c.o
+/usr/bin/cc  -DHAVE_CONFIG_H -I/home/clayton/.xchat2-dev/otr/irssi-otr-0.3 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/local/include    -o CMakeFiles/cmTC_351f1.dir/CheckIncludeFile.c.o   -c /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+In file included from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:0:
+/usr/include/glib-2.0/glib/gregex.h:26:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gregex.h:29:0,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gerror.h:24:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gerror.h:29:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gquark.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gquark.h:32:0,
+                 from /usr/include/glib-2.0/glib/gerror.h:29,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gtypes.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/lib64/glib-2.0/include/glibconfig.h:9:0,
+                 from /usr/include/glib-2.0/glib/gtypes.h:32,
+                 from /usr/include/glib-2.0/glib/gquark.h:32,
+                 from /usr/include/glib-2.0/glib/gerror.h:29,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gmacros.h:33:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gtypes.h:34:0,
+                 from /usr/include/glib-2.0/glib/gquark.h:32,
+                 from /usr/include/glib-2.0/glib/gerror.h:29,
+                 from /usr/include/glib-2.0/glib/gregex.h:29,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gversionmacros.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gregex.h:30:0,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gstring.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gstring.h:33:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gunicode.h:25:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gstring.h:34:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gbytes.h:26:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gbytes.h:30:0,
+                 from /usr/include/glib-2.0/glib/gstring.h:34,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/garray.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+In file included from /usr/include/glib-2.0/glib/gstring.h:35:0,
+                 from /usr/include/glib-2.0/glib/gregex.h:30,
+                 from /home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/usr/include/glib-2.0/glib/gutils.h:29:2: error: #error "Only <glib.h> can be included directly."
+ #error "Only <glib.h> can be included directly."
+  ^
+CMakeFiles/cmTC_351f1.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_351f1.dir/CheckIncludeFile.c.o' failed
+gmake[1]: *** [CMakeFiles/cmTC_351f1.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/home/clayton/.xchat2-dev/otr/irssi-otr-0.3/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_351f1/fast' failed
+gmake: *** [cmTC_351f1/fast] Error 2
+
+

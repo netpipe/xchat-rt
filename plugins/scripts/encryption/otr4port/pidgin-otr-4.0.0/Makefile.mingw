@@ -1,0 +1,136 @@
+WIN32=1
+
+# The version number to put in the plugin info
+PIDGIN_OTR_VERSION = 4.0.0
+
+# Name of the gettext domain
+GETTEXT_PACKAGE = pidgin-otr
+
+# Replace this with the path to the pidgin and purple headers
+PIDGIN_HEADERS ?= -I/usr/i586-mingw32msvc/include/pidgin \
+ -I/usr/i586-mingw32msvc/include/pidgin/win32
+PURPLE_HEADERS ?= -I/usr/i586-mingw32msvc/include/libpurple \
+ -I/usr/i586-mingw32msvc/include/libpurple/win32
+
+# Replace this with the path to the extracted GTK+ "all-in-one" win32 bundle
+GTK_WIN32_BUNDLE ?= /usr/i586-mingw32msvc/misc/gtk_bundle
+
+# Replace this with the to path DLL files from a Win32 Pidgin distributable
+# (i.e. pidgin.dll and libpurple.dll)
+PIDGIN_WIN32_LIBS ?= /usr/i586-mingw32msvc/misc/pidgin_dlls
+
+# If you have a pkg-config that finds the win32 versions, you can use it
+# instead of the -I lines below
+#GTK_HDRS ?= `pkg-config --cflags glib-2.0 gtk+-2.0`
+GTK_HDRS ?= -I$(GTK_WIN32_BUNDLE)/include  \
+ -I$(GTK_WIN32_BUNDLE)/include/gtk-2.0  \
+ -I$(GTK_WIN32_BUNDLE)/include/glib-2.0 \
+ -I$(GTK_WIN32_BUNDLE)/include/cairo \
+ -I$(GTK_WIN32_BUNDLE)/include/pango-1.0 \
+ -I$(GTK_WIN32_BUNDLE)/include/atk-1.0 \
+ -I$(GTK_WIN32_BUNDLE)/include/gdk-pixbuf-2.0 \
+ -I$(GTK_WIN32_BUNDLE)/lib/glib-2.0/include \
+ -I$(GTK_WIN32_BUNDLE)/lib/gtk-2.0/include
+
+
+# The location of the libotr include files.  Note that if, for example,
+# the full path of message.h is /usr/include/libotr/message.h, you
+# should put /usr/include on the next line, not /usr/include/libotr
+LIBOTRINCDIR = /usr/i586-mingw32msvc/include
+
+# The locataion of libotr.a.
+LIBOTRLIBDIR = /usr/i586-mingw32msvc/lib
+
+# Location of libintl.h
+LIBINTLINCDIR = /usr/i586-mingw32msvc/include
+
+# Location of intl.dll
+LIBINTLLIBDIR = /usr/i586-mingw32msvc/lib
+
+# Installed location of libotr toolkit
+LIBOTRBINDIR = /usr/i586-mingw32msvc/bin
+
+# Source location of libotr
+LIBOTRSRCDIR = ../libotr
+
+# The target
+TARGET = pidgin-otr.dll
+
+# The target zipfile
+ZIPFILE = pidgin-otr-$(PIDGIN_OTR_VERSION).zip
+
+# Compiling with -fPIE and linking with -pie causes the plugin to crash
+# on load, so we'll skip those.
+CC_HARDENING_OPTIONS ?= -fstack-protector-all -Wstack-protector -fwrapv \
+	--param ssp-buffer-size=1 -fno-strict-overflow -Wall -Wextra \
+	-Wno-unused-parameter -Wno-missing-field-initializers -Wformat-security
+# In theory, we'd also like the following:
+# LD_HARDENING_OPTIONS ?= -dynamicbase --nxcompat -pie -z relro -z now
+LD_HARDENING_OPTIONS ?= --dynamicbase --nxcompat
+
+CC = i586-mingw32msvc-gcc
+LDFLAGS = -Wl,--enable-auto-image-base $(LD_HARDENING_OPTIONS)
+LDLIBS = $(LIBOTRLIBDIR)/libotr.a -L$(GTK_WIN32_BUNDLE)/lib \
+	 -L$(PIDGIN_WIN32_LIBS) -lgtk-win32-2.0 -lglib-2.0 \
+	 -lgdk_pixbuf-2.0 -lgobject-2.0 -lpidgin -llibpurple \
+	 -lgcrypt -lgpg-error -L$(LIBINTLLIBDIR) -lintl -lssp
+
+CC ?= gcc
+override CFLAGS += -g -O2 -Wall $(CC_HARDENING_OPTIONS) \
+	$(PIDGIN_HEADERS) $(PURPLE_HEADERS) \
+	$(GTK_HDRS) -I$(LIBOTRINCDIR) $(FPIC) -DUSING_GTK -DPURPLE_PLUGINS \
+	-DPIDGIN_OTR_VERSION=\"$(PIDGIN_OTR_VERSION)\" \
+	-I$(LIBINTLINCDIR) -DENABLE_NLS \
+	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\"
+	#-DPIDGIN_NAME=\"Pidgin\" 
+ 
+all: $(TARGET)
+	$(MAKE) -C po -f Makefile.mingw
+
+$(TARGET): otr-plugin.o ui.o dialogs.o gtk-ui.o gtk-dialog.o tooltipmenu.o
+	$(CC) -g -shared $(LDFLAGS) $^ -o $@ $(LDLIBS)
+
+clean:
+	rm -f *.o
+	rm -f $(TARGET)
+	$(MAKE) -C po -f Makefile.mingw clean
+
+distclean: clean
+	$(MAKE) -C po -f Makefile.mingw distclean
+
+## Prepare the win32_export directory
+prepare_win32_export: all
+	mkdir win32_export
+	# Copy pieces over from the libotr source dir
+	for f in otr_mackey.exe otr_parse.exe otr_remac.exe otr_modify.exe \
+		otr_readforge.exe  otr_sesskeys.exe; do \
+			cp -a $(LIBOTRBINDIR)/$$f win32_export/; done
+	cp -a $(LIBOTRSRCDIR)/README win32_export/README.Toolkit.txt
+	cp -a $(LIBOTRSRCDIR)/Protocol-v3.html win32_export/Protocol-v3.html
+	cp -a $(LIBOTRSRCDIR)/COPYING win32_export/COPYING.txt
+	cp -a $(LIBOTRSRCDIR)/COPYING.LIB win32_export/COPYING.LIB.txt
+	cp -a $(TARGET) win32_export/
+	cp -a README win32_export/README.txt
+	cp -a packaging/windows/pidgin-otr.nsi win32_export/
+	for i in po/*.gmo; do \
+		l=`basename $$i .gmo`; \
+		mkdir -p win32_export/locale/$$l/LC_MESSAGES; \
+		cp -a $$i win32_export/locale/$$l/LC_MESSAGES/pidgin-otr.mo; \
+	done
+	cd win32_export; \
+	i586-mingw32msvc-strip *.exe *.dll; \
+	perl -pi -e 's/$$/\r/' README.Toolkit.txt Protocol-v3.html \
+		COPYING.txt COPYING.LIB.txt README.txt;
+
+installer: prepare_win32_export
+	makensis packaging/windows/pidgin-otr.nsi
+	rm -rf win32_export
+
+## Package up all the pieces needed to build the installer
+zip: prepare_win32_export
+	rm -f $(ZIPFILE)
+	cd win32_export; \
+	zip -r $(ZIPFILE) ./*; \
+	mv $(ZIPFILE) ../;
+	rm -rf win32_export
+

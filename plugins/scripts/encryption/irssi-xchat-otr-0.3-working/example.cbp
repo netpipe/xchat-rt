@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Irrlicht Pong" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="./Pong.so" imp_lib="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).a" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).def" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Option projectResourceIncludeDirsRelation="1" />
+				<Compiler>
+					<Add option="-fPIC" />
+					<Add option="-DTARGET_XCHAT" />
+					<Add directory="./" />
+					<Add directory="/home/clayton/.xchat2-dev/DEV/xchat-2.8.8/plugins" />
+					<Add directory="/home/clayton/.xchat2-dev/otr/libotr2-git/src" />
+				</Compiler>
+				<Linker>
+					<Add library="otr" />
+					<Add directory="/home/clayton/.xchat2-dev/otr/libotr2-git/src/.libs" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="`pkg-config --cflags glib-2.0`" />
+			<Add directory="/home/Dev/libs/game/Irrlicht-SVN/include" />
+			<Add directory="/usr/local/include/libotr" />
+		</Compiler>
+		<Linker>
+			<Add library="GL" />
+			<Add library="Irrlicht" />
+			<Add library="Xxf86vm" />
+			<Add library="X11" />
+			<Add directory="/home/Dev/libs/game/Irrlicht-SVN/lib/Linux" />
+		</Linker>
+		<Unit filename="otr_key.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="otr_ops.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="otr_util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xchat-formats.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xchat-plugin.h" />
+		<Unit filename="xchat_otr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xchat_otr.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

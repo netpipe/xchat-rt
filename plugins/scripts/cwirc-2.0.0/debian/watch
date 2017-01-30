@@ -1,0 +1,3 @@
+# Site		Directory		Pattern			Version	Script
+version=2
+http://users.skynet.be/ppc/cwirc/download/cwirc-(.*)\.tar\.gz	debian	uupdate

@@ -1,0 +1,10 @@
+#############
+#  EasyXdcc #
+#############
+
+
+Copy "EasyXdcc.py" to "~/.xchat2"
+
+Append to "~/.xchat2/Popup.conf" the content of the file "EasyXdcc_Popup.conf"
+
+Enjoy :)

@@ -1,0 +1,319 @@
+Sat Jan 31 21:09:26 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* NEWS:
+	  Prepare NEWS file for release 0.3.
+
+Sat Jan 31 20:41:20 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* Makefile.am:
+	* configure.ac:
+	  Don't use broken GUILE_SITE_DIR m4 macro.
+	  Instead use the path provided at configure time using
+	  '--with-guile-module-dir' option and install at
+	  '$(datarootdir)/guile/site' if this option is not provided.
+
+Sun Jan 25 21:36:22 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* configure.ac:
+	  Version bump to 0.3 and email update.
+
+Sun Jan 25 21:34:43 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* Makefile.am:
+	* configure.ac:
+	  Get rif of the (hopefully) unnecessary build dir stuff.
+
+Sun Jan 25 21:31:19 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* Makefile.am:
+	  No need to distribute removed bootstrap.sh file.
+
+Sun Jan 25 20:20:07 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* configure.ac:
+	  No need to build/link against gthread anymore.
+
+Sun Jan 25 20:18:57 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* guile.c:
+	* plugin-system.scm:
+	  Get rid of all locks.
+	  If someone wants to use threads, they should just keep their own lock on
+	  all xchat procedures.
+
+Fri Jan 23 01:19:49 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* example.scm:
+	* guile.c:
+	* plugin-system.scm:
+	  Put licence header in the source files.
+
+Fri Jan 23 01:17:16 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* COPYING:
+	* README:
+	* example.scm:
+	* guile.c:
+	* plugin-system.scm:
+	  No need to Relicence under LGPL.
+	  This reverts commit 62a04a931d57a76873a1c5d3049201c356044a1b.
+
+Wed Jan 21 01:33:53 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* COPYING:
+	* README:
+	* example.scm:
+	* guile.c:
+	* plugin-system.scm:
+	  Relicence under LGPL and put licence header in the source files.
+
+Wed Jan 21 01:24:18 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* README:
+	  Update and corrections to README.
+
+Wed Jan 21 01:13:20 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* guile.c:
+	  SCM_INUM has been replaced by scm_to_int.
+
+Wed Jan 21 01:05:58 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* guile.c:
+	  SCM_EOL is the new empty list initializer.
+
+Wed Jan 21 01:03:29 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* guile.c:
+	  Use scm_i_string instead of deprecated SCM_STRING_CHARS.
+
+Wed Jan 21 00:39:08 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* guile.c:
+	  Remove scm2bool in favor of guile's scm_to_bool.
+
+Tue Jan 20 23:24:37 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* guile.c:
+	  scm_new_port_table_entry is now defined by libguile for us.
+
+Tue Jan 20 22:47:24 2009 +0200  Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+
+	* autogen.sh:
+	* bootstrap.sh:
+	  Replace bootstrap.sh with autogen.sh.
+
+Mon Aug 25 14:13:17 2008 +0300  Zeeshan Ali <zeenix@gstreamer.net>
+
+	* bootstrap.sh:
+	* guile.c:
+	  Update my copyright and email.
+
+Fri Nov 24 01:39:07 2006 +0200  Zeeshan Ali <zeenix@gmail.com>
+
+	* guile.c:
+	  use alist instead of list where appropriate
+
+Fri Nov 24 01:00:09 2006 +0200  Zeeshan Ali <zeenix@gmail.com>
+
+	* guile.c:
+	  add the emacs mode settings
+
+Fri Nov 24 00:48:06 2006 +0200  Zeeshan Ali <zeenix@gmail.com>
+
+	* INSTALL:
+	  remove INSTALL file from the repo as well
+
+Fri Nov 24 00:43:09 2006 +0200  Zeeshan Ali <zeenix@gmail.com>
+
+	* INSTALL:
+	* build/compile:
+	* build/config.guess:
+	* build/config.sub:
+	* build/depcomp:
+	* build/install-sh:
+	* build/ltmain.sh:
+	* build/missing:
+	  remove build directory from the repo
+
+Thu Nov 23 00:05:22 2006 +0200  Zeeshan Ali <zeenix@gmail.com>
+
+	* guile.c:
+	  put my email in the copyright notice
+
+Wed Nov 22 00:09:51 2006 +0200  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* guile.c:
+	  fix memory leak in xchat_write
+
+Tue Nov 21 22:28:09 2006 +0200  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* AUTHORS:
+	  Put lmamane in AUTHORS
+
+Fri Nov 17 16:13:06 2006 +0200  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* guile.c:
+	  abstract-protocol-constants
+	  Use XCHAT_EAT_* instead of hardcoded 0/1.
+
+Fri Nov 17 16:04:59 2006 +0200  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* guile.c:
+	  console
+
+Fri Nov 17 15:26:55 2006 +0200  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* README:
+	* guile.c:
+	  copyright-lionel
+
+Sun May 28 00:36:40 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/changelog:
+	  changelog for upstream move
+
+Sun May 28 00:25:15 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/control:
+	* debian/copyright:
+	* debian/watch:
+	  upstream move to static.fi
+
+Fri May 5 09:46:04 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/changelog:
+	* debian/control:
+	* debian/copyright:
+	  Use my debian.org email everywhere.
+
+Wed May 3 01:12:36 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/changelog:
+	* debian/control:
+	  Homepage in long description in debian/control
+
+Wed May 3 00:41:47 2006 +0300  Zeeshan Ali <zeenix@gmail.com>
+
+	* README:
+	  inform people that we are GPL2, not prior
+
+Wed May 3 00:34:05 2006 +0300  Zeeshan Ali <zeenix@gmail.com>
+
+	* m4/Makefile.in:
+	  Removing 'm4/Makefile.in'
+
+Sun Apr 30 20:48:13 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/rules:
+	  nitpicking: Use "-ggdb" in flags, not "-g".
+
+Sun Apr 30 20:46:19 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/rules:
+	  configure calling: Handle cross and native compilation well.
+
+Sun Apr 30 20:44:17 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/compat:
+	* debian/control:
+	* debian/xchat-guile.docs:
+	  Switch to debhelper V5
+	  and use its advantages:
+	  - Add NEWS to documentation files, won't be installed as long as
+	  empty.
+
+Sun Apr 30 20:43:32 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/control:
+	  Add libglib2.0-dev to build-depends
+
+Sun Apr 30 20:42:13 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* configure.ac:
+	* debian/control:
+	  Don't configure-check presence of XChat: Can compile without it.
+
+Sun Apr 30 19:57:33 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/rules:
+	  Actually install the stuff
+	  Also work around upstream build system bugs / inconveniences:
+	  - Install scheme "scripts" non-executable
+	  - Put guile stuff in /usr/share/guile/1.6, not /usr/share/guile/site
+
+Sun Apr 30 19:57:14 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/control:
+	  section: net
+
+Sun Apr 30 19:08:13 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* debian/changelog:
+	* debian/compat:
+	* debian/control:
+	* debian/copyright:
+	* debian/rules:
+	* debian/watch:
+	* debian/xchat-guile.doc-base:
+	* debian/xchat-guile.docs:
+	  Debian packaging: first shot
+
+Sun Apr 30 16:04:35 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* Makefile.am:
+	  Record aclocal flags
+	  so that aclocal gets called correctly when called automatically.
+
+Sun Apr 30 16:02:37 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* configure.ac:
+	* m4/Makefile.in:
+	  Use AM_MAINTAINER_MODE
+
+Sun Apr 30 15:56:26 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* README:
+	  Remove requirements section from README
+	  It serves no purpose in a Debian context.
+
+Sun Apr 30 15:54:45 2006 +0300  Lionel Elie Mamane <lionel@mamane.lu>
+
+	* m4/Makefile.in:
+	  Run newer autotools:  am 1.9
+
+Sat Oct 29 12:23:41 2005 +0300  Zeeshan Ali <zeenix@gmail.com>
+
+	* guile.patch:
+	  removing a silly file
+
+Sat Oct 29 12:11:05 2005 +0300  Zeeshan Ali <zeenix@gmail.com>
+
+	* AUTHORS:
+	* COPYING:
+	* ChangeLog:
+	* INSTALL:
+	* Makefile.am:
+	* NEWS:
+	* README:
+	* bootstrap.sh:
+	* build/compile:
+	* build/config.guess:
+	* build/config.sub:
+	* build/depcomp:
+	* build/install-sh:
+	* build/ltmain.sh:
+	* build/missing:
+	* config.h.in:
+	* configure.ac:
+	* example.scm:
+	* guile.c:
+	* guile.patch:
+	* m4/Makefile.am:
+	* m4/Makefile.in:
+	* m4/guile.m4:
+	* m4/pkg.m4:
+	* plugin-system.scm:
+	* xchat-plugin.h:
+	  first darcs release
+

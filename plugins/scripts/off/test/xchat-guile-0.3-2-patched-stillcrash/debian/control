@@ -1,0 +1,21 @@
+Source: xchat-guile
+Section: net
+Priority: optional
+Maintainer: Lionel Elie Mamane <lmamane@debian.org>
+Build-Depends: debhelper (>= 5), guile-1.8-dev, libglib2.0-dev (>= 2.4)
+Standards-Version: 3.9.2
+Homepage: http://static.fi/~zeenix/xchat-guile/
+
+Package: xchat-guile
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, xchat (>= 2.4.1), guile-1.8
+Description: Guile scripting plugin for XChat
+ Plug-in adding Guile scripting support to XChat.
+ .
+ Guile is the GNU Scheme implementation, and the official GNU
+ scripting language. Scheme is a minimalistic, clean Lisp dialect,
+ that is a dynamically typed functional impure programming language
+ with reflection.
+ .
+ XChat is a featureful IRC client with a GTK+2-based graphical user
+ interface.
