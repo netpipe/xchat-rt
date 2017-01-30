@@ -1,0 +1,69 @@
+alias -l firetimer {
+  if (%up > %down) {
+    msg %kickchan Vote passed! Yes: %up - No: %down
+    kick %kickchan %nick
+  }
+  else {
+    msg %kickchan Vote Failed! Yes: %up - No: %down
+  }
+}
+
+on *:text:!votekick *:#: {
+  set %kickchan #CHANNEL
+  set %kicktime 15
+  set %exceptions
+  if (%voteon == on) {
+    notice $nick A votekick is already taking place.
+  }
+  else {
+    if ($nick isop %kickchan) {
+      set %nick $$2
+      set %voteon on
+      if (%voteon == on) {
+        .timer 1 %kicktime firetimer
+        .timer 1 %kicktime set %voteon off
+        .timer 1 %kicktime unset %voted
+        .timer 1 %kicktime set %up 0
+        .timer 1 %kicktime set %down 0
+        set %voteon on
+        msg %kickchan Voting to kick %nick has started. Type !yes or !no to vote.
+      }
+    }
+    else {
+      notice $nick You need to be a channel operator to call a votekick.
+      halt
+    }
+  }
+}
+
+on *:text:!yes:#: {
+  if ($istok(%voted,$address,32)) {
+    notice $nick You have already voted.
+    halt
+  }
+  if (%voteon == off) {
+    notice $nick Voting is currently off.
+    halt
+  }
+  else {
+    %voted = $addtok(%voted,$address,32)
+    inc %up 1
+    msg %kickchan Yes: %up - No: %down
+  }
+}
+
+on *:text:!no:#: {
+  if ($istok(%voted,$address,32)) {
+    notice $nick You have already voted.
+    halt
+  }
+  if (%voteon == off) {
+    notice $nick Voting is currently off.
+    halt
+  }
+  if (%voteon == on) {
+    %voted = $addtok(%voted,$address,32)
+    inc %down 1
+    msg %kickchan Yes: %up - No: %down
+  }
+}

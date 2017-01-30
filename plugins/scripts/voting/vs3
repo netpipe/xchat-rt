@@ -1,0 +1,95 @@
+;##################################
+;###        Vote Script         ###
+;###Multiple Channels and Topics###
+;###      Author: Yoinx         ###
+;###   Irc: us.undernet.org     ###
+;##################################
+on *:text:*:#: {
+  inc -u5 $+(%,vote.flood.,$nick)
+  if ( $($+(%,vote.flood.,$nick),2) >= 3 ) {
+    halt
+  }
+  if ( $nick isop $chan ) {
+    If ( $1 == !startvote ) {
+      if ( $gettok($1-,-1,32) isnum ) && ( $($+(%,vote.,$chan,.,$replace($deltok($2-,-1,32),$chr(32),$chr(46))),2) != $null ) {
+        msg $chan $nick $+(",$deltok($2-,-1,32),") is already an ongoing vote.
+      }
+      elseif ( $gettok($1-,-1,32) !isnum ) && ( $($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46))),2) != $null ) {
+        msg $chan $nick $+(",$2-,") is already an ongoing vote.
+      }
+      elseif ( $gettok($1-,-1,32) !isnum ) && ( $($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46))),2) == $null ) {
+        set $+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46))) $2-
+        msg $chan $nick started vote $+(",$2-,") cast your votes.
+      }
+      elseif ( $gettok($1-,-1,32) isnum ) && ( $($+(%,vote.,$chan,.,$replace($deltok($2-,-1,32),$chr(32),$chr(46))),2) == $null ) {
+        set $+(%,vote.,$chan,.,$replace($deltok($2-,-1,32),$chr(32),$chr(46))) $deltok($2-,-1,32)
+        msg $chan $nick started vote $+(",$deltok($2-,-1,32),") cast your votes. Vote will go for $duration($gettok($1-,-1,32))
+        $+(.,timer,$replace($deltok($2-,-1,32),$chr(32),$chr(46))) 1 $gettok($1-,-1,32) endvote Timer $chan $deltok($2-,-1,32)
+      }
+    }
+    if ( $1 == !endvote ) {
+      endvote $nick $chan $2-
+    }
+  }
+  if ( $1 == !vote ) {
+    if ( $istok($($+(%,vote.,$chan,.,$replace($deltok($2-,-1,32),$chr(32),$chr(46)),.voted),2),$nick,44) ) {
+      msg $chan Sorry $nick You already voted
+      halt
+    }
+    elseif ( $2 == $null) {
+      msg $chan $nick - Proper Useage is "!vote vote name yes" or "!vote vote name no"
+    }
+    elseif ( $($+(%,vote.,$chan,.,$replace($deltok($2-,-1,32),$chr(32),$chr(46))),2) == $null ) {
+      msg $chan $nick - $+(",$deltok($2-,-1,32),") is not an ongoing vote.
+    }
+    elseif ( $gettok($1-,-1,32) == no ) {
+      inc $+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46)))
+      msg $chan $nick Your vote of "no" has been recorded
+      set $+(%,vote.,$chan,.,$replace($deltok($2-,-1,32),$chr(32),$chr(46)),.voted) $addtok($($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46)),.voted),2),$nick,44)
+    }
+    elseif ( $gettok($1-,-1,32) == yes ) {
+      inc $+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46)))
+      msg $chan $nick Your vote of "yes" has been recorded
+      set $+(%,vote.,$chan,.,$replace($deltok($2-,-1,32),$chr(32),$chr(46)),.voted) $addtok($($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46)),.voted),2),$nick,44)
+    }
+  }
+  if ( $1 == !currentvotes ) {
+    if ( $2 == $null ) {
+      msg $chan $nick you must specify a vote name - "!currentvotes vote name"
+    }
+    elseif ( $($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46))),2) == $null ) {
+      msg $chan $nick $+(",$2-,") is not an ongoing vote.
+    }
+    else { 
+      msg $chan Current votes for $+(",$2-,") are $iif( $($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46)),.yes),2) != $null , Yes: $($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46)),.yes),2) , Yes: 0 ) / $iif( $($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46)),.no),2) != $null , No: $($+(%,vote.,$chan,.,$replace($2-,$chr(32),$chr(46)),.no),2) , No: 0 ) 
+    }
+  }
+  if ( $1 == !listvotes ) {
+    msg $chan Listing Ongoing Votes.
+    var %x 1
+    while ( %x <= $var($+(%,vote.,$chan,.,*),0) ) {
+      if ( $gettok($var($+(%,vote.,$chan,.,*),%x),-1,46) != no ) && ( $gettok($var($+(%,vote.,$chan,.,*),%x),-1,46) != yes ) && ( $gettok($var($+(%,vote.,$chan,.,*),%x),-1,46) != voted ) {
+        msg $chan Ongoing Vote: $+(",$replace($deltok($var($+(%,vote.,$chan,.,*),%x),1-2,46),$chr(46),$chr(32)),")
+      }
+      inc %x
+    }
+    msg $chan Vote List End.
+  }
+  if ( $1 == !votehelp ) {
+    msg $chan Vote Help: Ops: !startvote vote name (time)- starts a vote, time is optional and must be in secs. !stopvote vote name - stops a vote. All: !vote vote name yes/no - casts your vote. !currentvotes vote name - Shows current votes. !listvotes - shows all ongoing votes. !votehelp - summons this help. 
+    msg $chan If the bot does not respond to your triggers, You have probably activated the flood protection. Wait a few moments and try again.
+  }
+}
+alias endvote {
+  if ( $($+(%,vote.,$2,.,$replace($3-,$chr(32),$chr(46))),2) == $null ) {
+    msg $2 $1 $+(",$3-,") is not an ongoing vote
+  }
+  elseif ( $($+(%,vote.,$2,.,$replace($3-,$chr(32),$chr(46))),2) != $null ) {
+    msg $2 Vote for $+(",$($+(%,vote.,$2,.,$replace($3-,$chr(32),$chr(46))),2),") has been ended by $1
+    msg $2 Results for $+(",$($+(%,vote.,$2,.,$replace($3-,$chr(32),$chr(46))),2),") are $iif($($+(%,vote.,$2,.,$replace($3-,$chr(32),$chr(46)),.yes),2) != $null , Yes: $($+(%,vote.,$2,.,$replace($3-,$chr(32),$chr(46)),.yes),2) , Yes: 0 )  $iif($($+(%,vote.,$2,.,$replace($2-,$chr(32),$chr(46)),.no),2) != $null , No: $($+(%,vote.,$2,.,$replace($3-,$chr(32),$chr(46)),.no),2) , No: 0 ) 
+    unset $+(%,vote.,$2,.,$replace($3-,$chr(32),$chr(46)),*)
+  }
+  if ( $timer($replace($3-,$chr(32),$chr(46))) ) {
+    $+(.timer,$replace($3-,$chr(32),$chr(46))) off
+  }
+}

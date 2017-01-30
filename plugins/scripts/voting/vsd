@@ -1,0 +1,52 @@
+alias resultpollcode {
+  var %toknum 1
+  if (%voteoptions) {
+    while ($gettok(%nforoptions,%toknum,44)) {
+      var %pollresults $addtok(%pollresults,11[ 12 $+ $gettok(%voteoptions,%toknum,9) $+ : $gettok(%nforoptions,%toknum,44) 11],0)
+      inc %toknum
+    }
+    msg %pollchannel 12{{<<< Results: %pollresults 12>>>}}
+    msg %pollchannel 9>>>3Top results with a score of $gettok($sorttok(%nforoptions,44,nr),1,44) are:9<<<
+    var %toppollnum 1
+    while ($gettok($sorttok(%nforoptions,44,nr),%toppollnum,44) == $gettok($sorttok(%nforoptions,44,nr),1,44)) {
+      msg %pollchannel 3>>>9 $+ $gettok(%voteoptions,$findtok(%nforoptions,$gettok($sorttok(%nforoptions,44,nr),%toppollnum,44),%toppollnum,44),9) $+ 3<<<
+      inc %toppollnum
+    }
+  }
+  else msg %pollchannel 12{{<<< Results: No Results! >>>}}
+  unset %voteoptions | unset %nforoptions | unset %votenicks | unset %pollison | unset %pollchannel
+}
+
+on *:text:*:#:{
+  if ($1 == !poll) {
+    if (%pollison == 1) { notice $nick poll is already on }
+    elseif (!$2) { .notice $nick enter something to vote for }
+    else {
+      set -e %pollison 1
+      set -e %pollchannel #
+      msg # 4{{<<< Vote for: $2- 4>>>}}
+      .timerpoll 1 30 msg # 0615 secs left to vote for 4{{<<< $2- 4>>>}}
+      .timerpoll 1 45 msg # 4{{<<< Poll over for: $2- 4>>>}}
+      .timerpoll 1 45 resultpollcode
+    }
+  }
+elseif ($1 == !pollhalt && %pollison && $nick isop #) {
+  msg # 4>>poll halted<<
+  .timerpoll off
+  unset %voteoptions | unset %nforoptions | unset %votenicks | unset %pollison | unset %pollchannel
+}
+elseif ($1 == !vote) {
+  if (# != %pollchannel) { .notice $nick sorry theres already a poll in %pollchannel }
+  elseif ($address($nick,2) isin %votenicks) { .notice $nick you cant vote more than once! }
+  elseif (!$2) { Usage: !vote <what to vote for> }
+  elseif ($address($nick,2) !isin %votenicks) && (%pollison == 1) { 
+    if ($istok(%voteoptions,$strip($2-,burc),9)) { set %nforoptions $puttok(%nforoptions,$calc($gettok(%nforoptions,$findtok(%voteoptions,$strip($2-,burc),1,9),44)  + 1),$findtok(%voteoptions,$strip($2-,burc),1,9),44) }
+    else {
+      set -e %voteoptions $addtok(%voteoptions,$strip($2-,burc),9) 
+      set -e %nforoptions %nforoptions $+ ,1
+    }
+    set -e %votenicks $addtok(%votenicks,$address($nick,2),44)
+    .notice $nick thanks for your vote ;)
+    }
+  }
+}

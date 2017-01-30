@@ -1,0 +1,366 @@
+IRC Chess
+---------
+
+Legal Stuff
+-----------
+
+First things first: IRC Chess is released under the terms and
+conditions of the GNU General Public License. It comes with
+no warranty whatsoever, either explicit or implied. For
+details of the license, see the file GPL, which you
+should have received with this program. If not, write to the
+Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA  02111, USA.
+
+Development Note
+----------------
+
+Please consider this a development release of the software. It is not
+complete yet, there are shortcomings and I am aware of (quite a few) of
+them. The server needs to be improved so users cannot take advantage and
+DoS it, the IRC script needs to be improved so that it works with multiple
+networks, and there's lots more that can be done as well. At the moment,
+all I'm really interested in getting the basic game to work. From the tests
+I've run, It seems as though everything is working fine. If there are bugs,
+please let me know. Email me at kodgehopper@netscape.net.
+
+
+
+
+***************************NOTE************************************
+
+If you're still confused about playing the game after reading this, 
+look at the Sample Session section at the very end of this document
+
+********************************************************************
+
+
+
+
+Introduction
+-------------
+
+IRC Chess is a 2 player chess game intended for, well, IRC.
+The program turns a computer into a chess bot (sorta), and
+allows other IRC users to interact with this bot to play
+chess games.
+
+It includes a Java chess server that uses an IRC client script
+as a frontend. The idea is that the Java server does all the hard
+logical work, and outputs client-independant and script-independant
+data to the IRC client. The client is merely responsible for
+interpreting this data and displaying it. In this way, porting
+the system to a variety of IRC clients is very simple, since
+the client script will be short, and effectively contain no code
+specific to the game being played. In other words, the Java
+part is smart. The script is dumb and is just there to make
+things look pretty. 
+
+This idea works. Currently, client scripts have been designed for
+IRSSI and XChat. Since both these programs use Perl for scripting,
+the scripts are practically identical, with a few client specific
+modifications. Porting this script to other IRC clients shouldnt
+be too much of a hassle, since it's just the frontend that's ported,
+not the chess game itself. Anyone wanting to create frontend scripts
+for other IRC clients, please feel free to do so. The PROTOCOL file
+describes exactly what needs to be done.
+
+
+Also, while the program was INTENDED for use on IRC, there's 
+really no reason a frontend cant be designed for, say, the
+console. The server doesnt output any IRC specific information
+either :)))
+
+What's important to note here is that neither the Java server nor
+any frontend script is needed by users who want to play the game.
+These are only required by people hosting the game. The IRC script
+and Java server effectively turn the computer into a chess bot. 
+People who want to play chess communicate with the bot as though
+they were communicating with any other IRC user, which is why they
+don't require any additional scripts/software. All in all then, this
+makes for a nice clean system imho.
+
+
+Quick Start Guide
+-----------------
+
+For the impatient:
+1. Compile the server with "make"
+2. Start the server with: java Chess 1234
+3. Load the IRC script called irc-chess.pl. For xchat this is in the xchat/
+   directory, for irssi it's in the irssi/ directory.
+4. Start playing :))). Commands are described below but if you're reading the
+   quickstart guide, you should know em already.
+
+Installation
+------------
+
+To host an IRC chess game (not play the game, cos players dont need this
+program), do the following:
+
+You need jdk-1.3 or greater to compile the source. Earlier versions of jdk
+might work, but I cannot guarantee this. The system was built using jdk-1.3.
+
+To compile the server, simply type "make". This requires the java compiler 
+(javac) to be in your path. If it isn't, you can always manually compile with
+"/path/to/java/javac Chess.java".
+
+To start the server, type
+
+	java Chess 1234
+
+Again, this assumes java is in your path, or else you have to type in the 
+full path name. The 1234 is the port number to listen on. The IRC script
+connects to the server on this port. The port number can really be anything,
+so "java Chess 2468" will work just fine. If you are doing this however,
+make sure to change the port number in the accompanying IRC script.
+
+At the moment, script for IRSSI and XChat are provided. Anyone who feels
+like writing scripts for more clients, or improving the current ones,
+please do and mail me. The script file for IRSSI is in the directory
+"irssi/irc-chess.pl" and for XChat it's in "xchat/irc-chess.pl".  If
+you are starting the server on a port other than 1234, edit the appropriate
+script and change the line $PORT=1234 to $PORT=<portnum> where <portnum>
+is the number of the port the server was started on. For those of you know
+know perl, this is in the BEGIN{} function which is right at the end of
+the script.
+
+Then load the script with your IRC client.
+
+Note1: 
+The server runs on localhost. The script connects to this server on
+localhost. There is no need to make the port the server runs on available
+to the outside world. It can safely live behind your firewall. None of the
+players connect to the server. It is only the IRC script from the local
+machine that connects. Players wanting to play send you normal messages
+via IRC, and these messages are relayed to the server via the IRC script.
+There's no reason for any player (other than yourself if you are playing)
+to have access to the server. The only reason TCP/IP is being used here 
+instead of, say, UNIX sockets, is because this allows for the java server to 
+be multi-platform without any problems. To reiterate, NOBODY OTHER THAN YOURSELF
+SHOULD ACCESS THE JAVA SERVER!!!!! THERE IS ABSOLUTELY NO NEED FOR THIS.
+
+Note2: ***IMPORTANT***
+Do NOT attempt to play a game from the same client you are running the script
+from. If you do, you will end up in an infinite loop sending and receiving
+error messages. Start another copy of the IRC client to run the bot.
+
+Playing the game
+----------------
+
+1. 	Both players need to register with the chess server.
+2. 	The game must be started
+3. 	Players move pieces by sending commands to the server.
+	Simply /msg the person/bot running the chess server
+	and that's it.
+	
+The commands used to play the game are:
+
+1. game register <ID>
+2. game start <ID>
+3. game move <ID> <range>
+4. game stop <ID>
+
+Every command starts with the word "game". <ID> is an identifier you choose
+for the game you register. <range> is something like a4-b6, where these are
+positions on the board. Each of these will be explained in detail below.
+
+
+Messages are sent to the chess bot (If you can call it that)
+using your run of the mill /msg commands. So, for instance,
+to register a new game, you would type "/msg chessbot game register newgame"
+Of course, opening up a query with chessbot saves you the trouble of having
+to type "/msg chessbot" each time, but that's basic IRC usage, and if you
+don't know that, then this program is probably not suitable for you.
+
+All commands are described in detail in the PROTOCOL file.
+They're briefly described here for the end-user:
+
+To register a new game:
+
+		game register <ID>
+		
+registers you as a player for game <ID>. Both players must
+select the same <ID> to play the same game. <ID> can be anything,
+eg. "bob" or "a" or "house" or "game1" (all without the quotes).
+The restriction is that it must be just one word.
+
+
+Once both players have registered, start the game with:
+
+	game start <ID>
+	
+The game can only be started by one of the registered players,
+The <ID> must be the same as the one you registered to play the
+game with. (This allows for one person to play several games
+simultaneously)
+
+The game will tell you when it's your turn to make a move, and
+you will see the updated board as well. Since everything is
+text based, it might take a little getting used to. The
+pieces on the board are
+
+P = pawn
+R = Rook/Castle
+H = Knight 	(couldn't use K cos K==king.
+			 Just think "H" for "Horse")
+B = Bishop
+Q = Queen
+K = King
+
+
+To move a piece, use the
+
+	game move <ID> <range>
+
+command. Again, <ID> is the <ID> of the game you want to make
+the move for. <range> is something like a1-c3 or e2-f4 or 
+something similar. a1-c3 for instance, means move the piece from
+square a1 on the board, to square c3. Note, it's a1-c3, not
+a1 - c3 or a1- c3 or a1--c3 or anything else!!!
+
+The board has a list of letters, a to h, displayed at the bottom, 
+and the numbers 1 to 7 displayed on the left so working out 
+moves is easy.
+
+Each player gets a turn, starting with white (i.e. white plays
+first, then black, then white, then black etc). The only
+exception is when a pawn makes it to the other end
+of the board and must be replaced with another piece. In that
+case, the same player gets another turn, in which he/she must 
+replace the pawn with a Q, B, H or R. The command to do
+this is:
+
+	game replace <ID> <Piece>
+
+where <Piece> is Q, B, H or R. You will be prompted when you need 
+to replace a pawn and reminded of the command to use as well.
+
+Lastly, to stop the game, use
+
+	game stop <ID>
+
+Only players registered to play game <ID> can stop the game.
+
+
+If a move cannot be made, eg. if your king is in Check and you try
+to move some piece which still leaves your king vulnerable, then
+you are informed that the move is invalid. You are also warned
+for the other, more obvious cases (eg. if you try to move a rook
+diagonally or something like that).
+
+As far as I know, the only move not supported is Pawn en Passant.
+I'm not quite certain how that works so I left it out. 
+
+Please notify me of any bugs in the code. I'm sure there's bound to
+be quite a few. If you do find one, please try to describe exactly
+what you did to cause the problem so I'll be able to duplicate it.
+(Saying "my pawn wont move" doesnt help me much. But if you say
+ "The pawn skips a square everytime the queen is behind it" is 
+ much more useful when duplicating the error)
+
+And finally, enjoy :)))
+
+
+Sample Session
+--------------
+
+This is an example of how to use the game. In this example, we have 3 users,
+
+1. chess-bot
+2. player1
+3. player2
+
+chess-bot will be hosting the game. player1 and player2 want to play a game of
+chess.
+
+The first thing player1 and player2 need to do is register to play. So, each
+opens a query with chess-bot, or just send chess-bot a /msg. With most IRC
+clients, the first time you send a /msg, a query window opens, but it's not
+the case with all of them. So, this is what each player will do:
+
+	player1:
+		/query chess-bot
+		game register my_game  <--- this is typed in the query window
+
+	player2:
+		/query chess-bot
+		game register my_game  <--- this is typed in the query window
+
+Above, both players opened up a query window and registered for a game called
+"my_game". Both players have to register for the same game if they are to play
+each other. The name of the game doesnt have to be my_game, it can be anything eg.
+"game1" or "bob" or "potato". Alternatively, if you have a lame-ass irc client that
+doesn't support queries, then the players could have typed
+
+	player1:
+		/msg chess-bot game register my_game
+
+	player2:
+		/msg chess-bot game register my_game
+
+
+For the rest of the example, I'll assume you have a query window open. For those
+of you who don't use/like query windows, just remember to add a "/msg chess-bot"
+to every command from now on.
+
+Once both players have registered, one of the players must start the game. This is
+done by typing: "game start my_game". So for instance, this could be done by player1
+
+	player1:
+		game start my_game
+
+If both players try to start the game, then the second player will be told that the
+game has already been started.
+
+Once the game is started, a board will be displayed, with the letters a,b,c - h at the
+bottom, and the numbers 1,2,3 - 8 on the left hand side. To make a move, you'll use
+these letters and numbers. Also, you will be told whose move it is. The player
+who registered first (player1 in this case) is white, and the second player to register
+is black. So player1 will receive the message "It's your move", and player2 will
+receive the message "It's player1's move". To make a move, player1 will then type
+the following:
+
+	player1:
+		game move my_game d2-d4
+
+This means that player1 wants to move the pawn located at square d2 on the board,
+to position d4 i.e. he wants to move the pawn in front of the white queen 2 spaces
+forward. When he does this, a new board will be displayed with the updated move, 
+player1 will receive the message "it's player2's move" and player 2 will receive
+the message "it's your move". player2 must then make a move eg.
+
+	player2:
+		game move my_game b8-c6
+
+This move's player2's knight to position c6 on the board.
+
+Suppose player2's king is under attack. Then player2 will receive the message:
+"Information: Check!!!!".
+
+When a move cannot be made eg. trying to move a pawn sideways, then the player will
+receive the error message "Error: Invalid move". This message is also given when
+a piece cannot be moved, eg. when a King is in check, and the move being made doesn't 
+get the king out of check.
+
+
+If you're tired of playing, or the game is over, then either of the players can stop
+the game, for instance:
+
+	player2:
+		game stop my_game
+
+
+***note***
+The reason every game is given an ID (in this example the ID is my_game) is because
+this allows one person to play more than one game at the same time. So, player1
+could be playing, say, 5 different games with 5 different people if he/she wanted.
+The ID let's the bot know what game a certain move is being made for.
+**********
+
+So, enjoy....
+
+later....
+	
+kodge
+(kodgehopper at netscape.net)

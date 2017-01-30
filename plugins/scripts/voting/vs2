@@ -1,0 +1,118 @@
+;;;;;;;;;;;;;;;;;;;;;;
+;;; Made by `Art :D;;;
+;;;;;;;;;;;;;;;;;;;;;;
+Alias C1 return $+($chr(3),06,$1-)
+Alias C2 return $+($chr(3),05,$1-)
+Alias C3 return $+($chr(3),07,$1-)
+
+On $*:TEXT:/^[!@.`]StartPoll/Si:#: {
+  if (!$2) {
+    Notice $nick $c2(Use this format please) $c3(!startpoll <Time[In minutes]> <Question>)
+  }
+  elseif ($3 == $null) {
+    Notice $nick $c2(You need a question for me to start the poll.)
+  } 
+  elseif ($$2 > 5) {
+    Notice $nick $c2(Sorry but the limit on a poll is) $c3(5) $c2(minutes.)
+    Halt
+  }
+  elseIf (%PollQ [ $+ [ $chan ] ] != $null) {
+    Notice $nick $c2(there is already a poll in) $c3(#)
+  }
+  else {
+    Set %PollQ [ $+ [ $Chan ] ] $3-
+    Set %PollT [ $+ [ $Chan ] ] $2
+    Set %Snick [ $+ [ $Chan ] ] $nick
+    Set %msge $chan
+    Set %TimerNo [ $+ [ $chan ] ] $rand(1,9999)
+    Msg $chan $c2(A new poll has been started by) $c3($nick)
+    Msg $chan $c2(The question is:) $c3($Lower(%PollQ [ $+ [ $chan ] ])) $+ $c2(.)
+    Msg $chan $c2(It has been set for) $c3(%PollT [ $+ [ $chan ] ]) $c2(minutes) $+ $c2(.)
+    Msg $Chan $c2(Type) $c3(!Vote yes) $c2(or) $c3(!Vote no) $c2(to submit your answer.) $c2(For help say) $c3(!help poll)
+    //Timer $+ %TimerNo [ $+ [ $chan ] ] 1 $calc($2 * 60) /endvote
+  }
+}
+
+
+On $*:TEXT:/^[!@.`]Vote/Si:#: {
+  if (!$2) {
+    Notice $nick $c2(The flags are) $c3(YES) $c2(or) $c3(NO) $c2(.)
+    Halt
+  }
+  Elseif (%Voted [ $+ [ $address($nick,2) ] ] == YES) {
+    Notice $nick $c2(Sorry but you have already voted in the poll)
+  }
+  Elseif ($2 == Yes) {
+    Inc %PeepsVoted
+    Inc %yes
+    Set %Voted [ $+ [ $address($nick,2) ] ] YES
+    Notice $nick $c2(You voted) $c3(YES) $+ $c2(.)
+  }
+  Elseif ($2 == No) {
+    Inc %peepsVoted
+    Inc %no
+    Set %voted [ $+ [ $address($nick,2) ] ] YES
+    Notice $nick $c2(You voted) $c3(NO) $+ $c2(.)
+  }
+  Elseif (%pollQ [ $+ [ $chan ] ] == $null) {
+    Notice $nick $c2(There is no poll set for) $c3(#) $c3(.)
+    Halt
+  }
+  Elseif ($2 != NO) || ($2 != YES) {
+    Notice $nick $c2(Use) $c3(YES) $c2(or) $c3(NO) $c2(for your vote to be submitted.)
+  }
+}
+
+On $*:TEXT:/^[!@.`]EndPoll/Si:#: {
+  If (%PollQ [ $+ [ $chan ] ] == $null) {
+    Notice $nick $c2(There isn't a poll in) $c3(#)
+  }
+  ElseIf ($nick isop $chan) || ($nick ishop $chan) || ($nick == %Snick [ $+ [ $chan ] ]) {
+    //Timer $+ %TimerNo [ $+ [ $chan ] ] off
+    Msg %msge $c2(The poll has been ended for) $c3($chan)
+    Msg %msge $c2(The question was:) $c3(%pollQ [ $+ [ $chan ] ]) $+ $c2(.)
+    Msg %msge $c2(the results were:) $c3(Yes) $c1(-) $c3(%yes) $c1(||) $c3(No) $c1(-) $c3(%no) $c1(||) $c3(%peepsvoted) $c2(person[s] voted in your poll.)
+    Unset %peepsvoted
+    Unset %no
+    Unset %yes
+    Unset %pollQ [ $+ [ $Chan ] ]
+    Unset %PollT [ $+ [ $Chan ] ]
+    Unset %Snick [ $+ [ $Chan ] ]
+    Unset %voted
+    unset %msge
+    unset %TimerNo [ $+ [ $chan ] ]
+  }
+}
+
+On $*:TEXT:/^[!@.`]Poll/Si:#: {
+  if (%PollQ [ $+ [ $chan ] ] == $null) {
+    Notice $nick $c2(Sorry but there isn't a Poll set)
+  }
+  Else {
+    Notice $nick $c2(The current poll question is:) $c3(%PollQ [ $+ [ $chan ] ])
+    Notice $nick $c2(To Vote say) $c3(!vote YES) $c2(or) $c3(NO)
+  }
+}
+
+On $*:TEXT:/^[!@.`]Help/Si:#: {
+  if ($$2 == Poll) {
+    Notice $nick $c2(To Start a poll say) $c3(!StartPoll <Time [min: 1 minutes $+ $Chr(44) Max: 5 minutes]> <Question>)
+    Notice $nick $c2(To Check a polls info say) $c3(!poll)
+    Notice $nick $c2(To vote say) $c3(!vote YES) $c2(or) $c3(NO)
+    Notice $nick $c2(To end a poll say) $c3(!endpoll)
+  }
+}
+
+Alias EndVote {
+  Msg %msge $c2(The poll has been ended for) $c3(#)
+  Msg %msge $c2(the results were:) $c3(Yes) $c1(-) $c3(%yes) $c1(||) $c3(No) $c1(-) $c3(%no) $c1(||) $c3(%peepsvoted) $c2(person[s] voted in your poll.)
+  Unset %peepsvoted
+  Unset %no
+  Unset %yes
+  Unset %pollQ [ $+ [ $Chan ] ]
+  Unset %PollT [ $+ [ $Chan ] ]
+  Unset %Snick [ $+ [ $Chan ] ]
+  Unset %voted
+  Unset %msge
+  unset %TimerNo [ $+ [ $chan ] ]
+}

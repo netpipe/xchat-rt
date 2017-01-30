@@ -1,0 +1,141 @@
+Protocol Specification
+-----------------------
+
+This document is a rather informal version of the protocol specification
+that allows for communication between the Java game server and the
+frontend client. 
+
+The Java server contains all the logic required for the chess game. The 
+front end simply passes messages to the server and receives responses 
+which are then displayed.
+
+All communication is synchronous. The client passes a message to the server
+and waits for a response which it then displays. Exactly one message
+can be sent and exactly one message received at any given time. There
+are no instances where, for instance, one message is sent and two are
+received, or two sent and one received etc etc. All messages are also
+case sensitive.
+
+The messages to be sent to the server are documented below. The messages
+sent to the client from the server are documented next, and color
+code formats are then discussed.
+
+==============================================================================
+
+Messages from Client to Server:
+-------------------------------
+
+Several tokens are used in the commands below. These are described next,
+following which the format of each command is given.
+
+Tokens
+------
+
+<gameToken> ::= 	Any identifier that uniquely identifies a game.
+					Users select a token when they register for a 
+					game.
+<player>	::=		The name/nickname of the player
+<range>		::=		A string of the form [a-h][1-8]-[a-h][1-8] where
+					the start value cannot equal the end value.
+<newPiece>	::=		A new piece that replaces an existing one. This
+					is for pawns that must be replaced when they reach
+					the other side of the board. Valid values are
+					R, H, B and Q.
+
+Game Commands (And their descriptions)
+--------------------------------------
+
+To register a new name:
+	game register <gameToken> <player>
+a maximum of 2 players can register. 
+
+To start a new game
+	game start <gameToken> <player>
+
+To stop a game already in progress:
+	game stop <gameToken> <player>
+This can only be done by one of the players of the game
+
+To make a move:
+	game move <gameToken> <range> <player>
+range is sumting like a5-c2
+
+To replace a pawn with a new piece:
+	game replace <gameToken) <newPiece> player
+newPiece is "Q" or "H" or "B" etc
+
+examples of invalid ranges:
+a5 - a3 //spaces between ranges not allowed
+a1-c13 //c13 is not on board
+
+===============================================================================
+
+Format of messages received by client (sent by server):
+--------------------------------------------------------
+
+Comments are enclosed in {}. Anything in double quotes
+is meant to be interpreted as though there are no quotes. (eg "abc"
+really just means abc). If quotation marks are required, they will be
+escaped with a backlash. So (\"abc\" means "abc"). Other standard
+escape sequences also apply eg \\, \n, \t etc. as recognized by C.
+The {} braces are also escaped if required eg. \{ and \}
+
+Message can be one of the following formats:
+
+<player1 message><delimiter><player2 message><delimiter><common message>
+
+							OR
+							--
+							
+<message>
+
+<message>			::= 	<username><string>
+
+<player1 message> 	::= 	<username><string> 	
+							{this is the message for player 1 only}
+							
+<player2 message> 	::= 	<username><string> 	
+							{this is the message for player 2 only}
+							
+<delimiter> 		::=  	"<:=:>" 			
+							{the delimiter is "<:=:>" without the quotes}
+							
+<common message> 	::=  	any sequence of characters except <delimiter> 		
+							{broadcast to both users}
+							
+<username> 			::= 	the nick/username of the user enclosed in square brackets
+							{eg. [bob] or [jane]}
+							
+<string> 			::= 	any sequence of characters except <delimiter>
+
+
+
+=====================================================================================
+
+Color Codes Embedded in Messages
+--------------------------------
+
+Approximately 5 colors are used at present, but should more be used in the future, the
+following conventions always apply (Note that the code defines more than 5 colors, there
+just wasnt any need for them for the basic program.):
+
+1. 	All colors are enclosed in <> eg. <BLACK>.
+
+2. 	The name of the color is always in capital letters, eg WHITE, BLACK, BLUE.
+
+3. 	A color name prefixed with a "B" refers to a background color eg.
+	<BBLUE> means the background must be blue.
+
+4.	A color name prefixed with a "b" refers to a bold color eg.
+	<bBLUE> refers to Bold Blue.
+
+5.	Colors are either stated individually, or in the form <BACKGROUND><FOREGROUND>,
+	where BACKGROUND and FOREGROUND are the names of background and foreground
+	colors respectively, as defined above.
+
+6.	The special color <NORMAL> means return to normal display mode. This is intended
+	for IRC clients, but may be used for other purposes as well.
+
+
+=========================================================================================
+

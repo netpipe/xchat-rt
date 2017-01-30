@@ -1,0 +1,10 @@
+-increase parallelism when playing multiple games
+-random invalid move errors with pawns (moving foreward???).
+ these havent shown up in a while tho. perhaps i just tested
+ wrong?
+-add a display board function
+-check for check-mate 
+-add a thread to kick idle users after some specified timeout
+-limit the number of games on the server, and the number
+ of games a single user can play. Otherwise DoS'ing the server
+ will be easy as pie.

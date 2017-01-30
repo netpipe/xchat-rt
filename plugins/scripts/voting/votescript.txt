@@ -1,0 +1,94 @@
+;Simple Vote / Poll System v1.0
+;Made by nick1
+;Last edit July 13 2014
+;For help/setup type /newpoll in mIRC
+;World cup version http://pastebin.com/95TBu3Q8
+
+alias newpoll {
+  unset %vote*
+  set %votechan $?="Chan for poll? - Include #"
+  set %vote_title $input(Please enter the poll title,eio,Create a new poll)
+  set %vote1_name $?="Option 1"
+  set %vote2_name $?="Option 2"
+  set %vote1 0
+  set %vote2 0
+  set %poll on
+  msg %votechan 4New poll: %vote_title 04 $+ %vote1_name or %vote2_name $+ ? - Vote using .vote $+(<,%vote1_name,|,%vote2_name,>)
+}
+
+on $*:text:/^[!.](vote|v)(\s|$)/Si:%votechan: {
+  if ($($+(%,botflood.,$nick),2)) {
+    if ($($+(%,botflood.,$nick),2) >= 50) {
+      ignore -u60 $address($nick,2)
+      msg $chan $+($nick,$chr(44)) You have been put on ignore for 60secs for abusing the bot.
+      halt
+    }
+    elseif ($($+(%,botflood.,$nick),2) >= 40) {
+      msg $chan $+($nick,$chr(44)) Please do not flood the bot.
+      inc -z $+(%,botflood.,$nick) 20
+      halt
+    }
+    else { inc -z $+(%,botflood.,$nick) 25 }
+  }
+  else { inc -z $+(%,botflood.,$nick) 25 }
+  if (%poll == off) {
+    if (%pollflood != true) {
+      msg $chan 4Poll Closed - Results: $poll
+      set -u30 %pollflood true
+    }
+    halt
+  }
+  if ($istok(%voted,$address($nick,2),44)) {
+    msg $chan Sorry $nick $+ , you have already voted on this match.
+    halt
+  }
+  else {
+    if (($2 isin %vote1_name) || ($2 isin %vote2_name) || ($2 == 1) || ($2 == 2)) {
+      if ((($2 isin %vote1_name) || ($2 == 1)) && ($2 != $left(%vote2_name,1))) { inc %vote1 }
+      elseif (($2 isin %vote2_name) || ($2 == 2)) { inc %vote2 }
+      set %voted $addtok(%voted,$address($nick,2),44)
+      msg $chan $poll
+    }
+    else {
+      msg $chan $nick $+ , try .vote $+(<,%vote1_name,|,%vote2_name,>)
+    }
+  }
+}
+on *:input:%votechan: {
+  if (($1 == .vote) || ($1 == !vote)) {
+    if (($2 isin %vote1_name) || ($2 isin %vote2_name)) {
+      if ($2 isin %vote1_name) { inc %vote1 }
+      elseif ($2 isin %vote2_name) { inc %vote2 }
+      set %voted $addtok(%voted,$address($nick,2),44)
+      .timer -m 1 100 msg $chan $poll
+    }
+  }
+}
+on $*:text:/^[!.](poll)(\s|$)/Si:%votechan: {
+  if ($($+(%,botflood.,$nick),2)) {
+    if ($($+(%,botflood.,$nick),2) >= 50) {
+      ignore -u60 $address($nick,2)
+      msg $chan $+($nick,$chr(44)) You have been put on ignore for 60secs for abusing the bot.
+      halt
+    }
+    elseif ($($+(%,botflood.,$nick),2) >= 40) {
+      msg $chan $+($nick,$chr(44)) Please do not flood the bot.
+      inc -z $+(%,botflood.,$nick) 20
+      halt
+    }
+    else { inc -z $+(%,botflood.,$nick) 25 }
+  }
+  else { inc -z $+(%,botflood.,$nick) 25 }
+  msg $chan 4 $+ $iif(%poll == on,Current poll:,Final Poll Results:) $poll
+}
+alias endpoll {
+  set %poll off
+  msg %votechan 4Final Poll Results: %vote_title $+(3,%vote1_name,:) %vote1 $percent(%vote1) - $+(4,%vote2_name,:) %vote2 $percent(%vote2)
+}
+alias poll {
+  return  $+ %vote_title $+  $+(3,%vote1_name,:) %vote1 $percent(%vote1) - $+(4,%vote2_name,:) %vote2 $percent(%vote2)
+}
+alias -l percent {
+  var %votes $calc(%vote1 + %vote2)
+  return $+($chr(40),$gettok($calc($calc($1 / %votes) * 100),1,$asc(.)),%,$chr(41),)
+}
