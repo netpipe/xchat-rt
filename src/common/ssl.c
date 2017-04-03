@@ -176,6 +176,7 @@ _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 		return 1;
 
 	alg = OBJ_obj2nid (algor->algorithm);
+
 #ifndef HAVE_X509_GET_SIGNATURE_NID
 	sign_alg = OBJ_obj2nid (peer_cert->sig_alg->algorithm);
 #else

@@ -614,13 +614,14 @@ ssl_cb_verify (int ok, X509_STORE_CTX * ctx)
 	snprintf (buf, sizeof (buf), "* Issuer: %s", issuer);
 	EMIT_SIGNAL (XP_TE_SSLMESSAGE, g_sess, buf, NULL, NULL, NULL, 0);
 
-	return (TRUE);					  /* always ok */
+	return TRUE;					  /* always ok */
 }
 
 static int
 ssl_do_connect (server * serv)
 {
-	char buf[128];
+	//char buf[128];
+	char buf[256];	//hexchat change
 
 	g_sess = serv->server_session;
 	if (SSL_connect (serv->ssl) <= 0)
@@ -704,6 +705,7 @@ ssl_do_connect (server * serv)
 			snprintf (buf, sizeof (buf), " * No Certificate");
 			EMIT_SIGNAL (XP_TE_SSLMESSAGE, serv->server_session, buf, NULL, NULL,
 							 NULL, 0);
+		//	goto conn_fail;  //hexchat method
 		}
 
 		chiper_info = _SSL_get_cipher_info (serv->ssl);	/* static buffer */
@@ -757,7 +759,9 @@ ssl_do_connect (server * serv)
 		return (0);					  /* remove it (0) */
 	} else
 	{
-		if (serv->ssl->session && serv->ssl->session->time + SSLTMOUT < time (NULL))
+		SSL_SESSION *session = SSL_get_session (serv->ssl);
+		if (session && SSL_SESSION_get_time (session) + SSLTMOUT < time (NULL))
+	//	if (serv->ssl->session && serv->ssl->session->time + SSLTMOUT < time (NULL))
 		{
 			snprintf (buf, sizeof (buf), "SSL handshake timed out");
 			EMIT_SIGNAL (XP_TE_CONNFAIL, serv->server_session, buf, NULL,
