@@ -325,7 +325,7 @@ fe_userlist_rehash (session *sess, struct User *user)
 
 	if (prefs.away_size_max < 1 || !prefs.away_track)
 		do_away = FALSE;
-	if (prefs.away_track && prefs.away_size_max && !do_away )//&& user->away
+	if (prefs.away_track && prefs.away_size_max && user->away )
 		nick_color = COL_AWAY;
 	else if (prefs.gui_ulist_color)
 		nick_color = text_color_of(user->nick);
@@ -335,8 +335,6 @@ fe_userlist_rehash (session *sess, struct User *user)
 							  COL_HOST, user->hostname,
 							  COL_GDKCOLOR, (do_away)
 									?	(nick_color ? &colors[nick_color] : NULL) : (NULL),
-						//	  COL_GDKCOLOR,
-						//			nick_color ? &colors[nick_color] : NULL ,
 							  -1);
 }
 
@@ -352,7 +350,7 @@ fe_userlist_insert (session *sess, struct User *newuser, int row, int sel)
 
 	if (prefs.away_size_max < 1 || !prefs.away_track)
 		do_away = FALSE;
-	if (prefs.away_track && prefs.away_size_max && !do_away )//&& user->away
+	if (prefs.away_track && prefs.away_size_max && newuser->away)
 		nick_color = COL_AWAY;
 	else if (prefs.gui_ulist_color)
 		nick_color = text_color_of(newuser->nick);
@@ -376,8 +374,6 @@ fe_userlist_insert (session *sess, struct User *newuser, int row, int sel)
 									COL_USER, newuser,
 									COL_GDKCOLOR, (do_away)
 									?	(nick_color ? &colors[nick_color] : NULL) : (NULL),
-						//			COL_GDKCOLOR, 
-						//			nick_color ? &colors[nick_color] : NULL,
 								  -1);
 
 	if (prefs.gui_tweaks & 64)
